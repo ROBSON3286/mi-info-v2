@@ -1,5 +1,7 @@
 'use strict';
 
+let cTextLei = "Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000"
+
 const DATA = {
   estados: [
     { uf: 'AL', nome: 'Alagoas' }, { uf: 'AM', nome: 'Amazonas' }, { uf: 'BA', nome: 'Bahia' }, { uf: 'CE', nome: 'Ceará' }, { uf: 'DF', nome: 'Distrito Federal' }, { uf: 'ES', nome: 'Espírito Santo' }, { uf: 'MA', nome: 'Maranhão' }, { uf: 'MG', nome: 'Minas Gerais' }, { uf: 'MS', nome: 'Mato Grosso do Sul' }, { uf: 'MT', nome: 'Mato Grosso' }, { uf: 'PA', nome: 'Pará' }, { uf: 'PB', nome: 'Paraíba' }, { uf: 'PE', nome: 'Pernambuco' }, { uf: 'PI', nome: 'Piauí' }, { uf: 'PR', nome: 'Paraná' }, { uf: 'RJ', nome: 'Rio de Janeiro' }, { uf: 'RN', nome: 'Rio Grande do Norte' }, { uf: 'RS', nome: 'Rio Grande do Sul' }, { uf: 'SE', nome: 'Sergipe' }, { uf: 'SP', nome: 'São Paulo' }
@@ -13,18 +15,18 @@ const DATA = {
     { uf: 'DF', cidade: 'Brasília', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/df/Brasília/Atendimento Preferencial Distrito Federal.png', './assets/img/estados/df/Brasília/Distrito Federal - Estadual.png'] },
     { uf: 'ES', cidade: 'Vila Velha', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'ES', cidade: 'Vitória', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/es/Espírito Santo - Estadual.png'] },
-    { uf: 'MA', cidade: 'São Luís', texto: '', imgs: ['./assets/img/estados/ma/Atendimento prioritario.png', './assets/img/estados/ma/Maranhão - Estadual.png', './assets/img/estados/ma/sao_luis/Atendimento prioritario.png', './assets/img/estados/ma/sao_luis/São Luís - Municipal.png'] },
-    { uf: 'MS', cidade: 'Campo Grande', texto: '', imgs: ['./assets/img/estados/ms/atendimento_preferencial_MS.png', './assets/img/estados/ms/Campo Grande/atendimento_prioritario_MT.png'] },
-    { uf: 'MG', cidade: 'Belo Horizonte', texto: '', imgs: ['./assets/img/estados/mg/atendimento_prioritario_MG.png', './assets/img/estados/mg/bh-estadual.png', './assets/img/estados/mg/Belo Horizonte/atendimento_prioritario_MG.png'] },
+    { uf: 'MA', cidade: 'São Luís', texto: cTextLei, imgs: ['./assets/img/estados/ma/Atendimento prioritario.png', './assets/img/estados/ma/Maranhão - Estadual.png', './assets/img/estados/ma/sao_luis/Atendimento prioritario.png', './assets/img/estados/ma/sao_luis/São Luís - Municipal.png'] },
+    { uf: 'MS', cidade: 'Campo Grande', texto: cTextLei, imgs: ['./assets/img/estados/ms/atendimento_preferencial_MS.png', './assets/img/estados/ms/Campo Grande/atendimento_prioritario_MT.png'] },
+    { uf: 'MG', cidade: 'Belo Horizonte', texto: cTextLei, imgs: ['./assets/img/estados/mg/atendimento_prioritario_MG.png', './assets/img/estados/mg/bh-estadual.png', './assets/img/estados/mg/Belo Horizonte/atendimento_prioritario_MG.png'] },
     { uf: 'MG', cidade: 'Juiz de Fora', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'MG', cidade: 'Montes Claros', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'MG', cidade: 'Uberlândia', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'MT', cidade: 'Cuiabá', texto: '', imgs: ['./assets/img/estados/mt/atendimento_prioritario_MT.png'] },
+    { uf: 'MT', cidade: 'Cuiabá', texto: cTextLei, imgs: ['./assets/img/estados/mt/atendimento_prioritario_MT.png'] },
     { uf: 'PA', cidade: 'Belém', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pa/atendimento_preferencial_PA.png'] },
-    { uf: 'PB', cidade: 'Campina Grande', texto: '', imgs: [] },
-    { uf: 'PB', cidade: 'João Pessoa', texto: '', imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg'] },
-    { uf: 'PE', cidade: 'Recife', texto: '', imgs: ['./assets/img/estados/pe/1. Atendimento prioritário.webp'] },
-    { uf: 'PI', cidade: 'Teresina', texto: '', imgs: ['./assets/img/estados/pi/teresina.png'] },
+    { uf: 'PB', cidade: 'Campina Grande', texto: cTextLei, imgs: [] },
+    { uf: 'PB', cidade: 'João Pessoa', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg'] },
+    { uf: 'PE', cidade: 'Recife', texto: cTextLei, imgs: ['./assets/img/estados/pe/1. Atendimento prioritário.webp'] },
+    { uf: 'PI', cidade: 'Teresina', texto: cTextLei, imgs: ['./assets/img/estados/pi/teresina.png'] },
     { uf: 'PR', cidade: 'Curitiba', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pr/atendimento_preferencial_PR.png'] },
     { uf: 'PR', cidade: 'Londrina', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'RJ', cidade: 'Niterói', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
@@ -33,18 +35,18 @@ const DATA = {
     { uf: 'RJ', cidade: 'São João de Meriti', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'RN', cidade: 'Natal', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rn/1. Atendimento prioritário.png', './assets/img/estados/rn/atendimento_preferencial_RN.png'] },
     { uf: 'RS', cidade: 'Porto Alegre', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rs/atendimento_preferencial_RS.png'] },
-    { uf: 'SE', cidade: 'Aracaju', texto: '', imgs: ['./assets/img/estados/se/1. Atendimento prioritário.png'] },
-    { uf: 'SP', cidade: 'Barueri', texto: '', imgs: [] },
-    { uf: 'SP', cidade: 'Campinas', texto: '', imgs: [] },
+    { uf: 'SE', cidade: 'Aracaju', texto: cTextLei, imgs: ['./assets/img/estados/se/1. Atendimento prioritário.png'] },
+    { uf: 'SP', cidade: 'Barueri', texto: cTextLei, imgs: [] },
+    { uf: 'SP', cidade: 'Campinas', texto: cTextLei, imgs: [] },
     { uf: 'SP', cidade: 'Guarulhos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'Jundiaí', texto: '', imgs: [] },
+    { uf: 'SP', cidade: 'Jundiaí', texto: cTextLei, imgs: [] },
     { uf: 'SP', cidade: 'Mogi das Cruzes', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'SP', cidade: 'Santo André', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'SP', cidade: 'Santos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'SP', cidade: 'São Bernardo do Campo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/Atendimento priorizado - pessoas ostomizadas.PNG', './assets/img/estados/sp/Atendimento prioritário Fibromialgia.JPG', './assets/img/estados/sp/atendimento_prioritario_SP.jpg', './assets/img/estados/sp/atendimento_prioritario_SP.png'] },
-    { uf: 'SP', cidade: 'Taubaté', texto: '', imgs: [] }
+    { uf: 'SP', cidade: 'Taubaté', texto: cTextLei, imgs: [] }
   ],
   procon: [
     { uf: 'SP', cidade: 'São Paulo', nome: 'Procon-SP (Sede Estadual)', fone: 'Disque 151 / (11) 3824-0446', url: 'https://www.procon.sp.gov.br' },
