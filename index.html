@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#ff6900">
+  <title>MI Brasil - Hub de Informações</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'sans-serif'] },
+          colors: {
+            brand: {
+              DEFAULT: '#ff6900',
+              light: '#ff8c33',
+              dark: '#cc5400',
+              50: '#fff0e6',
+            },
+            surface: { DEFAULT: '#f8fafc', card: '#ffffff' },
+            text: { main: '#1e293b', muted: '#64748b' }
+          },
+          boxShadow: {
+            'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+            'nav': '0 -4px 20px rgba(0,0,0,0.03)',
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SVG ICON SPRITE from layout v1 -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8" />
+      <line x1="21" y1="21" x2="16.65" y2="16.65" />
+    </symbol>
+    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+      <circle cx="12" cy="7" r="4" />
+    </symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+      <path d="M7 11V7a5 5 0 0110 0v4" />
+    </symbol>
+    <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+    </symbol>
+  </svg>
+
+  <div id="app-container">
+
+    <!-- HOME -->
+    <div id="screen-home" class="screen active">
+      <header class="bg-brand text-white pb-6 px-6 rounded-b-[2rem] shadow-md relative z-10">
+        <h1 class="text-2xl font-bold mt-4 leading-tight" style="font-size: 1.1rem;">Olá! Como podemos ajudar hoje?</h1>
+        <p class="text-white/80 text-sm mt-2">Central Digital de Informações ao Cliente</p>
+      </header>
+
+      <div class="scroll-area px-5 pt-6 pb-8 bg-surface">
+        
+        <button onclick="app.navigate('chat')" class="w-full bg-white border border-brand/20 rounded-2xl p-4 shadow-soft flex items-center gap-4 mb-6 hover:border-brand transition-colors text-left active:scale-[0.98]">
+            <div class="bg-brand-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+                <i class="ph-fill ph-sparkle text-brand text-2xl"></i>
+            </div>
+            <div>
+                <h2 class="text-text-main font-bold text-[15px]">Assistente Inteligente</h2>
+                <p class="text-text-muted text-xs mt-0.5">Tire dúvidas sobre leis, trocas e direitos.</p>
+            </div>
+            <i class="ph-bold ph-caret-right text-text-muted ml-auto"></i>
+        </button>
+
+        <h3 class="text-xs font-bold text-text-muted uppercase tracking-wider mb-3 ml-1">Consultas Específicas</h3>
+        
+        <div class="grid grid-cols-2 gap-3">
+            <button onclick="app.navigate('prioridade')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                <i class="ph-duotone ph-users text-3xl text-purple-500"></i>
+                <span class="font-semibold text-sm text-text-main leading-tight">Atendimento Prioritário</span>
+            </button>
+            <button onclick="app.navigate('procon')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                <i class="ph-duotone ph-scales text-3xl text-blue-500"></i>
+                <span class="font-semibold text-sm text-text-main leading-tight">Contatos Procon</span>
+            </button>
+            <button onclick="app.navigate('privacidade')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                <i class="ph-duotone ph-shield-check text-3xl text-green-500"></i>
+                <span class="font-semibold text-sm text-text-main leading-tight">Privacidade e LGPD</span>
+            </button>
+            <button onclick="app.navigate('outros')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                <i class="ph-duotone ph-info text-3xl text-gray-500"></i>
+                <span class="font-semibold text-sm text-text-main leading-tight">Outras Informações</span>
+            </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAT (V2 layout with V1 RAG logic) -->
+    <div id="screen-chat" class="screen bg-surface">
+      <header class="bg-white px-4 py-3 flex items-center shadow-sm z-10 shrink-0 border-b border-gray-100">
+        <button onclick="app.goBack()" class="p-2 -ml-2 text-text-muted hover:text-brand transition-colors">
+            <i class="ph-bold ph-arrow-left text-xl"></i>
+        </button>
+        <div class="ml-2 flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center">
+                <i class="ph-fill ph-robot text-brand text-lg"></i>
+            </div>
+            <div>
+                <h2 class="font-bold text-text-main text-sm">Assistente MI</h2>
+                <p class="text-[10px] text-green-500 font-semibold flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 block"></span> Online
+                </p>
+            </div>
+        </div>
+        <button onclick="chatModule.clearChat()" class="ml-auto p-2 text-text-muted text-xs font-semibold hover:text-brand">Limpar</button>
+      </header>
+
+      <div id="chat-messages" class="scroll-area p-4 flex flex-col gap-4 bg-surface">
+        <div class="flex flex-col gap-1 items-start w-full">
+            <div class="chat-bubble bot bg-white p-3.5 rounded-2xl rounded-bl-sm shadow-soft text-sm text-text-main border border-gray-100">
+                Olá! Sou o Assistente Virtual da MI Brasil. Estou aqui para te ajudar com informações de <strong>Atendimento Prioritário</strong>, telefones do <strong>Procon</strong> ou <strong>Privacidade</strong>.<br>
+                Exemplo: <em>"Quais as leis de prioridade em São Paulo?"</em>
+            </div>
+            <span class="text-[10px] text-text-muted ml-1">Assistente MI</span>
+        </div>
+        <div id="chat-suggestions" class="flex flex-wrap gap-2 mt-2">
+            <button onclick="chatModule.sendSuggested('Procon de São Paulo')" class="bg-white border border-brand/20 text-brand text-xs font-medium px-3 py-1.5 rounded-full shadow-sm">Procon de São Paulo</button>
+            <button onclick="chatModule.sendSuggested('Prioridade no Rio de Janeiro')" class="bg-white border border-brand/20 text-brand text-xs font-medium px-3 py-1.5 rounded-full shadow-sm">Prioridade no Rio</button>
+        </div>
+        
+        <div id="chat-loading" class="typing-indicator items-end gap-2 w-full mt-2">
+             <div class="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
+                <i class="ph-fill ph-robot text-brand text-sm"></i>
+            </div>
+            <div class="bg-white p-3.5 rounded-2xl rounded-bl-sm shadow-soft border border-gray-100 h-[42px] flex items-center">
+                <div class="dot-flashing"></div>
+            </div>
+        </div>
+      </div>
+
+      <div class="bg-white p-3 pb-[calc(12px+env(safe-area-inset-bottom))] shadow-[0_-4px_15px_rgba(0,0,0,0.03)] shrink-0 absolute bottom-0 w-full z-20">
+        <form id="chat-form" class="flex items-center gap-2" onsubmit="chatModule.handleSubmit(event)">
+            <input type="text" id="chat-input" placeholder="Digite sua dúvida ou cidade..." class="flex-1 bg-surface border border-gray-200 rounded-full px-4 py-2.5 text-sm outline-none focus:border-brand transition-colors" autocomplete="off">
+            <button type="submit" id="chat-submit" class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center shrink-0 shadow-md active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100">
+                <i class="ph-fill ph-paper-plane-right"></i>
+            </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- PROCON (Advanced dropdown filters from V1 + V2 styling) -->
+    <div id="screen-procon" class="screen">
+        <header class="bg-[#002D72] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </button>
+                <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="ph-fill ph-scales text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold leading-tight">Contatos Procon</h1>
+                    <p class="text-white/80 text-xs">Encontre o Procon da sua região</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 mt-5">
+                <div class="relative">
+                    <select id="procon-state" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#002D72]/50">
+                        <option value="">Todos os Estados</option>
+                    </select>
+                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                </div>
+                <div class="relative">
+                    <select id="procon-city" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#002D72]/50">
+                        <option value="">Todas as Cidades</option>
+                    </select>
+                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="scroll-area p-5 bg-surface">
+            <div id="procon-results" class="flex flex-col gap-3"></div>
+            <div id="procon-empty" class="text-center py-10 text-text-muted">
+                <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
+                <p class="text-sm">Selecione o estado ou cidade para visualizar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIORIDADE (Advanced dropdown filters from V1 + V2 styling) -->
+    <div id="screen-prioridade" class="screen">
+        <header class="bg-[#9B59B6] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </button>
+                <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="ph-fill ph-users text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold leading-tight">Atend. Prioritário</h1>
+                    <p class="text-white/80 text-xs">Regras e placas por região</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-3 mt-5">
+                <div class="relative">
+                    <select id="prioridade-state" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#9B59B6]/50">
+                        <option value="">Todos os Estados</option>
+                    </select>
+                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                </div>
+                <div class="relative">
+                    <select id="prioridade-city" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#9B59B6]/50">
+                        <option value="">Todas as Cidades</option>
+                    </select>
+                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="scroll-area p-5 bg-surface">
+            <div id="prioridade-results" class="flex flex-col gap-4"></div>
+            <div id="prioridade-empty" class="text-center py-10 text-text-muted">
+                <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
+                <p class="text-sm">Selecione o estado ou cidade para visualizar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PRIVACIDADE (Search from V1 + V2 styling) -->
+    <div id="screen-privacidade" class="screen">
+        <header class="bg-[#27AE60] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </button>
+                <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="ph-fill ph-shield-check text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold leading-tight">Privacidade e LGPD</h1>
+                    <p class="text-white/80 text-xs">Aviso de Privacidade do shopping</p>
+                </div>
+            </div>
+            
+            <div class="relative mt-5">
+                <i class="ph-regular ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                <input type="search" id="privacidade-search" placeholder="Buscar por shopping ou cidade..." class="w-full bg-white text-text-main border-none rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none shadow-sm focus:ring-2 focus:ring-[#27AE60]/50" autocomplete="off">
+            </div>
+        </header>
+
+        <div class="scroll-area p-5 bg-surface">
+            <div id="privacidade-results" class="flex flex-col gap-3"></div>
+            <div id="privacidade-empty" class="text-center py-10 text-text-muted">
+                <i class="ph-duotone ph-storefront text-4xl mb-2 opacity-50"></i>
+                <p class="text-sm">Digite o nome do shopping para buscar.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUTROS (List from V1 + V2 styling) -->
+    <div id="screen-outros" class="screen">
+        <header class="bg-[#78909C] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </button>
+                <div class="bg-white/20 p-2 rounded-lg">
+                    <i class="ph-fill ph-info text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold leading-tight">Outras Informações</h1>
+                    <p class="text-white/80 text-xs">Avisos gerais e obrigações legais</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-3 mt-5">
+                <div class="relative">
+                    <select id="outros-state" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#78909C]/50">
+                        <option value="">Todos os Estados</option>
+                    </select>
+                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                </div>
+                <div class="relative">
+                    <select id="outros-city" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#78909C]/50">
+                        <option value="">Todas as Cidades</option>
+                    </select>
+                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                </div>
+            </div>
+        </header>
+
+        <div class="scroll-area p-5 bg-surface">
+            <div id="outros-results" class="flex flex-col gap-3" style="margin-bottom: 50%;"></div>
+        </div>
+    </div>
+
+    <!-- DESCARTE DE ELETRÔNICOS -->
+    <div id="screen-residuos" class="screen bg-surface">
+        <header class="residuos-header text-white px-5 pt-8 pb-5 shadow-md z-10 shrink-0">
+            <div class="flex items-center gap-3">
+                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors" aria-label="Voltar">
+                    <i class="ph-bold ph-arrow-left text-xl"></i>
+                </button>
+                <div>
+                    <h1 class="text-xl font-bold leading-tight">Descarte de Eletrônicos</h1>
+                    <p class="text-white/80 text-xs">Aprenda o descarte correto para reciclagem</p>
+                </div>
+            </div>
+        </header>
+        <main class="scroll-area residuos-content" style="padding-bottom: 20%;">
+            <section class="residuos-hero">
+                <div class="residuos-hero-copy">
+                    <h2 class="residuos-title">RESÍDUOS ELETRÔNICOS</h2>
+                    <p>Aprenda o descarte correto para reciclagem</p>
+                </div>
+                <img src="./assets/img/residuos/Asset 1-8.png" alt="Ilustração de resíduos eletrônicos" class="residuos-image residuos-hero-image">
+            </section>
+            <div class="residuos-divider"></div>
+            <section class="residuos-intro">
+                <p>Os eletrônicos nos ajudam muito no dia a dia, certo? Com eles, conseguimos facilitar tarefas, aproximar pessoas e encurtar distâncias. Mas é chegado um momento em que esses aparelhos não funcionam mais. E então precisamos permitir que eles se tornem mais do que lixo. Afinal de contas, as possibilidades de reaproveitamento desses materiais são gigantes.</p>
+                <img src="assets/img/residuos/Asset 2-8.png" alt="Ilustração sobre reaproveitamento de eletrônicos" class="residuos-image residuos-intro-image">
+            </section>
+            <div class="residuos-divider"></div>
+            <section class="residuos-section residuos-card residuos-centered">
+                <h2 class="residuos-title">O que é lixo eletrônico?</h2>
+                <p>Termo usado para definir algo que muitos de nós têm em casa: <strong>dispositivos eletroeletrônicos sem uso ou pilhas descarregadas.</strong> É comum que as pessoas não saibam muito bem como se desfazer desses produtos e acabem depositando-os no lixo reciclável comum ou no orgânico, por exemplo. Isso, além de prejudicar o meio ambiente, é um grande desperdício: eletroeletrônicos são feitos com peças de vários tipos de materiais, como plástico, vidro, metais, entre outros, mas dependem de um sistema próprio para serem reciclados. <strong>Quando encaminhados para uma destinação correta, cada componente pode ser separado e convertido em novas matérias-primas.</strong> Bem legal, né? Confira a seguir os diversos tipos de produtos que podem ser considerados resíduos eletroeletrônicos e, portanto, reaproveitados.</p>
+            </section>
+            <section class="residuos-types">
+                <div class="residuos-type">
+                    <img src="assets/img/residuos/Asset 3-8.png" alt="" class="residuos-type-image">
+                    <div><h3>Grandes equipamentos:</h3><p>Geladeiras, freezers, máquinas de lavar, fogões, ar-condicionados, micro-ondas e TVs grandes.</p></div>
+                </div>
+                <div class="residuos-type">
+                    <img src="assets/img/residuos/Asset 4-8.png" alt="" class="residuos-type-image">
+                    <div><h3>Equipamentos de informática e telefonia:</h3><p>Computadores, tablets, notebooks, celulares, impressoras, monitores e outros.</p></div>
+                </div>
+                <div class="residuos-type">
+                    <img src="assets/img/residuos/Asset 5-8.png" alt="" class="residuos-type-image">
+                    <div><h3>Pequenos equipamentos e eletroportáteis:</h3><p>Liquidificadores, secadores e outros pequenos aparelhos elétricos.</p></div>
+                </div>
+                <div class="residuos-type">
+                    <img src="assets/img/residuos/Asset 6-8.png" alt="" class="residuos-type-image">
+                    <div><h3>Pilhas e baterias portáteis:</h3><p>Pilhas e baterias de uso doméstico.</p></div>
+                </div>
+            </section>
+            <div class="residuos-divider"></div>
+            <section class="residuos-section residuos-card residuos-care">
+                <h2 class="residuos-title">Cuidados antes do descarte:</h2>
+                <p><strong>Muita gente pensa que resíduos eletrônicos podem nos oferecer riscos, mas isso é um mito.</strong> Para entender, basta seguir esta lógica: se os equipamentos não eram perigosos durante sua vida útil, continuam inofensivos na hora do descarte. Os possíveis riscos oferecidos por esses produtos estão muito mais associados a processos de reciclagem feitos incorretamente. Por isso, <strong>é importante que você nunca desmonte seu dispositivo em casa.</strong> Da mesma forma que você transportava seu aparelho durante o uso, pode facilmente levá-lo até o Ponto de Coleta Voluntária (PEV) mais próximo. As práticas de desmontagem e reciclagem devem ser realizadas apenas por profissionais especializados. Para auxiliar no descarte correto, sugerimos os PEVs da Green Eletron e suas recicladoras homologadas. Pilhas podem ser transportadas em sacolinhas plásticas fechadas, enquanto aparelhos elétricos e eletrônicos devem ser depositados inteiros, com a bateria ainda dentro da carcaça. O desmonte feito em casa não facilita o trabalho de reciclagem.</p>
+                <img src="assets/img/residuos/Asset 7-8.png" alt="Mascote ilustrando os cuidados no descarte" class="residuos-care-image">
+            </section>
+            <div class="residuos-divider"></div>
+            <section class="residuos-section residuos-centered">
+                <h2 class="residuos-title">O que pode ser descartado por meio da Green Eletron</h2>
+                <p><strong>Os Pontos de Coleta Voluntária (PEVs)</strong> estão preparados para receber eletroeletrônicos domésticos de médio e pequeno porte, ligados na tomada ou alimentados por bateria.</p>
+                <div class="residuos-accepted">
+                    <img src="assets/img/residuos/Asset 8-8.png" alt="Exemplo de ponto de entrega voluntária para eletroeletrônicos e pilhas" class="residuos-accepted-image">
+                    <ul>
+                        <li>Adaptadores de tomada;</li><li>Caixas de som;</li><li>Cabos e carregadores;</li>
+                        <li>Celulares, câmeras e outros itens eletrônicos;</li><li>Computadores;</li>
+                        <li>Eletrodomésticos de pequeno porte (liquidificadores, secadores etc.);</li>
+                        <li>Fones de ouvido;</li><li>Furadeiras e outras ferramentas elétricas de construção;</li>
+                        <li>Pen drives, HDs externos e outros dispositivos de armazenamento;</li>
+                        <li>Pilhas alcalinas ou comuns de zinco.</li>
+                    </ul>
+                </div>
+            </section>
+            <div class="residuos-divider"></div>
+            <section class="residuos-section residuos-collection">
+                <h2 class="residuos-title">ONDE ENCONTRAR PEV DA GREEN ELETRON</h2>
+                <p>Acesse o site:</p>
+                <a href="https://greeneletron.org.br/localizador" class="residuos-button" target="_blank" rel="noopener noreferrer">Green Eletron</a>
+                <p>Coloque seu endereço e descubra o ponto de coleta mais próximo a você!</p>
+                <img src="assets/img/residuos/Asset 9-8.png" alt="Mascote Green Eletron com lupa" class="residuos-collection-image">
+                <p class="residuos-note">Caso não haja um ponto de coleta da Green Eletron próximo à sua região, busque empresas especializadas em reciclagem de resíduos eletrônicos ou pontos de coleta existentes em sua cidade.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav bg-white border-t border-gray-100 flex items-center justify-around h-16 absolute bottom-0 w-full z-30 shadow-nav pb-[env(safe-area-inset-bottom)]">
+        <button onclick="app.navigate('home')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors active" data-target="home">
+            <i class="ph-fill ph-house text-2xl mb-0.5"></i>
+            <span class="text-[10px] font-semibold">Início</span>
+        </button>
+        <button onclick="app.navigate('chat')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors relative" data-target="chat">
+            <div class="absolute -top-3 bg-brand text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4 border-surface shadow-brand/20">
+                <i class="ph-fill ph-sparkle text-2xl"></i>
+            </div>
+            <span class="text-[10px] font-semibold mt-6 text-brand">Chat</span>
+        </button>
+        <button onclick="app.navigate('prioridade')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#9B59B6] transition-colors" data-target="prioridade">
+            <i class="ph-fill ph-users text-2xl mb-0.5"></i>
+            <span class="text-[10px] font-semibold">Prioridade</span>
+        </button>
+        <button onclick="app.navigate('procon')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#002D72] transition-colors" data-target="procon">
+            <i class="ph-fill ph-scales text-2xl mb-0.5"></i>
+            <span class="text-[10px] font-semibold">Procon</span>
+        </button>
+    </nav>
+
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
