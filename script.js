@@ -383,6 +383,7 @@ const assistantEngine = {
     return shorter.slice(i) === longer.slice(i + 1);
   },
   lexicon: {
+    financeiro: ['pagamento', 'pagar', 'pago', 'pagamentos', 'parcelamento', 'parcelar', 'parcelas', 'juros', 'pix', 'dinheiro', 'cheque', 'cartao', 'credito', 'debito', 'bandeiras', 'transacoes financeiras', 'seguranca financeira', 'titular', 'fraude', 'fraudes', 'cdc', 'codigo de defesa'],
     fumar: ['fumar', 'fumo', 'fuma', 'fumando', 'cigarro', 'cigarros', 'tabaco', 'tabagismo', 'vape', 'vaper', 'pod', 'cigarro eletronico', 'fumante', 'fumantes'],
     fiscal: ['sonegacao', 'sonegar', 'sonegando', 'sonega', 'sonegam', 'sonegou', 'fiscal', 'nota', 'notinha', 'nf', 'nfe', 'nfce', 'imposto', 'impostos', 'tributo', 'cupom', 'recibo', 'comprovante de compra'],
     cameras: ['camera', 'cameras', 'filmado', 'filmada', 'filmagem', 'filmagens', 'filmando', 'monitoramento', 'vigilancia', 'gravacao', 'gravacoes', 'circuito interno'],
@@ -511,8 +512,8 @@ const assistantEngine = {
       this.context.awaiting = 'localidade';
       return this.paragraph(`Não localizei “${unknownTail}” na base. Informe a cidade e a UF ou o nome do shopping. Só posso mostrar os registros cadastrados.`);
     }
-    if (/\b(troca|trocar|garantia|devolucao|devolver|arrependimento|reembolso|assistencia|conserto|defeito|preco|estoque|horario|pagamento|parcelamento)\b/.test(text)) {
-      const limitation = this.paragraph('A base deste projeto não contém políticas de troca, garantia, devolução, assistência, preços, horários ou pagamentos. Confirme o seu caso com a equipe da loja; não posso informar prazos ou condições que não estão cadastrados.');
+    if (/\b(troca|trocar|garantia|devolucao|devolver|arrependimento|reembolso|assistencia|conserto|defeito|preco|estoque|horario)\b/.test(text)) {
+      const limitation = this.paragraph('A base deste projeto não contém políticas de troca, garantia, devolução, assistência, preços ou horários. Confirme o seu caso com a equipe da loja; não posso informar prazos ou condições que não estão cadastrados.');
       if (!topics.length) { this.context.topics = []; return limitation + this.section('procon', 'Contatos Procon'); }
       this.context.topics = topics;
       return limitation + topics.map(t => this.respond(t, text)).join('');
@@ -543,6 +544,11 @@ const assistantEngine = {
     const e = value => this.escape(value);
     const p = value => this.paragraph(value);
     const location = this.context.location;
+    if (topic === 'financeiro') {
+      if (/\b(cdc|codigo de defesa)\b/.test(text)) return this.link('https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm', 'Acessar o Código de Defesa do Consumidor') + this.section('financeiro', 'Atendimento e Informações Financeiras');
+      if (/\b(seguranca|titular|terceiro|fraude|fraudes|documento|autorizacao)\b/.test(text)) return p('O aviso da Rede de Lojas MiBrasil orienta os titulares a proteger seus meios de pagamento, senhas e acessos. A equipe pode solicitar dados, identificação e comprovante de autorização do titular; nesses casos, a conclusão da compra depende da apresentação do que foi solicitado. Consulte o aviso completo para conhecer todas as regras.') + this.section('regras-seguranca', 'Aviso de regras de segurança');
+      return p('Formas de pagamento cadastradas: dinheiro, Pix e cartão de débito ou crédito. Bandeiras: American Express, Diners Club, Elo, MasterCard e VISA. Não aceitamos cheque.') + p('O máximo de parcelas varia por produto: verifique as placas e preços. Para mais de um produto, consulte o vendedor. As parcelas sem juros podem ser reduzidas conforme os limites da bandeira; condições de parcelamento superior com juros devem ser consultadas com o vendedor.') + this.section('formas-pagamento', 'Formas de Pagamento e Parcelamento');
+    }
     if (topic === 'outros') return DATA.outros.map(r => `<p class="mt-2"><strong>${e(r.title)}</strong><br>${e(r.desc)}</p>`).join('') + this.section('outros', 'Outras Informações');
     const noticeTitles = { fumar: 'Proibido Fumar', fiscal: 'Sonegar é Crime', cameras: 'Ambiente Sendo Filmado', descarte: 'Descarte Consciente de Eletrônicos' };
     if (noticeTitles[topic]) {
@@ -613,7 +619,7 @@ const chatModule = {
     document.getElementById('chat-submit').setAttribute('aria-label', 'Enviar mensagem');
     container.addEventListener('click', event => {
       const button = event.target.closest('[data-mi-topic]');
-      if (button && ['outros', 'procon', 'prioridade', 'privacidade'].includes(button.dataset.miTopic)) app.navigate(button.dataset.miTopic);
+      if (button && ['outros', 'procon', 'prioridade', 'privacidade', 'financeiro', 'formas-pagamento', 'regras-seguranca'].includes(button.dataset.miTopic)) app.navigate(button.dataset.miTopic);
     });
     container.addEventListener('error', event => {
       if (event.target.matches && event.target.matches('img[data-mi-plate]')) {

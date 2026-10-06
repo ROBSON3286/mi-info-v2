@@ -37,6 +37,60 @@
     }
   </script>
   <link rel="stylesheet" href="style.css" />
+
+<style>
+/* Estilos exclusivos das telas financeiras. */
+.financeiro-screen { --font-family: 'Inter', sans-serif; --color-text: #1e293b; --color-text-muted: #64748b; --color-primary: #ff6900; font-family: var(--font-family); background: #f8fafc; }
+.financeiro-screen > header { display:flex; align-items:center; gap:12px; padding:16px 20px; background:#fff; border-bottom:1px solid #edf0f4; box-shadow:none; flex-shrink:0; }
+.financeiro-screen > header button { width:40px; height:40px; border-radius:12px; background:#f8fafc; color:#475569; flex-shrink:0; display:grid; place-items:center; }
+.financeiro-screen > header h2 { font-size:14px; line-height:1.45; margin:0; font-weight:700; color:#1e293b; }
+.financeiro-screen .scroll-area { min-height:0; padding:22px 20px calc(88px + env(safe-area-inset-bottom)); }
+.financeiro-screen .fin-intro { padding:2px 2px 24px; }
+.financeiro-screen .fin-eyebrow { display:inline-block; font-size:10px; font-weight:800; letter-spacing:1.5px; color:#b94c00; margin-bottom:12px; }
+.financeiro-screen .fin-intro h1 { font-size:27px; line-height:1.2; font-weight:800; letter-spacing:-.7px; color:#1e293b; margin:0 0 12px; }
+.financeiro-screen .fin-intro p { font-size:13px; line-height:1.7; color:#64748b; margin:0; max-width:340px; }
+.financeiro-screen .fin-menu { display:grid; gap:12px; }
+.financeiro-screen .fin-card { display:flex; width:100%; align-items:center; gap:14px; padding:19px 16px; text-align:left; background:#fff; border:1px solid #edf0f4; border-radius:18px; box-shadow:0 4px 16px -8px rgba(15,23,42,.12); transition:background .18s,border-color .18s,transform .18s; cursor:pointer; }
+.financeiro-screen .fin-icon { width:46px; height:46px; border-radius:14px; display:grid; place-items:center; flex-shrink:0; font-size:25px; background:var(--fin-tint); color:var(--fin-color); }
+.financeiro-screen .fin-blue { --fin-tint:#eff6ff; --fin-color:#2563eb; }
+.financeiro-screen .fin-purple { --fin-tint:#f5f3ff; --fin-color:#7c3aed; }
+.financeiro-screen .fin-orange { --fin-tint:#fff0e6; --fin-color:#c65300; }
+.financeiro-screen .fin-green { --fin-tint:#ecfdf5; --fin-color:#059669; }
+.financeiro-screen .fin-card-copy { display:grid; gap:5px; flex:1; min-width:0; }
+.financeiro-screen .fin-card-copy strong { font-size:14px; line-height:1.4; color:#1e293b; font-weight:700; }
+.financeiro-screen .fin-card-copy > span { font-size:12px; line-height:1.55; color:#64748b; }
+.financeiro-screen .fin-arrow { font-size:14px; color:#94a3b8; flex-shrink:0; }
+.financeiro-screen button:focus-visible, .financeiro-screen a:focus-visible { outline:3px solid #ff6900; outline-offset:4px; }
+.financeiro-screen .fin-card:active { transform:scale(.985); }
+.financeiro-screen .financeiro-content { font-size:14px; line-height:1.8; color:#475569; overflow-wrap:anywhere; padding:22px; border:1px solid #edf0f4; border-radius:20px; background:#fff; box-shadow:0 5px 20px -10px rgba(15,23,42,.12); }
+.financeiro-screen .financeiro-content h1 { font-size:19px; line-height:1.4; font-weight:800; color:#1e293b; margin:0 0 18px; }
+.financeiro-screen .financeiro-content h2 { font-size:15px; line-height:1.5; font-weight:700; margin:28px 0 14px; color:#1e293b; }
+.financeiro-screen .financeiro-content p { margin-bottom:16px; }
+.financeiro-screen .financeiro-content ul { list-style:disc; padding-left:20px; }
+.financeiro-screen .financeiro-content ol { list-style:decimal; padding-left:22px; }
+.financeiro-screen .financeiro-content li { margin-bottom:16px; padding-left:3px; }
+.financeiro-screen .financeiro-content li::marker { color:#c65300; font-weight:700; }
+#screen-regras-seguranca .privacy-policy > h1 { font-size:18px; padding-bottom:18px; border-bottom:3px solid #fff0e6; }
+#screen-regras-seguranca .privacy-policy > p:first-of-type { background:#f8fafc; border-radius:12px; padding:14px; font-size:12px; color:#64748b; }
+#screen-codigo-defesa .privacy-policy { padding:12px 0 !important; }
+#screen-codigo-defesa .privacy-policy::before { content:'CDC'; display:grid; place-items:center; width:68px; height:76px; margin:0 auto 24px; border-radius:12px 18px 18px 12px; border-left:4px solid #ff6900; background:#fff0e6; color:#b94c00; font-size:20px; font-weight:800; letter-spacing:1px; }
+#screen-codigo-defesa .privacy-policy p { font-size:14px !important; line-height:1.8; }
+#screen-codigo-defesa .privacy-policy a { display:block !important; padding:16px !important; background:#ff6900 !important; border-radius:14px !important; font-size:14px !important; line-height:1.5; box-shadow:0 4px 12px #ff690025 !important; }
+#screen-formas-pagamento .financeiro-content { padding:0; background:transparent; border:0; box-shadow:none; }
+.financeiro-screen .fin-payment { padding:0 !important; }
+.financeiro-screen .fin-payment-box { background:#fff !important; border:1px solid #edf0f4 !important; padding:20px !important; border-radius:18px !important; margin-bottom:16px !important; box-shadow:0 4px 16px -8px #0f172a1f; }
+.financeiro-screen .fin-payment-box h1 { font-size:14px !important; line-height:1.5; letter-spacing:.2px; }
+.financeiro-screen .fin-accepted { border-top:3px solid #10b981 !important; }
+.financeiro-screen .fin-accepted h1 { color:#047857 !important; }
+.financeiro-screen .fin-installments { border-top:3px solid #f59e0b !important; }
+.financeiro-screen .fin-payment-box li { font-size:13px !important; }
+.financeiro-screen .fin-payment-box svg { flex-shrink:0; }
+.financeiro-screen .fin-brands > div:first-of-type { padding:0 !important; gap:8px !important; border:0 !important; box-shadow:none !important; }
+.financeiro-screen .financeiro-bandeira { display:inline-flex; align-items:center; min-height:36px; font-size:12px; font-weight:700; color:#334155; background:#f8fafc; padding:7px 10px; border:1px solid #e2e8f0; border-radius:9px; }
+@media (hover:hover) { .financeiro-screen .fin-card:hover { background:#fffcfa; border-color:#fed7aa; transform:translateY(-2px); } }
+@media (max-width:360px) { .financeiro-screen .scroll-area { padding-left:14px; padding-right:14px; } .financeiro-screen .fin-card { gap:10px; padding:16px 12px; } .financeiro-screen .financeiro-content { padding:18px; } }
+@media (prefers-reduced-motion:reduce) { .financeiro-screen, .financeiro-screen .fin-card { animation:none; transition:none; } }
+</style>
 </head>
 <body>
 
@@ -68,7 +122,7 @@
     <!-- HOME -->
     <div id="screen-home" class="screen active">
       <header class="bg-brand text-white pb-6 px-6 rounded-b-[2rem] shadow-md relative z-10">
-        <h1 class="text-2xl font-bold mt-4 leading-tight" style="font-size: 1.1rem;">Central Digital de Informações ao Cliente</h1>
+        <h1 class="text-2xl font-bold mt-4 leading-tight" style="font-size: 1.1rem;">Central de Informações ao Cliente</h1>
         <p class="text-white/80 text-sm mt-2"></p>
       </header>
 
@@ -85,17 +139,21 @@
             <i class="ph-bold ph-caret-right text-text-muted ml-auto"></i>
         </button>
 
-        <h3 class="text-lg font-bold text-text-muted uppercase tracking-wider mb-3 ml-1">Informações Sobre</h3>
+        <h3 class="text font-bold text-text-muted uppercase tracking-wider mb-3 ml-1" style="font-size: 0.675rem;">Selecione o tema desejado para obter informações</h3>
         
         <div class="grid grid-cols-2 gap-3">
+            <button onclick="app.navigate('financeiro')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                <i class="ph-duotone ph-credit-card text-3xl text-blue-500"></i>
+                <span class="font-semibold text-sm text-text-main leading-tight">Compras e Financeiro</span>
+            </button>
             <button onclick="app.navigate('prioridade')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
                 <i class="ph-duotone ph-users text-3xl text-purple-500"></i>
                 <span class="font-semibold text-sm text-text-main leading-tight">Atendimento Prioritário</span>
             </button>
-            <button onclick="app.navigate('procon')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+            <!-- <button onclick="app.navigate('procon')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
                 <i class="ph-duotone ph-scales text-3xl text-blue-500"></i>
                 <span class="font-semibold text-sm text-text-main leading-tight">Contatos Procon</span>
-            </button>
+            </button> -->
             <button onclick="app.navigate('privacidade')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
                 <i class="ph-duotone ph-shield-check text-3xl text-green-500"></i>
                 <span class="font-semibold text-sm text-text-main leading-tight">Privacidade e LGPD</span>
@@ -393,6 +451,132 @@
         </main>
     </div>
 
+
+    <section id="screen-financeiro" class="screen bg-surface financeiro-screen">
+      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
+        <h2 class="ml-2 font-bold text-text-main text-sm">Atendimento e Informações Financeiras</h2>
+      </header>
+      <div class="scroll-area p-5"><div class="fin-intro"><span class="fin-eyebrow">ATENDIMENTO AO CLIENTE</span><h1>Informações para suas compras</h1><p>Consulte orientações de segurança, seus direitos e as condições de pagamento.</p></div><div class="fin-menu" aria-label="Assuntos financeiros"><button type="button" onclick="app.navigate('regras-seguranca')" class="fin-card fin-blue"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-shield-check"></i></span><span class="fin-card-copy"><strong>Segurança nas transações</strong><span>Aviso de regras de segurança sobre transações financeiras</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button type="button" onclick="app.navigate('procon')" class="fin-card fin-purple"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-scales"></i></span><span class="fin-card-copy"><strong>Contatos do Procon</strong><span>Encontre os canais de atendimento da sua região.</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button type="button" onclick="app.navigate('codigo-defesa')" class="fin-card fin-orange"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-book-open-text"></i></span><span class="fin-card-copy"><strong>Código de Defesa do Consumidor</strong><span>Consulte o exemplar digital no portal oficial.</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button type="button" onclick="app.navigate('formas-pagamento')" class="fin-card fin-green"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-credit-card"></i></span><span class="fin-card-copy"><strong>Formas de Pagamento</strong><span>Meios aceitos, bandeiras e regras de parcelamento.</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button></div></div>
+    </section>
+
+    <section id="screen-regras-seguranca" class="screen bg-surface financeiro-screen">
+      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
+        <h2 class="ml-2 font-bold text-text-main text-sm">Aviso de regras de segurança sobre transações financeiras</h2>
+      </header>
+      <div class="scroll-area p-5"><div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
+<div class="privacy-policy">
+    <h1>AVISO DE REGRAS DE SEGURANÇA SOBRE TRANSAÇÕES FINANCEIRAS</h1>
+    <p><strong>Rede de Lojas MiBrasil</strong><br>Última atualização: abril de 2026 (v.1)</p>
+    <p>A Rede de Lojas Mibrasil é comprometida com a proteção da segurança financeira das Lojas e dos seus CLIENTES, possuindo rígidas políticas internas a serem seguidas pelos seus colaboradores / prestadores de serviços, visando a prevenção a fraudes e a preservação da excelência de atendimento, tudo em observância às legislações aplicáveis e princípios de conduta ética.</p>
+    <p>Este AVISO contém informações sobre regras de segurança referentes às transações financeiras realizadas por CLIENTES da Rede de Lojas Mibrasil, no ato de pagamento de produtos, tais como, operações com cartão de crédito ou débito, PIX e outros meios eletrônicos de pagamento.</p>
+
+    <h2>Para os fins desse aviso, considera-se:</h2>
+    <ul>
+        <li><strong>Titular do meio de pagamento eletrônico (TITULAR):</strong> a pessoa física ou jurídica titular da conta bancária vinculada ao pix ou aplicativos de pagamento, de cartões de crédito ou débito (físicos ou virtuais), de aplicativos ou outros meios virtuais de pagamentos, assim como o proprietário do smartphone ou outros aparelhos eletrônicos nos quais tais aplicativos ou cartões virtuais estejam instalados.</li>
+        <li><strong>Clientes da Rede de Lojas Mibrasil (CLIENTE):</strong> pessoas físicas e/ou representantes de pessoas jurídicas que (i) compareçam presencialmente ou façam contatos com a lojas da Rede Mibrasil com o intuito de informações e/ou compra de produtos; (ii) concluam a compra de produtos mediante a utilização de meios de pagamento aceitos pela loja, que sejam de titularidade do próprio CLIENTE ou de terceiro que o tenha autorizado, sob exclusiva responsabilidade do titular.</li>
+    </ul>
+
+    <h2>INFORMAÇÕES IMPORTANTES AOS CLIENTES:</h2>
+    <ol>
+        <li>Os Titulares dos meios de pagamento eletrônico são responsáveis pela guarda e posse de tais meios, assim como pela privacidade de senhas / logins de acesso, de modo a prevenir e evitar fraudes que possam vir a causar prejuízos tanto aos próprios TITULARES quanto aos comerciantes em geral, devendo seguir todas as obrigações contratuais e orientações de segurança assumidas junto as suas respectivas instituições financeiras, operadoras de cartões e demais prestadores de serviços financeiros.</li>
+        <li>A posse de cartões /aplicativos/ demais meios de pagamentos eletrônicos, com a ciência de senhas ou demais meios de acesso que viabilizem a conclusão do pagamento da compra pelo CLIENTE serão consideradas, pela Rede de Lojas Mibrasil, como autorização de uso dadas a este pelo TITULAR do meio de pagamento utilizado.</li>
+        <li>A Rede de Lojas Mibrasil não é responsável pelo uso desautorizado e/ou ilegal e/ou fora dos limites autorizados por terceiros que estejam em posse de cartões, aplicativos e demais meios de pagamento eletrônicos, logins e/ou senhas de acesso de TITULARES e utilizem tais meios para realizar o pagamento de compras de produtos junto as lojas da Rede Mibrasil.</li>
+        <li>Os colaboradores da Rede de Lojas Mibrasil, seguindo regras de políticas internas de segurança e compliance, podem vir a solicitar dados pessoais e apresentação de documentos de identificação dos CLIENTES, bem como de dados pessoais, documentos de identificação e/ou de comprovante de autorização dos TITULARES, no momento do pagamento da compra. A conclusão da compra em tais situações somente ocorrerá após a devida apresentação dos dados e/ou documentos solicitados.</li>
+        <li>Se, após ler este AVISO, restar qualquer dúvida, comentário e/ou sugestão, solicitamos que, por favor, procure o Colaborador responsável pela Loja da Rede Mibrasil na qual o Sr(a). se encontra.</li>
+    </ol>
+</div>
+            </div></div>
+    </section>
+
+    <section id="screen-codigo-defesa" class="screen bg-surface financeiro-screen">
+      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
+        <h2 class="ml-2 font-bold text-text-main text-sm">Exemplar do código de defesa consumidor</h2>
+      </header>
+      <div class="scroll-area p-5"><div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
+<div class="privacy-policy" style="text-align: center; padding: 40px 20px;">
+    <h1 style="text-align: center;">Exemplar do Código de Defesa do Consumidor</h1>
+    <p style="margin-bottom: 30px; font-size: 1rem; color: var(--color-text-muted);">Clique no botão abaixo para acessar a versão digital e atualizada do Código de Defesa do Consumidor (CDC) diretamente do portal do Governo Federal.</p>
+    <a href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #002D72, #001f52); color: #fff; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: transform 0.2s;">
+        Acessar o Código de Defesa do Consumidor
+    </a>
+</div>
+            </div></div>
+    </section>
+
+    <section id="screen-formas-pagamento" class="screen bg-surface financeiro-screen">
+      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
+        <h2 class="ml-2 font-bold text-text-main text-sm">Formas de Pagamento</h2>
+      </header>
+      <div class="scroll-area p-5"><div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
+<div class="fin-payment" style="font-family: var(--font-family); color: var(--color-text); padding: 5px;">
+    
+    <div class="fin-payment-box fin-accepted" style="background: #f8f9fa; border-left: 4px solid var(--color-primary); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
+        <h1 style="font-size: 1.15rem; font-weight: 700; color: var(--color-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+            <svg style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            FORMAS DE PAGAMENTO ACEITAS
+        </h1>
+        <ul style="list-style: none; margin: 0; padding: 0;">
+            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 500;">
+                <svg style="width: 18px; height: 18px; color: #10B981; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Dinheiro
+            </li>
+            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 500;">
+                <svg style="width: 18px; height: 18px; color: #10B981; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Pix
+            </li>
+            <li style="display: flex; align-items: center; gap: 8px; font-weight: 500;">
+                <svg style="width: 18px; height: 18px; color: #10B981; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
+                Cartão de débito e crédito
+            </li>
+        </ul>
+    </div>
+
+    <div class="fin-payment-box fin-brands" style="margin-bottom: 25px;">
+        <p style="font-size: 0.95rem; font-weight: 700; color: #4B5563; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;">Bandeiras Aceitas</p>
+        <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap; background: white; padding: 15px; border-radius: 8px; border: 1px solid #E5E7EB; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+            <span class="financeiro-bandeira">American Express</span>
+            <span class="financeiro-bandeira">Diners Club</span>
+            <span class="financeiro-bandeira">Elo</span>
+            <span class="financeiro-bandeira">MasterCard</span>
+            <span class="financeiro-bandeira">VISA</span>
+        </div>
+        <div style="margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: #FEF2F2; color: #DC2626; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; border: 1px solid #FCA5A5;">
+            <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+            Não aceitamos cheque
+        </div>
+    </div>
+
+    <div class="fin-payment-box fin-installments" style="background: #f8f9fa; border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px;">
+        <h1 style="font-size: 1.15rem; font-weight: 700; color: #D97706; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+            <svg style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            REGRAS DE PARCELAMENTO
+        </h1>
+        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
+                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>A quantidade máxima de parcelas varia para cada produto. Verifique as placas e preços.</span>
+            </li>
+            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
+                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>Nas compras de mais de um produto, consulte a forma de parcelamento com o vendedor.</span>
+            </li>
+            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
+                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>O número de parcelas <strong>SEM JUROS</strong> poderá ser reduzido para observar os limites de cada bandeira do cartão. Consulte o vendedor.</span>
+            </li>
+            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
+                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <span>A possibilidade e as condições de parcelamento superiores, <strong>COM JUROS</strong>, devem ser consultadas com o vendedor.</span>
+            </li>
+        </ul>
+    </div>
+</div>
+            </div></div>
+    </section>
     <!-- BOTTOM NAVIGATION -->
     <nav class="bottom-nav bg-white border-t border-gray-100 flex items-center justify-around h-16 absolute bottom-0 w-full z-30 shadow-nav pb-[env(safe-area-inset-bottom)]">
         <button onclick="app.navigate('home')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors active" data-target="home">
