@@ -65,28 +65,31 @@
 .financeiro-screen .financeiro-content { font-size:14px; line-height:1.8; color:#475569; overflow-wrap:anywhere; padding:22px; border:1px solid #edf0f4; border-radius:20px; background:#fff; box-shadow:0 5px 20px -10px rgba(15,23,42,.12); }
 .financeiro-screen .financeiro-content h1 { font-size:19px; line-height:1.4; font-weight:800; color:#1e293b; margin:0 0 18px; }
 .financeiro-screen .financeiro-content h2 { font-size:15px; line-height:1.5; font-weight:700; margin:28px 0 14px; color:#1e293b; }
-.financeiro-screen .financeiro-content p { margin-bottom:16px; }
+/* .financeiro-screen .financeiro-content p { margin-bottom:16px; } */
 .financeiro-screen .financeiro-content ul { list-style:disc; padding-left:20px; }
 .financeiro-screen .financeiro-content ol { list-style:decimal; padding-left:22px; }
 .financeiro-screen .financeiro-content li { margin-bottom:16px; padding-left:3px; }
 .financeiro-screen .financeiro-content li::marker { color:#c65300; font-weight:700; }
 #screen-regras-seguranca .privacy-policy > h1 { font-size:18px; padding-bottom:18px; border-bottom:3px solid #fff0e6; }
 #screen-regras-seguranca .privacy-policy > p:first-of-type { background:#f8fafc; border-radius:12px; padding:14px; font-size:12px; color:#64748b; }
-#screen-codigo-defesa .privacy-policy { padding:12px 0 !important; }
-#screen-codigo-defesa .privacy-policy::before { content:'CDC'; display:grid; place-items:center; width:68px; height:76px; margin:0 auto 24px; border-radius:12px 18px 18px 12px; border-left:4px solid #ff6900; background:#fff0e6; color:#b94c00; font-size:20px; font-weight:800; letter-spacing:1px; }
-#screen-codigo-defesa .privacy-policy p { font-size:14px !important; line-height:1.8; }
-#screen-codigo-defesa .privacy-policy a { display:block !important; padding:16px !important; background:#ff6900 !important; border-radius:14px !important; font-size:14px !important; line-height:1.5; box-shadow:0 4px 12px #ff690025 !important; }
+#screen-codigo-defesa .financeiro-content { padding:0; background:transparent; border:0; box-shadow:none; }
+#screen-codigo-defesa .cdc-feature-icon { display:grid; width:42px; height:42px; flex:0 0 42px; place-items:center; border-radius:14px; background:#fff7ed; color:#c65300; font-size:21px; }
+#screen-codigo-defesa .cdc-resource-link { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:15px 18px; border-radius:14px; background:linear-gradient(135deg,#ff6900,#e85d04); color:#fff; font-size:14px; font-weight:700; line-height:1.4; box-shadow:0 8px 18px -10px #c65300; transition:transform .18s ease, box-shadow .18s ease; }
+#screen-codigo-defesa .cdc-resource-link:focus-visible { outline:3px solid #ff6900; outline-offset:4px; }
+@media (hover:hover) { #screen-codigo-defesa .cdc-resource-link:hover { transform:translateY(-2px); box-shadow:0 12px 22px -12px #c65300; } }
+@media (prefers-reduced-motion:reduce) { #screen-codigo-defesa .cdc-resource-link { transition:none; } }
 #screen-formas-pagamento .financeiro-content { padding:0; background:transparent; border:0; box-shadow:none; }
-.financeiro-screen .fin-payment { padding:0 !important; }
-.financeiro-screen .fin-payment-box { background:#fff !important; border:1px solid #edf0f4 !important; padding:20px !important; border-radius:18px !important; margin-bottom:16px !important; box-shadow:0 4px 16px -8px #0f172a1f; }
-.financeiro-screen .fin-payment-box h1 { font-size:14px !important; line-height:1.5; letter-spacing:.2px; }
-.financeiro-screen .fin-accepted { border-top:3px solid #10b981 !important; }
-.financeiro-screen .fin-accepted h1 { color:#047857 !important; }
-.financeiro-screen .fin-installments { border-top:3px solid #f59e0b !important; }
-.financeiro-screen .fin-payment-box li { font-size:13px !important; }
-.financeiro-screen .fin-payment-box svg { flex-shrink:0; }
-.financeiro-screen .fin-brands > div:first-of-type { padding:0 !important; gap:8px !important; border:0 !important; box-shadow:none !important; }
-.financeiro-screen .financeiro-bandeira { display:inline-flex; align-items:center; min-height:36px; font-size:12px; font-weight:700; color:#334155; background:#f8fafc; padding:7px 10px; border:1px solid #e2e8f0; border-radius:9px; }
+#screen-formas-pagamento .payment-method-card { transition:transform .18s ease, box-shadow .18s ease; }
+#screen-formas-pagamento .payment-page p { margin-bottom:0; }
+#screen-formas-pagamento .payment-page h2 { margin:0; }
+#screen-formas-pagamento .payment-hero h1 { margin:16px 0 0; color:#fff; font-size:24px; line-height:1.2; }
+#screen-formas-pagamento .payment-method-icon { display:grid; width:44px; height:44px; flex:0 0 44px; place-items:center; border-radius:14px; font-size:24px; }
+#screen-formas-pagamento .payment-brand-logo { display:block; width:auto; max-width:100%; height:26px; object-fit:contain; }
+#screen-formas-pagamento .payment-brand-tile { display:flex; min-height:58px; align-items:center; justify-content:center; padding:12px; border:1px solid #e2e8f0; border-radius:14px; background:#fff; }
+#screen-formas-pagamento .payment-rule { display:flex; align-items:flex-start; gap:12px; }
+#screen-formas-pagamento .payment-rule-icon { display:grid; width:26px; height:26px; flex:0 0 26px; place-items:center; border-radius:9px; background:#fff7ed; color:#ea580c; font-size:16px; }
+@media (hover:hover) { #screen-formas-pagamento .payment-method-card:hover { transform:translateY(-2px); box-shadow:0 12px 24px -16px rgba(15,23,42,.32); } }
+@media (prefers-reduced-motion:reduce) { #screen-formas-pagamento .payment-method-card { transition:none; } }
 @media (hover:hover) { .financeiro-screen .fin-card:hover { background:#fffcfa; border-color:#fed7aa; transform:translateY(-2px); } }
 @media (max-width:360px) { .financeiro-screen .scroll-area { padding-left:14px; padding-right:14px; } .financeiro-screen .fin-card { gap:10px; padding:16px 12px; } .financeiro-screen .financeiro-content { padding:18px; } }
 @media (prefers-reduced-motion:reduce) { .financeiro-screen, .financeiro-screen .fin-card { animation:none; transition:none; } }
@@ -121,24 +124,13 @@
 
     <!-- HOME -->
     <div id="screen-home" class="screen active">
-      <header class="bg-brand text-white pb-6 px-6 rounded-b-[2rem] shadow-md relative z-10">
+      <header class="bg-brand text-white pb-6 px-6 rounded-b-[2rem] shadow-md relative z-10" style="align-self: center;">
         <h1 class="text-2xl font-bold mt-4 leading-tight" style="font-size: 1.1rem;">Central de Informações ao Cliente</h1>
         <p class="text-white/80 text-sm mt-2"></p>
       </header>
 
       <div class="scroll-area px-5 pt-6 pb-8 bg-surface">
         
-        <button onclick="app.navigate('chat')" class="w-full bg-white border border-brand/20 rounded-2xl p-4 shadow-soft flex items-center gap-4 mb-6 hover:border-brand transition-colors text-left active:scale-[0.98]">
-            <div class="bg-brand-50 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
-                <i class="ph-fill ph-sparkle text-brand text-2xl"></i>
-            </div>
-            <div>
-                <h2 class="text-text-main font-bold text-[15px]">Assistente Inteligente</h2>
-                <p class="text-text-muted text-xs mt-0.5">Tire dúvidas sobre leis, trocas e direitos.</p>
-            </div>
-            <i class="ph-bold ph-caret-right text-text-muted ml-auto"></i>
-        </button>
-
         <h3 class="text font-bold text-text-muted uppercase tracking-wider mb-3 ml-1" style="font-size: 0.675rem;">Selecione o tema desejado para obter informações</h3>
         
         <div class="grid grid-cols-2 gap-3">
@@ -163,59 +155,6 @@
                 <span class="font-semibold text-sm text-text-main leading-tight">Outras Informações</span>
             </button>
         </div>
-      </div>
-    </div>
-
-    <!-- CHAT (V2 layout with V1 RAG logic) -->
-    <div id="screen-chat" class="screen bg-surface">
-      <header class="bg-white px-4 py-3 flex items-center shadow-sm z-10 shrink-0 border-b border-gray-100">
-        <button onclick="app.goBack()" class="p-2 -ml-2 text-text-muted hover:text-brand transition-colors">
-            <i class="ph-bold ph-arrow-left text-xl"></i>
-        </button>
-        <div class="ml-2 flex items-center gap-2">
-            <div class="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center">
-                <i class="ph-fill ph-robot text-brand text-lg"></i>
-            </div>
-            <div>
-                <h2 class="font-bold text-text-main text-sm">Assistente MI</h2>
-                <p class="text-[10px] text-green-500 font-semibold flex items-center gap-1">
-                    <span class="w-1.5 h-1.5 rounded-full bg-green-500 block"></span> Online
-                </p>
-            </div>
-        </div>
-        <button onclick="chatModule.clearChat()" class="ml-auto p-2 text-text-muted text-xs font-semibold hover:text-brand">Limpar</button>
-      </header>
-
-      <div id="chat-messages" class="scroll-area p-4 flex flex-col gap-4 bg-surface">
-        <div class="flex flex-col gap-1 items-start w-full">
-            <div class="chat-bubble bot bg-white p-3.5 rounded-2xl rounded-bl-sm shadow-soft text-sm text-text-main border border-gray-100">
-                Olá! Sou o Assistente Virtual da MI Brasil. Estou aqui para te ajudar com informações de <strong>Atendimento Prioritário</strong>, telefones do <strong>Procon</strong> ou <strong>Privacidade</strong>.<br>
-                Exemplo: <em>"Quais as leis de prioridade em São Paulo?"</em>
-            </div>
-            <span class="text-[10px] text-text-muted ml-1">Assistente MI</span>
-        </div>
-        <div id="chat-suggestions" class="flex flex-wrap gap-2 mt-2">
-            <button onclick="chatModule.sendSuggested('Procon de São Paulo')" class="bg-white border border-brand/20 text-brand text-xs font-medium px-3 py-1.5 rounded-full shadow-sm">Procon de São Paulo</button>
-            <button onclick="chatModule.sendSuggested('Prioridade no Rio de Janeiro')" class="bg-white border border-brand/20 text-brand text-xs font-medium px-3 py-1.5 rounded-full shadow-sm">Prioridade no Rio</button>
-        </div>
-        
-        <div id="chat-loading" class="typing-indicator items-end gap-2 w-full mt-2">
-             <div class="w-8 h-8 rounded-full bg-brand-50 flex items-center justify-center shrink-0">
-                <i class="ph-fill ph-robot text-brand text-sm"></i>
-            </div>
-            <div class="bg-white p-3.5 rounded-2xl rounded-bl-sm shadow-soft border border-gray-100 h-[42px] flex items-center">
-                <div class="dot-flashing"></div>
-            </div>
-        </div>
-      </div>
-
-      <div class="bg-white p-3 pb-[calc(12px+env(safe-area-inset-bottom))] shadow-[0_-4px_15px_rgba(0,0,0,0.03)] shrink-0 absolute bottom-0 w-full z-20">
-        <form id="chat-form" class="flex items-center gap-2" onsubmit="chatModule.handleSubmit(event)">
-            <input type="text" id="chat-input" placeholder="Digite sua dúvida ou cidade..." class="flex-1 bg-surface border border-gray-200 rounded-full px-4 py-2.5 text-sm outline-none focus:border-brand transition-colors" autocomplete="off">
-            <button type="submit" id="chat-submit" class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center shrink-0 shadow-md active:scale-95 transition-transform disabled:opacity-50 disabled:scale-100">
-                <i class="ph-fill ph-paper-plane-right"></i>
-            </button>
-        </form>
       </div>
     </div>
 
@@ -251,7 +190,7 @@
             </div>
         </header>
 
-        <div class="scroll-area p-5 bg-surface">
+        <div class="scroll-area p-5 bg-surface" style="padding-bottom: 20%;">
             <div id="procon-results" class="flex flex-col gap-3"></div>
             <div id="procon-empty" class="text-center py-10 text-text-muted">
                 <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
@@ -441,9 +380,9 @@
             </section>
             <div class="residuos-divider"></div>
             <section class="residuos-section residuos-collection">
-                <h2 class="residuos-title">ONDE ENCONTRAR PEV DA GREEN ELETRON</h2>
+                <h2 class="residuos-title">ONDE ENCONTRAR PEV DA<P></P> GREEN ELETRON</h2>
                 <p>Acesse o site:</p>
-                <a href="https://greeneletron.org.br/localizador" class="residuos-button" target="_blank" rel="noopener noreferrer">Green Eletron</a>
+                <a href="https://greeneletron.org.br/onde-descartar/" class="residuos-button" target="_blank" rel="noopener noreferrer">Green Eletron</a>
                 <p>Coloque seu endereço e descubra o ponto de coleta mais próximo a você!</p>
                 <img src="assets/img/residuos/Asset 9-8.png" alt="Mascote Green Eletron com lupa" class="residuos-collection-image">
                 <p class="residuos-note">Caso não haja um ponto de coleta da Green Eletron próximo à sua região, busque empresas especializadas em reciclagem de resíduos eletrônicos ou pontos de coleta existentes em sua cidade.</p>
@@ -493,17 +432,30 @@
     <section id="screen-codigo-defesa" class="screen bg-surface financeiro-screen">
       <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
         <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
-        <h2 class="ml-2 font-bold text-text-main text-sm">Exemplar do código de defesa consumidor</h2>
+        <h2 class="ml-2 font-bold text-text-main text-sm">Código de Defesa do Consumidor</h2>
       </header>
-      <div class="scroll-area p-5"><div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
-<div class="privacy-policy" style="text-align: center; padding: 40px 20px;">
-    <h1 style="text-align: center;">Exemplar do Código de Defesa do Consumidor</h1>
-    <p style="margin-bottom: 30px; font-size: 1rem; color: var(--color-text-muted);">Clique no botão abaixo para acessar a versão digital e atualizada do Código de Defesa do Consumidor (CDC) diretamente do portal do Governo Federal.</p>
-    <a href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: linear-gradient(135deg, #002D72, #001f52); color: #fff; padding: 16px 32px; text-decoration: none; border-radius: 8px; font-weight: 700; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.15); transition: transform 0.2s;">
-        Acessar o Código de Defesa do Consumidor
-    </a>
-</div>
-            </div></div>
+      <div class="scroll-area p-4 sm:p-5">
+        <main>
+          <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="cdc-resource-title">
+            <div class="flex items-start gap-3">
+              <span class="cdc-feature-icon"><i class="ph-fill ph-book-open-text" aria-hidden="true"></i></span>
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-orange-600">Lei Federal nº 8.078/1990</p>
+                <h2 id="cdc-resource-title" class="mt-1 text-base font-extrabold leading-snug text-slate-800">Código de Defesa do Consumidor (CDC)</h2>
+                <p class="mt-2 text-sm leading-relaxed text-slate-600">Consulte o texto compilado da lei diretamente no site oficial do Planalto.</p>
+              </div>
+            </div>
+            <a class="cdc-resource-link mt-5" href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank" rel="noopener noreferrer">
+              <i class="ph-bold ph-arrow-square-out text-lg" aria-hidden="true"></i>
+              Acessar o CDC no Planalto
+            </a>
+            <p class="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-500">
+              <i class="ph-fill ph-shield-check text-sm text-emerald-600" aria-hidden="true"></i>
+              Link para fonte oficial do Governo Federal
+            </p>
+          </section>
+        </main>
+      </div>
     </section>
 
     <section id="screen-formas-pagamento" class="screen bg-surface financeiro-screen">
@@ -511,83 +463,104 @@
         <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
         <h2 class="ml-2 font-bold text-text-main text-sm">Formas de Pagamento</h2>
       </header>
-      <div class="scroll-area p-5"><div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
-<div class="fin-payment" style="font-family: var(--font-family); color: var(--color-text); padding: 5px;">
-    
-    <div class="fin-payment-box fin-accepted" style="background: #f8f9fa; border-left: 4px solid var(--color-primary); padding: 15px 20px; border-radius: 4px; margin-bottom: 25px;">
-        <h1 style="font-size: 1.15rem; font-weight: 700; color: var(--color-primary); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
-            <svg style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
-            FORMAS DE PAGAMENTO ACEITAS
-        </h1>
-        <ul style="list-style: none; margin: 0; padding: 0;">
-            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 500;">
-                <svg style="width: 18px; height: 18px; color: #10B981; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                Dinheiro
-            </li>
-            <li style="margin-bottom: 8px; display: flex; align-items: center; gap: 8px; font-weight: 500;">
-                <svg style="width: 18px; height: 18px; color: #10B981; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                Pix
-            </li>
-            <li style="display: flex; align-items: center; gap: 8px; font-weight: 500;">
-                <svg style="width: 18px; height: 18px; color: #10B981; flex-shrink: 0;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/></svg>
-                Cartão de débito e crédito
-            </li>
-        </ul>
-    </div>
+      <div class="scroll-area p-4 sm:p-5">
+        <main class="financeiro-content grid gap-4">
+          <section class="payment-hero overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 via-orange-600 to-amber-600 p-5 text-white shadow-lg shadow-orange-900/10">
+            <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[.16em]">
+              <i class="ph-fill ph-sparkle text-sm" aria-hidden="true"></i>
+              Pagamento fácil e seguro
+            </span>
+            <h1 class="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-white">Escolha como pagar</h1>
+            <p class="mt-2 max-w-sm text-sm leading-relaxed text-white/85">Confira as opções aceitas nas lojas MiBrasil.</p>
+            <section aria-labelledby="payment-methods-title">
+            <div class="mb-3 flex items-end justify-between gap-3">
+              <!-- <div>
+                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-orange-600">Na loja</p>
+                <h2 id="payment-methods-title" class="mt-1 text-lg font-extrabold text-slate-800">Formas aceitas</h2>
+              </div> -->
+              <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">3 opções</span>
+            </div>
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <article class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                <span class="payment-method-icon bg-emerald-50 text-emerald-600"><i class="ph-fill ph-money" aria-hidden="true"></i></span>
+                <span><strong class="block text-sm font-bold text-slate-800">Dinheiro</strong><span class="mt-1 block text-xs text-slate-500">Pagamento em espécie</span></span>
+              </article>
+              <article class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                <span class="payment-method-icon bg-teal-50 text-teal-600"><i class="ph-bold ph-qr-code" aria-hidden="true"></i></span>
+                <span><strong class="block text-sm font-bold text-slate-800">Pix</strong><span class="mt-1 block text-xs text-slate-500">Pagamento instantâneo</span></span>
+              </article>
+              <article class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                <span class="payment-method-icon bg-blue-50 text-blue-600"><i class="ph-fill ph-credit-card" aria-hidden="true"></i></span>
+                <span><strong class="block text-sm font-bold text-slate-800">Cartão</strong><span class="mt-1 block text-xs text-slate-500">Débito ou crédito</span></span>
+              </article>
+            </div>
+          </section>
+          </section>
 
-    <div class="fin-payment-box fin-brands" style="margin-bottom: 25px;">
-        <p style="font-size: 0.95rem; font-weight: 700; color: #4B5563; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.5px;">Bandeiras Aceitas</p>
-        <div style="display: flex; gap: 15px; align-items: center; flex-wrap: wrap; background: white; padding: 15px; border-radius: 8px; border: 1px solid #E5E7EB; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-            <span class="financeiro-bandeira">American Express</span>
-            <span class="financeiro-bandeira">Diners Club</span>
-            <span class="financeiro-bandeira">Elo</span>
-            <span class="financeiro-bandeira">MasterCard</span>
-            <span class="financeiro-bandeira">VISA</span>
-        </div>
-        <div style="margin-top: 15px; display: inline-flex; align-items: center; gap: 8px; background: #FEF2F2; color: #DC2626; padding: 8px 12px; border-radius: 6px; font-size: 0.9rem; font-weight: 600; border: 1px solid #FCA5A5;">
-            <svg style="width: 18px; height: 18px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
-            Não aceitamos cheque
-        </div>
-    </div>
+          
 
-    <div class="fin-payment-box fin-installments" style="background: #f8f9fa; border-left: 4px solid #F59E0B; padding: 15px 20px; border-radius: 4px;">
-        <h1 style="font-size: 1.15rem; font-weight: 700; color: #D97706; margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
-            <svg style="width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-            REGRAS DE PARCELAMENTO
-        </h1>
-        <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
-                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>A quantidade máxima de parcelas varia para cada produto. Verifique as placas e preços.</span>
-            </li>
-            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
-                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>Nas compras de mais de um produto, consulte a forma de parcelamento com o vendedor.</span>
-            </li>
-            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
-                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>O número de parcelas <strong>SEM JUROS</strong> poderá ser reduzido para observar os limites de cada bandeira do cartão. Consulte o vendedor.</span>
-            </li>
-            <li style="display: flex; gap: 10px; font-size: 0.95rem; line-height: 1.5; color: #4B5563;">
-                <svg style="width: 18px; height: 18px; color: #F59E0B; flex-shrink: 0; margin-top: 2px;" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                <span>A possibilidade e as condições de parcelamento superiores, <strong>COM JUROS</strong>, devem ser consultadas com o vendedor.</span>
-            </li>
-        </ul>
-    </div>
+          <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="payment-brands-title">
+            <div class="mb-4">
+              <p class="text-[10px] font-bold uppercase tracking-[.16em] text-slate-500">Cartões</p>
+              <h2 id="payment-brands-title" class="mt-1 text-base font-extrabold text-slate-800">Bandeiras aceitas</h2>
+            </div>
+            <div class="grid grid-cols-2 gap-2 sm:grid-cols-3">
+              <div class="payment-brand-tile" aria-label="American Express"><img class="payment-brand-logo" src="./assets/img/cartoes/amex.svg" alt="American Express" loading="lazy"></div>
+              <div class="payment-brand-tile" aria-label="Diners Club"><img class="payment-brand-logo" src="./assets/img/cartoes/diners.svg" alt="Diners Club" loading="lazy"></div>
+              <div class="payment-brand-tile" aria-label="Elo"><img class="payment-brand-logo" src="./assets/img/cartoes/elo.svg" alt="Elo" loading="lazy"></div>
+              <div class="payment-brand-tile" aria-label="Mastercard"><img class="payment-brand-logo" src="./assets/img/cartoes/mastercard.svg" alt="Mastercard" loading="lazy"></div>
+            </div>
+            <!-- <div class="mt-4 flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-3 text-rose-800" role="note">
+              <i class="ph-fill ph-prohibit mt-0.5 text-lg" aria-hidden="true"></i>
+              <span><strong class="block text-xs font-bold">Cheque não aceito</strong><span class="mt-0.5 block text-xs text-rose-700">No momento, não aceitamos pagamentos em cheque.</span></span>
+            </div> -->
+            <div class="payment-brand-tile" aria-label="Visa" style="margin-top: 10px; width: 156px; margin-left: 25%;"><img class="payment-brand-logo" src="./assets/img/cartoes/visa.svg" alt="Visa" loading="lazy"></div>
+            
+            <div class="mt-4 flex items-start gap-3 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-zinc-800" role="note">
+  <i class="ph-fill ph-prohibit mt-0.5 text-xl text-rose-600" aria-hidden="true"></i>
+  <div>
+    <h5 class="text-sm font-semibold text-zinc-950">Não aceitamos cheque</h5>
+    <p class="mt-0.5 text-xs text-zinc-600">No momento, não aceitamos pagamentos em cheque.</p>
+  </div>
 </div>
-            </div></div>
+
+          </section>
+
+          <section class="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="installments-title">
+            <div class="mb-4 flex items-center gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600"><i class="ph-fill ph-calendar-dots text-xl" aria-hidden="true"></i></span>
+              <div>
+                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-amber-700">Cartão de crédito</p>
+                <h2 id="installments-title" class="mt-0.5 text-base font-extrabold text-slate-800">Regras de parcelamento</h2>
+              </div>
+            </div>
+            <ul class="space-y-4">
+              <li class="payment-rule">
+                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
+                <span class="text-sm leading-relaxed text-slate-600">A quantidade máxima de parcelas varia para cada produto. Verifique as placas e os preços.</span>
+              </li>
+              <li class="payment-rule">
+                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
+                <span class="text-sm leading-relaxed text-slate-600">Nas compras de mais de um produto, consulte a forma de parcelamento com o vendedor.</span>
+              </li>
+              <li class="payment-rule">
+                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
+                <span class="text-sm leading-relaxed text-slate-600">O número de parcelas <strong class="font-bold text-slate-800">sem juros</strong> poderá ser reduzido conforme os limites de cada bandeira. Consulte o vendedor.</span>
+              </li>
+              <li class="payment-rule">
+                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
+                <span class="text-sm leading-relaxed text-slate-600">A possibilidade e as condições de parcelamento superior, <strong class="font-bold text-slate-800">com juros</strong>, devem ser consultadas com o vendedor.</span>
+              </li>
+            </ul>
+          </section>
+        </main>
+      </div>
     </section>
     <!-- BOTTOM NAVIGATION -->
     <nav class="bottom-nav bg-white border-t border-gray-100 flex items-center justify-around h-16 absolute bottom-0 w-full z-30 shadow-nav pb-[env(safe-area-inset-bottom)]">
         <button onclick="app.navigate('home')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors active" data-target="home">
             <i class="ph-fill ph-house text-2xl mb-0.5"></i>
             <span class="text-[10px] font-semibold">Início</span>
-        </button>
-        <button onclick="app.navigate('chat')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors relative" data-target="chat">
-            <div class="absolute -top-3 bg-brand text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg border-4 border-surface shadow-brand/20">
-                <i class="ph-fill ph-sparkle text-2xl"></i>
-            </div>
-            <span class="text-[10px] font-semibold mt-6 text-brand">Chat</span>
         </button>
         <button onclick="app.navigate('prioridade')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#9B59B6] transition-colors" data-target="prioridade">
             <i class="ph-fill ph-users text-2xl mb-0.5"></i>

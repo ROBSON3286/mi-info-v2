@@ -4,55 +4,91 @@ let cTextLei = "Atendimento Preferencial e Prioritário apenas de acordo com a L
 
 const DATA = {
   estados: [
-    { uf: 'AL', nome: 'Alagoas' }, { uf: 'AM', nome: 'Amazonas' }, { uf: 'BA', nome: 'Bahia' }, { uf: 'CE', nome: 'Ceará' }, { uf: 'DF', nome: 'Distrito Federal' }, { uf: 'ES', nome: 'Espírito Santo' }, { uf: 'MA', nome: 'Maranhão' }, { uf: 'MG', nome: 'Minas Gerais' }, { uf: 'MS', nome: 'Mato Grosso do Sul' }, { uf: 'MT', nome: 'Mato Grosso' }, { uf: 'PA', nome: 'Pará' }, { uf: 'PB', nome: 'Paraíba' }, { uf: 'PE', nome: 'Pernambuco' }, { uf: 'PI', nome: 'Piauí' }, { uf: 'PR', nome: 'Paraná' }, { uf: 'RJ', nome: 'Rio de Janeiro' }, { uf: 'RN', nome: 'Rio Grande do Norte' }, { uf: 'RS', nome: 'Rio Grande do Sul' }, { uf: 'SE', nome: 'Sergipe' }, { uf: 'SP', nome: 'São Paulo' }
+    { uf: 'AL', nome: 'Alagoas' }, { uf: 'AM', nome: 'Amazonas' }, { uf: 'BA', nome: 'Bahia' }, { uf: 'CE', nome: 'Ceará' }, { uf: 'DF', nome: 'Distrito Federal' }, { uf: 'ES', nome: 'Espírito Santo' }, { uf: 'MA', nome: 'Maranhão' }, { uf: 'MG', nome: 'Minas Gerais' }, { uf: 'MS', nome: 'Mato Grosso do Sul' }, { uf: 'PA', nome: 'Pará' }, { uf: 'PB', nome: 'Paraíba' }, { uf: 'PE', nome: 'Pernambuco' }, { uf: 'PI', nome: 'Piauí' }, { uf: 'PR', nome: 'Paraná' }, { uf: 'RJ', nome: 'Rio de Janeiro' }, { uf: 'RN', nome: 'Rio Grande do Norte' }, { uf: 'RS', nome: 'Rio Grande do Sul' }, { uf: 'SE', nome: 'Sergipe' }, { uf: 'SP', nome: 'São Paulo' }
   ],
   prioridade: [
-    { uf: 'AL', cidade: 'Maceió', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/al/atendimento_preferencial_AL.png', './assets/img/estados/al/maceio/Alagoas - Estadual.png'] },
-    { uf: 'AM', cidade: 'Manaus', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/am/atendimento_preferencial_AM.png', './assets/img/estados/am/manaus/Manaus.png', './assets/img/estados/am/manaus/Manaus 2.png'] },
-    { uf: 'BA', cidade: 'Feira de Santana', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/ba/Feira de Santana/Municipal - Feira de Santana.png'] },
-    { uf: 'BA', cidade: 'Salvador', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/ba/atendimento_preferencial_BA.png'] },
-    { uf: 'CE', cidade: 'Fortaleza', texto: '', imgs: ['./assets/img/estados/ce/atendimento_prioritario_CE.jpg', './assets/img/estados/ce/Fortaleza/Fortaleza - Municipal.png', './assets/img/estados/ce/Fortaleza/atendimento_prioritario_CE.jpg'] },
+    { uf: 'AL', cidade: 'Maceió', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/al/maceio/Alagoas - Estadual.png'] },
+    { uf: 'AM', cidade: 'Manaus', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/am/manaus/Manaus.png', './assets/img/estados/am/manaus/Manaus 2.png'] },
+    // { uf: 'BA', cidade: 'Feira de Santana', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/ba/Feira de Santana/Municipal - Feira de Santana.png'] },
+    { uf: 'BA', cidade: 'Salvador', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs:[]},
+    { uf: 'CE', cidade: 'Fortaleza', texto: '', imgs: ['./assets/img/estados/ce/atendimento_prioritario_CE.jpg', './assets/img/estados/ce/Fortaleza/Fortaleza - Municipal.png'] },
     { uf: 'DF', cidade: 'Brasília', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/df/Brasília/Atendimento Preferencial Distrito Federal.png', './assets/img/estados/df/Brasília/Distrito Federal - Estadual.png'] },
-    { uf: 'ES', cidade: 'Vila Velha', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'ES', cidade: 'Vitória', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/es/Espírito Santo - Estadual.png'] },
-    { uf: 'MA', cidade: 'São Luís', texto: cTextLei, imgs: ['./assets/img/estados/ma/Atendimento prioritario.png', './assets/img/estados/ma/Maranhão - Estadual.png', './assets/img/estados/ma/sao_luis/Atendimento prioritario.png', './assets/img/estados/ma/sao_luis/São Luís - Municipal.png'] },
-    { uf: 'MS', cidade: 'Campo Grande', texto: cTextLei, imgs: ['./assets/img/estados/ms/atendimento_preferencial_MS.png', './assets/img/estados/ms/Campo Grande/atendimento_prioritario_MT.png'] },
-    { uf: 'MG', cidade: 'Belo Horizonte', texto: cTextLei, imgs: ['./assets/img/estados/mg/atendimento_prioritario_MG.png', './assets/img/estados/mg/bh-estadual.png', './assets/img/estados/mg/Belo Horizonte/atendimento_prioritario_MG.png'] },
+    { uf: 'ES', cidade: 'Vila Velha', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/es/Espírito Santo - Estadual.png', './assets/img/estados/es/Vila Velha/Vila Velha - Municipal.png', './assets/img/estados/es/Vila Velha/vila-velha-municipal.png'] },
+    { uf: 'ES', cidade: 'Vitória', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/es/Espírito Santo - Estadual.png', './assets/img/estados/es/Vitoria/Vitória - Municipal.png', './assets/img/estados/es/Vitoria/Vitória - Municipal 2.png'] },
+    { uf: 'MA', cidade: 'São Luís', texto: cTextLei, imgs: ['./assets/img/estados/ma/Maranhão - Estadual.png', './assets/img/estados/ma/sao_luis/Atendimento prioritario.png', './assets/img/estados/ma/sao_luis/São Luís - Municipal.png'] },
+    // { uf: 'MS', cidade: 'Campo Grande', texto: cTextLei, imgs: [ './assets/img/estados/ms/Campo Grande/atendimento_prioritario_MT.png'] },
+    { uf: 'MG', cidade: 'Belo Horizonte', texto: cTextLei, imgs: [ './assets/img/estados/mg/bh-estadual.png', './assets/img/estados/mg/Belo Horizonte/atendimento_prioritario_MG.png'] },
     { uf: 'MG', cidade: 'Juiz de Fora', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'MG', cidade: 'Montes Claros', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'MG', cidade: 'Uberlândia', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'MT', cidade: 'Cuiabá', texto: cTextLei, imgs: ['./assets/img/estados/mt/atendimento_prioritario_MT.png'] },
-    { uf: 'PA', cidade: 'Belém', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pa/atendimento_preferencial_PA.png'] },
-    { uf: 'PB', cidade: 'Campina Grande', texto: cTextLei, imgs: [] },
-    { uf: 'PB', cidade: 'João Pessoa', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg'] },
-    { uf: 'PE', cidade: 'Recife', texto: cTextLei, imgs: ['./assets/img/estados/pe/1. Atendimento prioritário.webp'] },
-    { uf: 'PI', cidade: 'Teresina', texto: cTextLei, imgs: ['./assets/img/estados/pi/teresina.png'] },
-    { uf: 'PR', cidade: 'Curitiba', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pr/atendimento_preferencial_PR.png'] },
-    { uf: 'PR', cidade: 'Londrina', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
+    // { uf: 'MT', cidade: 'Cuiabá', texto: cTextLei, imgs: ['./assets/img/estados/mt/atendimento_prioritario_MT.png'] },
+    { uf: 'PA', cidade: 'Belém', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pa/Estadual-para.png', './assets/img/estados/pa/Belém - Municipal.png'] },
+    { uf: 'PB', cidade: 'Campina Grande', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg'] },
+    { uf: 'PB', cidade: 'João Pessoa', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg', './assets/img/estados/pb/João Pessoa/João Pessoa 1 - Estadual.png', './assets/img/estados/pb/João Pessoa/João Pessoa 2 - Estadual.png','./assets/img/estados/pb/João Pessoa/João Pessoa 3 - Municipal.png'] },
+    { uf: 'PE', cidade: 'Recife', texto: cTextLei, imgs: ['./assets/img/estados/pe/1. Atendimento prioritário.webp','./assets/img/estados/pe/Recife/Recife - Municipal.png'] },
+    { uf: 'PI', cidade: 'Teresina', texto: cTextLei, imgs: ['./assets/img/estados/pi/teresina.png','./assets/img/estados/pi/Municipal - Teresina.png','./assets/img/estados/pi/Municipal - Teresina 2.png','./assets/img/estados/pi/Municipal - Teresina 3.png'] },
+    { uf: 'PR', cidade: 'Curitiba', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pr/Curitiba/Curitiba.png'] },
+    { uf: 'PR', cidade: 'Londrina', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pr/Londrina/Londrina.png', './assets/img/estados/pr/Londrina/Londrina 2.png'] },
     { uf: 'RJ', cidade: 'Niterói', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'RJ', cidade: 'Nova Iguaçu', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'RJ', cidade: 'Rio de Janeiro', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/atendimento_preferencial_RJ.png'] },
+    { uf: 'RJ', cidade: 'Rio de Janeiro', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'RJ', cidade: 'São João de Meriti', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'RN', cidade: 'Natal', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rn/1. Atendimento prioritário.png', './assets/img/estados/rn/atendimento_preferencial_RN.png'] },
-    { uf: 'RS', cidade: 'Porto Alegre', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rs/atendimento_preferencial_RS.png'] },
-    { uf: 'SE', cidade: 'Aracaju', texto: cTextLei, imgs: ['./assets/img/estados/se/1. Atendimento prioritário.png'] },
-    { uf: 'SP', cidade: 'Barueri', texto: cTextLei, imgs: [] },
-    { uf: 'SP', cidade: 'Campinas', texto: cTextLei, imgs: [] },
-    { uf: 'SP', cidade: 'Guarulhos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'Jundiaí', texto: cTextLei, imgs: [] },
-    { uf: 'SP', cidade: 'Mogi das Cruzes', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'Santo André', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'Santos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
+    { uf: 'RN', cidade: 'Natal', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rn/estadual.png'] },
+    { uf: 'RS', cidade: 'Porto Alegre', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
+    { uf: 'SE', cidade: 'Aracaju', texto: '', imgs: ['./assets/img/estados/se/1. Atendimento prioritário.png','./assets/img/estados/se/Municipal - Aracajú.png','./assets/img/estados/se/Municipal - Aracaju 2.png','./assets/img/estados/se/Municipal - Aracaju 3.png','./assets/img/estados/se/Municipal - Aracaju 4.png'] },
+    { uf: 'SP', cidade: 'Barueri', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Barueri/atendimento_prioritario_SP.png'] },
+    { uf: 'SP', cidade: 'Campinas', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Campinas/atendimento_prioritario_SP.jpg'] },
+    { uf: 'SP', cidade: 'Guarulhos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
+    { uf: 'SP', cidade: 'Jundiaí', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Jundiai/Atendimento prioritário Fibromialgia.jpg'] },
+    { uf: 'SP', cidade: 'Mogi das Cruzes', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Mogi/Mogi das Cruzes.png'] },
+    { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Ribeirão Preto/Ribeirão Preto.png'] },
+    { uf: 'SP', cidade: 'Santo André', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
+    // { uf: 'SP', cidade: 'Santos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'SP', cidade: 'São Bernardo do Campo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/Atendimento priorizado - pessoas ostomizadas.PNG', './assets/img/estados/sp/Atendimento prioritário Fibromialgia.JPG', './assets/img/estados/sp/atendimento_prioritario_SP.jpg', './assets/img/estados/sp/atendimento_prioritario_SP.png'] },
-    { uf: 'SP', cidade: 'Taubaté', texto: cTextLei, imgs: [] }
+    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/São Paulo/LEI MUNICIPAL SP.png'] }
+    // { uf: 'SP', cidade: 'Taubaté', texto: cTextLei, imgs: [] }
   ],
   procon: [
-    { uf: 'SP', cidade: 'São Paulo', nome: 'Procon-SP (Sede Estadual)', fone: 'Disque 151 / (11) 3824-0446', url: 'https://www.procon.sp.gov.br' },
-    { uf: 'SP', cidade: 'Campinas', nome: 'Procon Campinas', fone: 'Disque 151 / (19) 3734-2000', url: 'https://procon.campinas.sp.gov.br' },
-    { uf: 'RJ', cidade: 'Rio de Janeiro', nome: 'Procon-RJ (Estadual)', fone: 'Disque 151 / (21) 2212-7000', url: 'https://www.procon.rj.gov.br' },
-    { uf: 'MG', cidade: 'Belo Horizonte', nome: 'Procon-MG', fone: 'Disque 151 / (31) 3277-4400', url: 'https://www.procon.mg.gov.br' }
+    { uf: 'AL', cidade: 'Maceió', nome: 'Procon Maceió', fone: 'Disque 151 / (82) 98883-7586', url: '', imgs: [] },
+    { uf: 'AM', cidade: 'Manaus', nome: 'Procon Manaus', fone: '0800 092 1512 / (92) 3215-4009', url: 'https://www.procon.am.gov.br', imgs: [] },
+    { uf: 'BA', cidade: 'Feira de Santana', nome: 'Procon Feira de Santana', fone: '(75) 3617-1969', url: 'http://www.feiradesantana.ba.gov.br/procon/index_home.asp', imgs: [] },
+    { uf: 'BA', cidade: 'Salvador', nome: 'Procon Salvador', fone: '(71) 3116-8521', url: 'https://www.ba.gov.br/justica/84/postos-de-atendimento-procon-ba', imgs: [] },
+    { uf: 'CE', cidade: 'Fortaleza', nome: 'Procon Fortaleza', fone: '(85) 3277-3800 / (85) 3277-3801', url: 'https://procon.al.ce.gov.br', imgs: [] },
+    { uf: 'DF', cidade: 'Brasília', nome: 'Procon Brasília', fone: 'Disque 151', url: 'https://www.procon.df.gov.br/', imgs: [] },
+    { uf: 'ES', cidade: 'Vila Velha', nome: 'Procon Vila Velha', fone: 'Disque 162 / (27) 3149-7358', url: 'https://procon.vilavelha.es.gov.br', imgs: ['./demais/Placas%20PROCON/Esp%C3%ADrito%20Santo/Vit%C3%B3ria/3.%20Placa%20com%20os%20dados%20do%20Procon.ES.png'] },
+    { uf: 'ES', cidade: 'Vitória', nome: 'Procon Vitória', fone: '(27) 3382-5484 / (27) 3382-5545', url: 'https://procon.vitoria.es.gov.br', imgs: ['./demais/Placas%20PROCON/Esp%C3%ADrito%20Santo/Vit%C3%B3ria/3.%20Placa%20com%20os%20dados%20do%20Procon.ES.png'] },
+    { uf: 'MA', cidade: 'São Luís', nome: 'Procon São Luís', fone: 'Disque 151 / (98) 3261-5100', url: 'https://www.procon.ma.gov.br', imgs: [] },
+    { uf: 'MG', cidade: 'Belo Horizonte', nome: 'Procon Belo Horizonte', fone: '(31) 3277-1616', url: 'https://www.cmbh.mg.gov.br/servicos/procon', imgs: [] },
+    { uf: 'MG', cidade: 'Juiz de Fora', nome: 'Procon Juiz de Fora', fone: '(32) 3690-7610 / 3690-7611', url: 'https://www.pjf.mg.gov.br/administracao_indireta/procon/atendimento.php', imgs: [] },
+    { uf: 'MG', cidade: 'Montes Claros', nome: 'Procon Montes Claros', fone: '(38) 2211-3360', url: 'https://www.montesclaros.mg.gov.br/procon-abertura-direta-de-reclamacao', imgs: [] },
+    { uf: 'MG', cidade: 'Uberlândia', nome: 'Procon Uberlândia', fone: 'Disque 151 / (34) 3291-1600', url: 'https://www.uberlandia.mg.gov.br/prefeitura/orgaos-municipais/procon', imgs: [] },
+    { uf: 'MS', cidade: 'Campo Grande', nome: 'Procon Campo Grande', fone: 'Disque 151 / (67) 3316-9800', url: 'https://www.procon.ms.gov.br', imgs: [] },
+    { uf: 'PA', cidade: 'Belém', nome: 'Procon Belém', fone: 'Disque 151 / (91) 3073-2827', url: 'https://www.procon.pa.gov.br/', imgs: [] },
+    { uf: 'PB', cidade: 'Campina Grande', nome: 'Procon Campina Grande', fone: 'Disque 151 / (83) 98185-8168 / (83) 98186-3609', url: 'https://procon.campinagrande.pb.gov.br/', imgs: ['./demais/Placas%20PROCON/Para%C3%ADba/3.%20Contatos%20Procon.jpg'] },
+    { uf: 'PB', cidade: 'João Pessoa', nome: 'Procon João Pessoa', fone: '(83) 98654-4965', url: 'https://procon.joaopessoa.pb.gov.br', imgs: ['./demais/Placas%20PROCON/Para%C3%ADba/3.%20Contatos%20Procon.jpg'] },
+    { uf: 'PE', cidade: 'Recife', nome: 'Procon Recife', fone: '0800-282-1512 / (81) 3181-7000', url: 'https://www.procon.pe.gov.br', imgs: [] },
+    { uf: 'PI', cidade: 'Teresina', nome: 'Procon Teresina', fone: '(86) 3216-3041', url: 'https://www.mppi.mp.br/internet/procon', imgs: [] },
+    { uf: 'PR', cidade: 'Curitiba', nome: 'Procon Curitiba', fone: '0800 041 1512', url: 'https://www.procon.pr.gov.br', imgs: [] },
+    { uf: 'PR', cidade: 'Londrina', nome: 'Procon Londrina', fone: 'Disque 151 / (43) 3372-4824', url: '', imgs: [] },
+    { uf: 'RJ', cidade: 'Niterói', nome: 'Procon Niterói', fone: '(21) 3254-8593', url: 'https://procon.niteroi.rj.gov.br', imgs: ['./demais/Placas%20PROCON/Rio%20de%20Janeiro/Placa%20Procon.png', './demais/Placas%20PROCON/Rio%20de%20Janeiro/3.%20Contato%20Procon.jpg'] },
+    { uf: 'RJ', cidade: 'Nova Iguaçu', nome: 'Procon Nova Iguaçu', fone: 'Disque 151 / (21) 98104-5445', url: 'https://www.rj.gov.br/procon/', imgs: ['./demais/Placas%20PROCON/Rio%20de%20Janeiro/Placa%20Procon.png', './demais/Placas%20PROCON/Rio%20de%20Janeiro/3.%20Contato%20Procon.jpg'] },
+    { uf: 'RJ', cidade: 'Rio de Janeiro', nome: 'Procon Rio de Janeiro', fone: 'Disque 151 / (21) 2216-8686', url: 'https://www.rj.gov.br/procon', imgs: ['./demais/Placas%20PROCON/Rio%20de%20Janeiro/Placa%20Procon.png', './demais/Placas%20PROCON/Rio%20de%20Janeiro/3.%20Contato%20Procon.jpg'] },
+    { uf: 'RJ', cidade: 'São João de Meriti', nome: 'Procon São João de Meriti', fone: 'Disque 151 / (21) 2216-8686', url: 'https://www.rj.gov.br/procon/', imgs: ['./demais/Placas%20PROCON/Rio%20de%20Janeiro/Placa%20Procon.png', './demais/Placas%20PROCON/Rio%20de%20Janeiro/3.%20Contato%20Procon.jpg'] },
+    { uf: 'RN', cidade: 'Natal', nome: 'Procon Natal', fone: 'Disque 151', url: 'https://www.natal.rn.gov.br/procon', imgs: [] },
+    { uf: 'RS', cidade: 'Porto Alegre', nome: 'Procon Porto Alegre', fone: '(51) 3289-1774', url: 'https://www.procon.rs.gov.br/inicial', imgs: [] },
+    { uf: 'SE', cidade: 'Aracaju', nome: 'Procon Aracaju', fone: 'Disque 151 / (79) 3179-6040', url: 'https://procon.aracaju.se.gov.br/', imgs: ['./demais/Placas%20PROCON/Sergipe/Placa%20Telefone%20Procon.png'] },
+    { uf: 'SP', cidade: 'Barueri', nome: 'Procon Barueri', fone: '(11) 4199-1324', url: 'https://portal.barueri.sp.gov.br/cidadao/procon-barueri', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Campinas', nome: 'Procon Campinas', fone: 'Disque 151 / (19) 3734-2000', url: 'https://procon.campinas.sp.gov.br', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Guarulhos', nome: 'Procon Guarulhos', fone: 'Disque 151 / (11) 2468-7560 / 2472-6995', url: 'https://www.guarulhos.sp.gov.br/categories/protecao-e-defesa-do-consumidor', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Jundiaí', nome: 'Procon Jundiaí', fone: 'E-mail: proconjundiai@jundiai.sp.gov.br', url: 'https://procon.jundiai.sp.gov.br/', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Mogi das Cruzes', nome: 'Procon Mogi das Cruzes', fone: 'Disque 151 / (11) 4798-5090', url: 'https://www.mogidascruzes.sp.gov.br/pagina/procon/servico/procon-transparencia-e-ouvidoria/procon-atendimento-ao-consumidor-presencial', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Praia Grande', nome: 'Procon Praia Grande', fone: '(13) 3473-6810', url: 'https://www.procon.sp.gov.br/', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Ribeirão Preto', nome: 'Procon Ribeirão Preto', fone: 'Disque 151 / 0800 772 9198', url: 'https://www.procon.sp.gov.br/ribeirao-preto', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Santo André', nome: 'Procon Santo André', fone: '(11) 3356-9200', url: 'https://www.procon.sp.gov.br/santo-andre', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Santos', nome: 'Procon Santos', fone: '(13) 3201-5601 / (13) 99101-5792', url: 'https://www.procon.sp.gov.br/santo-andre', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'São Bernardo do Campo', nome: 'Procon São Bernardo do Campo', fone: '0800 7708 156 / (11) 2630-7350', url: 'https://www.saobernardo.sp.gov.br/web/secretaria-de-justica-sej/procon', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'São Paulo', nome: 'Procon-SP (Sede Estadual)', fone: 'Disque 151 / (11) 3824-0446', url: 'https://www.procon.sp.gov.br', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
+    { uf: 'SP', cidade: 'Taubaté', nome: 'Procon Taubaté', fone: '(12) 3624-6610 / 3624-2708', url: 'https://www.procon.sp.gov.br/taubate', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] }
   ],
   privacidade: [
     { shopping: 'Shopping Center Norte', cidade: 'São Paulo', uf: 'SP', url: 'https://www.mibrasil.com.br/aviso-de-privacidade-zury' },
@@ -73,7 +109,7 @@ const DATA = {
 
 const OUTROS_PASTAS_ESTADOS = {
   AL: 'Alagoas', AM: 'Amazonas', BA: 'Bahia', CE: 'Ceara', DF: 'Distrito Federal',
-  ES: 'Espirito Santo', MA: 'Maranhão', MG: 'Minas Gerais', MS: 'Mato Grosso do Sul',
+  ES: 'Espirito Santo', MA: 'Maranhão', MG: 'Minas Gerais',
   PA: 'Pará', PB: 'Paraíba', PE: 'Pernambuco', PI: 'Piaui', PR: 'Paraná',
   RJ: 'Rio de Janeiro', RN: 'Rio Grande do Norte', RS: 'Rio Grande do Sul',
   SE: 'Sergipe', SP: 'São Paulo'
@@ -83,7 +119,7 @@ const OUTROS_PLACAS = {
   cameras: {
     AL: '2. Ambiente sendo filmado.png', AM: '2. Ambiente sendo filmado.png', BA: '2. Ambiente filmado.webp',
     CE: '2. Ambiente sendo filmado.png', DF: '2. Ambiente sendo filmado.png', ES: '2. Ambiente sendo filmado.png',
-    MA: '2. Ambiente sendo filmado.png', MS: '2. Ambiente sendo filmado.png', MG: 'Ambiente filmado.webp',
+    MA: '2. Ambiente sendo filmado.png', MG: 'Ambiente filmado.webp',
     PA: '2. Ambiente sendo filmado.png', PB: '2. Ambiente sendo filmado.png', PE: '2. Ambiente sendo filmado.png',
     PI: '2. Ambiente sendo filmado.png', PR: '2. Ambiente sendo filmado.png', RJ: 'Ambiente filmado.webp',
     RN: '2. Ambiente sendo filmado.png', RS: '2. Ambiente sendo filmado.png', SE: '2. Ambiente sendo filmado.png',
@@ -92,7 +128,7 @@ const OUTROS_PLACAS = {
   fumar: {
     AL: '4. Proibido fumar (lei federal).gif', BA: '3. Proibido fumar (lei federal).gif',
     CE: '4. Proibido fumar (lei federal).gif', DF: '4. Proibido fumar (lei federal).gif', ES: '4. Proibido fumar (lei federal).gif',
-    MA: '4. Proibido fumar (lei federal).gif', MS: '4. Proibido fumar (lei federal).gif', MG: 'Proibido fumar lei estadual.png',
+    MA: '4. Proibido fumar (lei federal).gif', MG: 'Proibido fumar lei estadual.png',
     PA: '4. Proibido fumar (lei federal).gif', PB: '5. Proibido Fumar.jpg', PE: '4. Proibido fumar (lei federal).gif',
     PI: '4. Proibido fumar (lei federal).gif', PR: '4. Proibido fumar (lei federal).gif', RJ: 'Proibido Fumar.pdf',
     RN: '4. Proibido fumar (lei federal).gif', RS: '4. Proibido fumar (lei federal).gif', SE: '4. Proibido fumar (lei federal).gif',
@@ -101,7 +137,7 @@ const OUTROS_PLACAS = {
   fiscal: {
     AL: '3. Sonegar é crime.png', AM: '3. Sonegar é crime.png', BA: '4. Proibido sonegação fiscal.png',
     CE: '5. Proibido sonegação fiscal.png', DF: '3. Sonegar é crime.png',
-    MA: '3. Sonegar é crime.png', MS: '3. Sonegar é crime.png', MG: 'Proibido sonegação fiscal.png',
+    MA: '3. Sonegar é crime.png', MG: 'Proibido sonegação fiscal.png',
     PA: '3. Sonegar é crime.png', PB: '3. Sonegar é crime.png', PE: '5. Proibido sonegação fiscal.png',
     PI: '3. Sonegar é crime.png', PR: '5. Proibido sonegação fiscal.png', RJ: 'Proibido Sonegar.png',
     RN: '3. Sonegar é crime.png', RS: '3. Sonegar é crime.png', SE: '3. Sonegar é crime.png',
@@ -119,7 +155,7 @@ const OUTROS_PLACAS = {
   sacolas: {
     AL: '8. Proibido Sacolas Plasticas.png', AM: '8. Proibido Sacolas Plasticas.png', BA: '7. Proibido Sacolas Plasticas.png',
     CE: '8. Proibido Sacolas Plasticas.png', DF: '8. Proibido Sacolas Plasticas.png', ES: '7. Proibido Sacolas Plasticas.png',
-    MA: '8. Proibido Sacolas Plasticas.png', MS: '8. Proibido Sacolas Plasticas.png', MG: 'Proibido Sacolas Plasticas.png',
+    MA: '8. Proibido Sacolas Plasticas.png', MG: 'Proibido Sacolas Plasticas.png',
     PA: '8. Proibido Sacolas Plasticas.png', PB: '8. Proibido Sacolas Plasticas.png', PE: '8. Proibido Sacolas Plasticas.png',
     PI: '8. Proibido Sacolas Plasticas.png', PR: '8. Proibido Sacolas Plasticas.png', RJ: 'Proibido Sacolas Plásticas.jpg',
     RN: '8. Proibido Sacolas Plasticas.png', RS: '8. Proibido Sacolas Plasticas.png', SE: '8. Proibido Sacolas Plasticas.png',
@@ -129,11 +165,11 @@ const OUTROS_PLACAS = {
   discriminacao: {
     AL: '7. Proibido discriminação.png', BA: '6. Proibido discriminação.png',
     CE: '7. Proibido discriminação.png', DF: '7. Proibido discriminação.png', ES: '6. Proibido discriminação.png',
-    MA: '7. Proibido discriminação.png', MS: '7. Proibido discriminação.png', MG: 'Proibido discriminação.png',
+    MA: '7. Proibido discriminação.png', MG: 'Proibido discriminação.png',
     PA: '7. Proibido discriminação.png', PB: '7. Poribido discriminação.png', PE: '7. Proibido discriminação.png',
     PR: '7. Proibido discriminação.png', RJ: 'Poribido discriminação.png',
     RN: '7. Proibido discriminação.png', RS: '7. Proibido discriminação.png', SE: '7. Proibido discriminação.png',
-    SP: 'Vedação de discriminação.png'
+    SP: 'Vedação de discriminação.png',  PI: '7. Proibido discriminação.png'
   }
 };
 
@@ -146,7 +182,7 @@ const app = {
       
       document.getElementById(`screen-${app.currentScreen}`).classList.remove('active');
       
-      if(screenId !== 'chat' && screenId !== 'home') app.history.push(app.currentScreen);
+      if(screenId !== 'home') app.history.push(app.currentScreen);
       
       app.currentScreen = screenId;
       document.getElementById(`screen-${screenId}`).classList.add('active');
@@ -157,7 +193,7 @@ const app = {
               btn.classList.add('active');
               if(target === 'procon') { btn.classList.add('text-[#002D72]'); btn.classList.remove('text-gray-400'); } 
               else if(target === 'prioridade') { btn.classList.add('text-[#9B59B6]'); btn.classList.remove('text-gray-400'); }
-              else if(target !== 'chat') { btn.classList.add('text-brand'); btn.classList.remove('text-gray-400'); }
+              else { btn.classList.add('text-brand'); btn.classList.remove('text-gray-400'); }
           } else {
               btn.classList.remove('active', 'text-brand', 'text-[#002D72]', 'text-[#9B59B6]');
               btn.classList.add('text-gray-400');
@@ -230,6 +266,9 @@ function renderResults(type) {
           ${m.imgs.map(src => `<img src="${src}" alt="Placa ${m.cidade}" class="w-full rounded-lg mt-2 border border-gray-100" loading="lazy">`).join('')}
         </div>`;
     } else {
+      const plateMarkup = Array.isArray(m.imgs) && m.imgs.length
+        ? `<div class="mt-3 space-y-2">${m.imgs.map(src => `<img src="${src}" alt="Placa Procon ${m.cidade}" class="w-full rounded-lg border border-gray-100 bg-white" loading="lazy">`).join('')}</div>`
+        : '';
       return `
         <div class="bg-white rounded-2xl p-5 shadow-soft border border-gray-100 flex flex-col gap-2 animate-[slideInFade_0.3s_ease-out_${i*0.05}s_both]">
           <span class="text-[9px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full self-start">${m.uf}</span>
@@ -239,6 +278,7 @@ function renderResults(type) {
               <span class="text-xs font-semibold text-text-main"><i class="ph-fill ph-phone text-gray-400 mr-1"></i> ${m.fone}</span>
               ${m.url ? `<a href="${m.url}" target="_blank" class="text-[10px] font-bold text-[#002D72] bg-white border border-gray-200 px-2 py-1.5 rounded-md shadow-sm active:scale-95">Site</a>` : ''}
           </div>
+          ${plateMarkup}
         </div>`;
     }
   }).join('');
@@ -319,10 +359,15 @@ function renderOutros() {
       : '';
     const plate = src
       ? (isPdf
-        ? `<a href="${src}" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-[#78909C] underline">Abrir placa da região (PDF)</a>`
+        ? `<div class="mt-3 overflow-hidden rounded-lg border border-gray-100 bg-white">
+            <object data="${src}" type="application/pdf" class="w-full" style="height: 520px; min-height: 300px; background: #fff;">
+              <iframe src="${src}" title="Placa: ${item.title} — ${locationLabel}" class="w-full" style="height: 520px; min-height: 300px; border: 0; background: #fff;"></iframe>
+            </object>
+            <a href="${src}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-xs font-semibold text-[#78909C] underline">Abrir PDF em nova aba</a>
+          </div>`
         : `<img src="${src}" alt="Placa: ${item.title} — ${locationLabel}" class="w-full rounded-lg mt-3 border border-gray-100 object-contain" loading="lazy">`)
       : uf && item.placa
-        ? '<p class="text-xs text-text-muted mt-2">Não há placa digitalizada cadastrada para esta região.</p>'
+        ? '<p class="text-xs text-text-muted mt-2"></p>'
         : '';
     const content = `${location}<h3 class="font-bold text-sm text-[#78909C] mb-1">${item.title}</h3><p class="text-xs text-text-muted leading-relaxed">${item.desc}</p>${plate}`;
 
@@ -352,358 +397,10 @@ function getOutrosPlate(category, uf) {
   return `./demais/${encodeURIComponent(categoryFolder)}/${encodeURIComponent(stateFolder)}/${encodeURIComponent(filename)}`;
 }
 
-// ASSISTENTE LOCAL: consulta à base DATA, sem serviço externo ou chave de API.
-// As respostas reproduzem a base do projeto; não interpretam o conteúdo das placas.
-const assistantEngine = {
-  context: { topics: [], location: null, shopping: null, awaiting: null, question: '' },
-  normalize(value) {
-    return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-      .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
-  },
-  escape(value) {
-    return String(value == null ? '' : value).replace(/[&<>"']/g, c =>
-      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  },
-  has(text, phrase) {
-    return (` ${text} `).includes(` ${this.normalize(phrase)} `);
-  },
-  // Corrige somente palavras longas com uma edição ou inversão de letras.
-  near(a, b) {
-    if (a === b) return true;
-    if (a.length < 5 || b.length < 5 || Math.abs(a.length - b.length) > 1) return false;
-    if (a.length === b.length) {
-      const diff = [...a].map((c, i) => c === b[i] ? -1 : i).filter(i => i >= 0);
-      return diff.length === 1 || (diff.length === 2 && diff[1] === diff[0] + 1 &&
-        a[diff[0]] === b[diff[1]] && a[diff[1]] === b[diff[0]]);
-    }
-    const shorter = a.length < b.length ? a : b;
-    const longer = a.length < b.length ? b : a;
-    let i = 0;
-    while (i < shorter.length && shorter[i] === longer[i]) i++;
-    return shorter.slice(i) === longer.slice(i + 1);
-  },
-  lexicon: {
-    financeiro: ['pagamento', 'pagar', 'pago', 'pagamentos', 'parcelamento', 'parcelar', 'parcelas', 'juros', 'pix', 'dinheiro', 'cheque', 'cartao', 'credito', 'debito', 'bandeiras', 'transacoes financeiras', 'seguranca financeira', 'titular', 'fraude', 'fraudes', 'cdc', 'codigo de defesa'],
-    fumar: ['fumar', 'fumo', 'fuma', 'fumando', 'cigarro', 'cigarros', 'tabaco', 'tabagismo', 'vape', 'vaper', 'pod', 'cigarro eletronico', 'fumante', 'fumantes'],
-    fiscal: ['sonegacao', 'sonegar', 'sonegando', 'sonega', 'sonegam', 'sonegou', 'fiscal', 'nota', 'notinha', 'nf', 'nfe', 'nfce', 'imposto', 'impostos', 'tributo', 'cupom', 'recibo', 'comprovante de compra'],
-    cameras: ['camera', 'cameras', 'filmado', 'filmada', 'filmagem', 'filmagens', 'filmando', 'monitoramento', 'vigilancia', 'gravacao', 'gravacoes', 'circuito interno'],
-    descarte: ['descarte', 'descartar', 'descarto', 'descarta', 'descartando', 'reciclar', 'reciclagem', 'recicla', 'bateria', 'baterias', 'pilha', 'pilhas', 'lixo eletronico', 'jogar fora', 'jogo fora', 'coleta', 'celular velho', 'celular antigo', 'eletronicos usados'],
-    procon: ['procon', 'reclamar', 'reclamacao', 'reclamacoes', 'reclamo', 'denuncia', 'denunciar', 'denuncio', 'defesa do consumidor', 'telefone', 'contato', 'contatos', 'ligar', 'numero do procon'],
-    prioridade: ['prioridade', 'prioritario', 'prioritaria', 'prioritarios', 'preferencial', 'preferencia', 'fila', 'idoso', 'idosa', 'idosos', 'gestante', 'gravida', 'autista', 'autismo', 'tea', 'pcd', 'deficiencia', 'deficiente', 'lactante', 'amamentando', 'bebe', 'crianca de colo', 'fibromialgia', 'ostomizado', 'ostomizada', 'mobilidade reduzida', '10048', '10 048'],
-    privacidade: ['privacidade', 'lgpd', 'dados pessoais', 'meus dados', 'meu cpf', 'protecao de dados', 'aviso de privacidade', 'politica de privacidade', 'consentimento', 'excluir dados', 'apagar dados', 'encarregado', 'dpo'],
-    outros: ['outras informacoes', 'outros assuntos', 'outros avisos', 'avisos gerais', 'regras da loja', 'placas da loja', 'obrigacoes legais']
-  },
-  detectTopics(text) {
-    const tokens = text.split(' ');
-    return Object.entries(this.lexicon).filter(([, terms]) => terms.some(term =>
-      this.has(text, term) || (!term.includes(' ') && tokens.some(t => this.near(t, term)))
-    )).map(([key]) => key);
-  },
-  reset() { this.context = { topics: [], location: null, shopping: null, awaiting: null, question: '' }; },
-  section(type, label) {
-    return `<p class="mt-2 text-xs text-text-muted">Fonte: base do projeto · <button type="button" class="text-brand font-semibold" data-mi-topic="${type}">${this.escape(label)}</button></p>`;
-  },
-  paragraph(text) { return `<p>${this.escape(text)}</p>`; },
-  link(url, label) {
-    if (!/^https:\/\//i.test(url || '')) return this.escape(label);
-    return `<a href="${this.escape(url)}" target="_blank" rel="noopener noreferrer" class="text-brand font-semibold">${this.escape(label)}</a>`;
-  },
-  locations(text, raw = text) {
-    const records = [...DATA.prioridade, ...DATA.procon, ...DATA.privacidade];
-    const aliases = { 'sampa': 'São Paulo', 'bh': 'Belo Horizonte', 'rio': 'Rio de Janeiro', 'floripa': 'Florianópolis' };
-    let expanded = text;
-    Object.entries(aliases).forEach(([alias, city]) => {
-      if (this.has(text, alias) && !this.has(text, city)) expanded += ` ${this.normalize(city)}`;
-    });
-    const states = DATA.estados.filter(e => {
-      const name = this.normalize(e.nome);
-      const named = this.has(text, e.nome) && (name !== 'para' || /Pará/i.test(raw) ||
-        text === 'para' || /estado (do |de )?para\b/.test(text));
-      const abbreviation = this.has(text, e.uf) && (e.uf !== 'SE' ||
-        /\bSE\b/.test(raw) || text === 'se' || /(?:estado|uf|em|de) (?:de )?se$/.test(text));
-      return named || abbreviation;
-    });
-    const cities = [...new Map(records.map(r => [r.cidade, { city: r.cidade, uf: r.uf }])).values()]
-      .filter(r => this.has(expanded, r.city)).sort((a, b) => b.city.length - a.city.length);
-    // Evita que "Rio" de Rio Grande do Norte seja interpretado como Rio de Janeiro.
-    if (/\brio (grande|branco)\b/.test(text)) {
-      const idx = cities.findIndex(c => c.city === 'Rio de Janeiro');
-      if (idx >= 0 && !this.has(text, 'rio de janeiro')) cities.splice(idx, 1);
-    }
-    if (/\bestado\b/.test(text) && states.length === 1 &&
-        !cities.some(c => this.normalize(c.city) !== this.normalize(states[0].nome))) {
-      return { uf: states[0].uf, city: null };
-    }
-    if (cities.length > 1) return { ambiguous: true, names: cities.map(c => c.city) };
-    if (cities.length === 1) {
-      if (states.some(s => s.uf !== cities[0].uf && this.has(text, s.uf))) return { conflict: true };
-      return cities[0];
-    }
-    if (states.length > 1) return { ambiguous: true, names: states.map(s => s.nome) };
-    if (states.length === 1) return { uf: states[0].uf, city: null };
-    return null;
-  },
-  shopping(text) {
-    return DATA.privacidade.filter(r => this.has(text, r.shopping) ||
-      this.has(text, r.shopping.replace(/shopping/ig, '').trim()));
-  },
-  summary() {
-    return this.paragraph('Posso consultar atendimento prioritário, contatos do Procon, privacidade e LGPD, câmeras, proibição de fumar, documento fiscal e descarte de baterias. Pode perguntar com suas palavras. Para consultas locais, diga a cidade/UF ou o shopping.');
-  },
-  answer(raw) {
-    const text = this.normalize(raw);
-    if (!text) return this.paragraph('Digite uma pergunta para eu ajudar.');
-    if (/^(limpar|reiniciar|esquecer)( conversa| tudo| contexto)?$/.test(text)) {
-      this.reset(); return this.summary();
-    }
-    if (/^(oi|ola|bom dia|boa tarde|boa noite|opa|e ai|oi tudo bem|ola tudo bem|tudo bem)$/.test(text)) return this.summary();
-    if (/^(obrigad[oa]|valeu|brigad[oa]|muito obrigad[oa]|ok|entendi|certo|ta bom)$/.test(text))
-      return this.paragraph('Por nada! Pode continuar perguntando sobre os temas da central.');
-    if (/\b(voce e uma ia|inteligencia artificial|como voce funciona|chatgpt|ia generativa)\b/.test(text))
-      return this.paragraph('Sou um assistente de consulta à base deste aplicativo. Reconheço assuntos, variações de palavras e o contexto da conversa, mas não uso um modelo de IA generativa nem consulto informações externas.');
-    const topics = this.detectTopics(text);
-    // Contato genérico acompanha o assunto em curso; não significa sempre Procon.
-    if (topics.includes('procon') && !/\b(procon|procom|reclam\w*|denunci\w*|defesa do consumidor)\b/.test(text)) {
-      const other = topics.filter(t => t !== 'procon');
-      const previous = this.context.topics.filter(t => t !== 'procon');
-      if (other.length || previous.length) {
-        topics.splice(topics.indexOf('procon'), 1);
-        if (!topics.length) topics.push(...previous);
-      }
-    }
-    const shops = this.shopping(text);
-    const location = this.locations(text, raw);
-    if (location && (location.ambiguous || location.conflict)) {
-      this.context.location = null; this.context.shopping = null;
-      if (topics.length) this.context.topics = topics;
-      return this.paragraph(location.conflict ? 'A cidade e a UF informadas não correspondem na base. Qual cidade/UF você deseja consultar?' :
-        `Você citou mais de uma localidade (${location.names.join(', ')}). Qual delas deseja consultar primeiro?`);
-    }
-    if (location) {
-      this.context.location = location;
-      this.context.shopping = null;
-    }
-    if (shops.length > 1) {
-      this.context.shopping = null;
-      this.context.topics = ['privacidade'];
-      return this.paragraph('Você mencionou mais de um shopping. Qual deseja consultar primeiro?');
-    }
-    if (shops.length === 1) {
-      this.context.shopping = shops[0];
-      this.context.location = { city: shops[0].cidade, uf: shops[0].uf };
-      if (!topics.length) topics.push('privacidade');
-    }
-    // Uma localidade nova não cadastrada não pode reutilizar silenciosamente a anterior.
-    const unknownPlace = !location && !shops.length && /\b(?:em|de|do|da|no|na)\s+([a-z ]+)$/.exec(text);
-    const localTopics = topics.length ? topics : this.context.topics;
-    if (!location && !shops.length && !topics.length && this.context.awaiting &&
-        !/\b(troca|trocar|garantia|devolucao|defeito|assistencia|preco|horario|ajuda|assuntos|menu)\b/.test(text) &&
-        !/^(e |qual |quais |como |onde |por que|nao sei|nao lembro|aqui$|sim$|nao$)/.test(text)) {
-      this.context.location = null; this.context.shopping = null;
-      return this.paragraph(`Não encontrei “${String(raw).trim()}” na base. Informe a cidade/UF ou o shopping cadastrado. Você também pode consultar pelo menu.`);
-    }
-    if (location || shops.length) this.context.awaiting = null;
-    const unknownTail = unknownPlace && unknownPlace[1].trim();
-    const placeQuestion = unknownTail && !this.detectTopics(unknownTail).length &&
-      !/\b(loja|local|estabelecimento|aqui|la|compra|shopping|cidade|estado|site|telefone|numero|contato|lei|leis|regra|regras|direitos|consumidor|bairro|fila)\b/.test(unknownTail);
-    if (!location && !shops.length && placeQuestion && localTopics.some(t => ['procon', 'prioridade', 'privacidade'].includes(t))) {
-      this.context.location = null; this.context.shopping = null;
-      this.context.topics = localTopics;
-      this.context.awaiting = 'localidade';
-      return this.paragraph(`Não localizei “${unknownTail}” na base. Informe a cidade e a UF ou o nome do shopping. Só posso mostrar os registros cadastrados.`);
-    }
-    if (/\b(troca|trocar|garantia|devolucao|devolver|arrependimento|reembolso|assistencia|conserto|defeito|preco|estoque|horario)\b/.test(text)) {
-      const limitation = this.paragraph('A base deste projeto não contém políticas de troca, garantia, devolução, assistência, preços ou horários. Confirme o seu caso com a equipe da loja; não posso informar prazos ou condições que não estão cadastrados.');
-      if (!topics.length) { this.context.topics = []; return limitation + this.section('procon', 'Contatos Procon'); }
-      this.context.topics = topics;
-      return limitation + topics.map(t => this.respond(t, text)).join('');
-    }
-    let selected = topics;
-    if (!selected.length && this.context.topics.length && (location || shops.length ||
-        /^(e |e$|sim$|isso$|aqui$|nessa|nesse|nesta|neste|qual |quais |como |onde |pode |posso |por que|me mostre|mais detalhes|explique|resuma|o primeiro|o segundo|o terceiro)/.test(text))) {
-      selected = this.context.topics;
-    }
-    if (!selected.length) {
-      if (!location && this.context.topics.some(t => ['procon', 'prioridade', 'privacidade'].includes(t)) &&
-          !/\b(ajuda|ajudar|assuntos|temas|menu|informacoes|direitos|leis|duvidas)\b/.test(text)) {
-        this.context.location = null; this.context.shopping = null;
-        this.context.awaiting = 'localidade';
-        return this.paragraph('Não reconheci essa localidade ou pergunta. Informe a cidade/UF, o shopping ou reformule sua dúvida para eu consultar a base correta.');
-      }
-      if (/\b(ajuda|ajudar|assuntos|temas|menu|informacoes|direitos|leis|duvidas)\b/.test(text)) return this.summary();
-      return this.paragraph(location ? `Localidade selecionada: ${location.city || location.uf}. Qual assunto você deseja consultar?` :
-        'Não consegui identificar sua dúvida com segurança. Você pode reformular ou escolher um destes assuntos?') + this.summary();
-    }
-    const responseText = topics.length ? text : `${this.context.question || ''} ${text}`;
-    if (topics.length) this.context.question = text;
-    this.context.topics = selected;
-    this.context.awaiting = null;
-    return selected.map(t => this.respond(t, responseText)).join('');
-  },
-  respond(topic, text) {
-    const e = value => this.escape(value);
-    const p = value => this.paragraph(value);
-    const location = this.context.location;
-    if (topic === 'financeiro') {
-      if (/\b(cdc|codigo de defesa)\b/.test(text)) return this.link('https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm', 'Acessar o Código de Defesa do Consumidor') + this.section('financeiro', 'Atendimento e Informações Financeiras');
-      if (/\b(seguranca|titular|terceiro|fraude|fraudes|documento|autorizacao)\b/.test(text)) return p('O aviso da Rede de Lojas MiBrasil orienta os titulares a proteger seus meios de pagamento, senhas e acessos. A equipe pode solicitar dados, identificação e comprovante de autorização do titular; nesses casos, a conclusão da compra depende da apresentação do que foi solicitado. Consulte o aviso completo para conhecer todas as regras.') + this.section('regras-seguranca', 'Aviso de regras de segurança');
-      return p('Formas de pagamento cadastradas: dinheiro, Pix e cartão de débito ou crédito. Bandeiras: American Express, Diners Club, Elo, MasterCard e VISA. Não aceitamos cheque.') + p('O máximo de parcelas varia por produto: verifique as placas e preços. Para mais de um produto, consulte o vendedor. As parcelas sem juros podem ser reduzidas conforme os limites da bandeira; condições de parcelamento superior com juros devem ser consultadas com o vendedor.') + this.section('formas-pagamento', 'Formas de Pagamento e Parcelamento');
-    }
-    if (topic === 'outros') return DATA.outros.map(r => `<p class="mt-2"><strong>${e(r.title)}</strong><br>${e(r.desc)}</p>`).join('') + this.section('outros', 'Outras Informações');
-    const noticeTitles = { fumar: 'Proibido Fumar', fiscal: 'Sonegar é Crime', cameras: 'Ambiente Sendo Filmado', descarte: 'Descarte Consciente de Eletrônicos' };
-    if (noticeTitles[topic]) {
-      const record = DATA.outros.find(r => r.title === noticeTitles[topic]);
-      if (!record) return p('Não encontrei esse aviso na base atual.') + this.section('outros', 'Outras Informações');
-      let answer = `<p class="mt-2"><strong>${e(record.title)}</strong><br>${e(record.desc)}</p>`;
-      if (topic === 'fumar' && /\b(vape|vaper|pod|eletronico|fora|externa|externo|calcada|multa|pena|valor|lei|leis|artigo|denuncia|denunciar)\b/.test(text))
-        answer += p('O aviso cadastrado trata das áreas internas e fechadas. Não detalha dispositivos eletrônicos, áreas externas, penalidades ou artigos de lei. Confirme esses detalhes com a equipe da loja.');
-      if (topic === 'fiscal' && /\b(nao|recusa|recusou|segunda|via|perdi|cpf|multa|pena|prazo|denuncia|denunciar|como|qual|quais|crime|sonegacao)\b/.test(text))
-        answer += p('A base traz esse aviso geral, mas não detalha emissão de segunda via, procedimentos de denúncia, penalidades ou análise de um caso concreto. Para resolver a emissão do documento, procure a equipe da loja. Se precisar do contato do Procon, informe a cidade/UF.');
-      if (topic === 'cameras' && /\b(acesso|acessar|ver|imagens|gravacao|gravacoes|audio|som|tempo|dias|prazo|copia|pedir|solicitar|quem|como|posso)\b/.test(text))
-        answer += p('O cadastro não informa prazo de armazenamento, gravação de áudio ou procedimento para acessar imagens. Consulte o aviso de privacidade do shopping ou a equipe da loja. Você pode me dizer o shopping para localizar o aviso.');
-      if (topic === 'descarte') answer += p('O cadastro menciona coleta de baterias, mas não identifica o ponto exato nem confirma o recebimento de outros produtos. Confirme com a equipe da unidade onde entregar e quais itens são aceitos.');
-      return answer + this.section('outros', 'Outras Informações');
-    }
-    if (topic === 'privacidade') {
-      this.context.awaiting = this.context.shopping ? null : 'shopping';
-      let records = this.context.shopping ? [this.context.shopping] : DATA.privacidade.filter(r => !location ||
-        (r.uf === location.uf && (!location.city || r.cidade === location.city)));
-      if (!records.length) return p(`Não há aviso de privacidade cadastrado para ${location.city || location.uf}. Informe outro shopping ou consulte a equipe da unidade.`) + this.section('privacidade', 'Privacidade e LGPD');
-      let answer = p('Os avisos de privacidade disponíveis na base são específicos de cada shopping. Consulte o documento correspondente à sua unidade:');
-      answer += records.map(r => `<p class="mt-2"><strong>${e(r.shopping)}</strong> — ${e(r.cidade)} / ${e(r.uf)}<br>${this.link(r.url, 'Abrir aviso de privacidade')}</p>`).join('');
-      if (!this.context.shopping) answer += p('Qual é o shopping? Se ele não estiver na lista, não tenho o aviso cadastrado.');
-      if (/\b(excluir|apagar|compartilha|compartilhar|vende|vender|armazenamento|prazo|cpf|consentimento|encarregado|dpo|camera|imagens|telefone|contato|numero|ligar)\b/.test(text))
-        answer += p('A base contém os links dos avisos, mas não o texto dessas políticas. Não consigo confirmar procedimentos de exclusão, compartilhamento, retenção ou contato do encarregado sem esse conteúdo.');
-      return answer + this.section('privacidade', 'Privacidade e LGPD');
-    }
-    if (!location) {
-      this.context.awaiting = 'localidade';
-      return p(topic === 'procon' ? 'Posso buscar os contatos do Procon cadastrados. Qual é a sua cidade e UF?' :
-      'Posso consultar o atendimento prioritário cadastrado por localidade. Qual é a cidade e a UF da loja?') + this.section(topic, topic === 'procon' ? 'Contatos Procon' : 'Atendimento Prioritário');
-    }
-    const records = DATA[topic].filter(r => r.uf === location.uf && (!location.city || r.cidade === location.city));
-    if (!records.length) return p(`Não há ${topic === 'procon' ? 'contato de Procon' : 'informação de prioridade'} cadastrado para ${location.city || location.uf}. Isso não significa que o serviço ou o direito não exista. Consulte a equipe da loja para orientação.`) + this.section(topic, topic === 'procon' ? 'Contatos Procon' : 'Atendimento Prioritário');
-    if (topic === 'procon' && /\b(lei|leis|artigo|prazo|multa|pena|processo|documentos)\b/.test(text)) return p('O cadastro do Procon contém apenas contatos e sites, sem legislação, prazos ou procedimentos. Consulte o órgão pelo site ou telefone abaixo:') + records.map(r => `<p class="mt-2"><strong>${e(r.nome)}</strong><br>${e(r.fone)}<br>${this.link(r.url, 'Abrir site do Procon')}</p>`).join('') + this.section('procon', 'Contatos Procon');
-    if (topic === 'procon') return records.map(r => `<p class="mt-2"><strong>${e(r.nome)}</strong><br>${e(r.cidade)} / ${e(r.uf)}<br>Telefone cadastrado: ${e(r.fone)}<br>${this.link(r.url, 'Abrir site do Procon')}</p>`).join('') + this.section('procon', 'Contatos Procon');
-    if (records.length > 1) {
-      this.context.awaiting = 'cidade';
-      return p(`Encontrei registros de atendimento prioritário em ${location.uf}. Qual cidade deseja consultar?`) + p(records.map(r => r.cidade).join(', ')) + this.section('prioridade', 'Atendimento Prioritário');
-    }
-    const r = records[0];
-    let answer = `<p class="mt-2"><strong>Atendimento prioritário — ${e(r.cidade)} / ${e(r.uf)}</strong></p>`;
-    answer += p(r.texto || (r.imgs.length ? 'Este registro contém placas em imagem, sem transcrição das regras.' : 'A localidade está cadastrada, mas não possui texto nem placas disponíveis na base.'));
-    if (r.imgs.length) {
-      answer += p('Consulte as placas abaixo. Não interpreto automaticamente o texto das imagens:');
-      answer += r.imgs.filter(src => /^\.\/assets\/img\//.test(src)).map((src, i) => `<p class="mt-2"><a href="${e(src)}" target="_blank" rel="noopener noreferrer" class="text-brand font-semibold">Abrir placa ${i + 1} de ${e(r.cidade)}</a></p><img src="${e(src)}" alt="Placa ${i + 1} de atendimento prioritário de ${e(r.cidade)}" loading="lazy" class="w-full rounded-lg mt-3 border border-gray-100" data-mi-plate="true">`).join('');
-    }
-    if (/\b(tenho|direito|quem|posso|idade|anos|idoso|idosa|gravida|gestante|autista|autismo|tea|pcd|deficiencia|fibromialgia|ostomizado|ostomizada|bebe|lactante|amamentando|colo|documento)\b/.test(text))
-      answer += p('O texto disponível não detalha todos os beneficiários, documentos e condições. Não consigo confirmar sua situação individual a partir desse cadastro. Consulte a placa correspondente e confirme com a equipe da loja.');
-    return answer + this.section('prioridade', 'Atendimento Prioritário');
-  }
-};
-
-const chatModule = {
-  isTyping: false,
-  timer: null,
-  initialMarkup: null,
-  initialize() {
-    const container = document.getElementById('chat-messages');
-    if (!container) return;
-    chatModule.initialMarkup = container.innerHTML;
-    container.setAttribute('role', 'log');
-    container.setAttribute('aria-live', 'polite');
-    container.setAttribute('aria-relevant', 'additions');
-    const input = document.getElementById('chat-input');
-    input.maxLength = 2000;
-    input.setAttribute('aria-label', 'Digite sua dúvida para o Assistente MI');
-    document.getElementById('chat-submit').setAttribute('aria-label', 'Enviar mensagem');
-    container.addEventListener('click', event => {
-      const button = event.target.closest('[data-mi-topic]');
-      if (button && ['outros', 'procon', 'prioridade', 'privacidade', 'financeiro', 'formas-pagamento', 'regras-seguranca'].includes(button.dataset.miTopic)) app.navigate(button.dataset.miTopic);
-    });
-    container.addEventListener('error', event => {
-      if (event.target.matches && event.target.matches('img[data-mi-plate]')) {
-        const message = document.createElement('p');
-        message.className = 'text-xs text-text-muted mt-2';
-        message.textContent = 'A imagem desta placa não pôde ser carregada. Consulte a equipe da loja.';
-        event.target.replaceWith(message);
-      }
-    }, true);
-  },
-  addMessage(text, sender, isHtml = false) {
-    const container = document.getElementById('chat-messages');
-    const wrapper = document.createElement('div');
-    wrapper.className = `flex flex-col gap-1 ${sender === 'user' ? 'items-end' : 'items-start'} w-full`;
-    const bubble = document.createElement('div');
-    bubble.className = sender === 'user' ? 'chat-bubble user bg-brand text-white p-3.5 rounded-2xl rounded-br-sm shadow-soft text-sm' :
-      'chat-bubble bot bg-white p-3.5 rounded-2xl rounded-bl-sm shadow-soft text-sm text-text-main border border-gray-100';
-    // Texto do cliente nunca é interpretado como HTML.
-    if (sender !== 'user' && isHtml) bubble.innerHTML = text;
-    else bubble.textContent = text;
-    const label = document.createElement('span');
-    label.className = `text-[10px] text-text-muted ${sender === 'user' ? 'mr-1' : 'ml-1'}`;
-    label.textContent = sender === 'user' ? 'Você' : 'Assistente MI';
-    wrapper.append(bubble, label);
-    container.insertBefore(wrapper, document.getElementById('chat-loading'));
-    if (sender === 'user') document.getElementById('chat-suggestions').style.display = 'none';
-    container.scrollTop = container.scrollHeight;
-  },
-  setLoading(value) {
-    chatModule.isTyping = value;
-    document.getElementById('chat-loading').classList.toggle('active', value);
-    document.getElementById('chat-submit').disabled = value;
-    const container = document.getElementById('chat-messages');
-    container.setAttribute('aria-busy', String(value));
-    container.scrollTop = container.scrollHeight;
-  },
-  processAI(userText) {
-    if (chatModule.isTyping) return;
-    chatModule.setLoading(true);
-    chatModule.timer = setTimeout(() => {
-      try {
-        chatModule.addMessage(assistantEngine.answer(userText), 'bot', true);
-      } catch (error) {
-        chatModule.addMessage('Não consegui concluir essa consulta. Tente reformular a pergunta ou acesse o tema pelo menu.', 'bot');
-      } finally {
-        chatModule.timer = null;
-        chatModule.setLoading(false);
-      }
-    }, 180);
-  },
-  submit(text) {
-    if (chatModule.isTyping) return;
-    const trimmed = String(text || '').trim();
-    if (!trimmed) return;
-    if (trimmed.length > 2000) {
-      chatModule.addMessage('Envie sua pergunta em até 2.000 caracteres.', 'bot');
-      return;
-    }
-    document.getElementById('chat-input').value = '';
-    chatModule.addMessage(trimmed, 'user');
-    chatModule.processAI(trimmed);
-  },
-  handleSubmit(event) {
-    event.preventDefault();
-    chatModule.submit(document.getElementById('chat-input').value);
-  },
-  sendSuggested(text) { chatModule.submit(text); },
-  clearChat() {
-    if (!confirm('Limpar a conversa?')) return;
-    clearTimeout(chatModule.timer);
-    chatModule.timer = null;
-    assistantEngine.reset();
-    const container = document.getElementById('chat-messages');
-    if (chatModule.initialMarkup !== null) container.innerHTML = chatModule.initialMarkup;
-    chatModule.setLoading(false);
-    document.getElementById('chat-input').value = '';
-  }
-};
-
 // INITIALIZE
 document.addEventListener('DOMContentLoaded', () => {
   setupFilters('prioridade');
   setupFilters('procon');
   setupPrivacidade();
   setupOutros();
-  chatModule.initialize();
 });
