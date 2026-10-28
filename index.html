@@ -1,578 +1,1130 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#ff6900">
-  <title>MI Brasil - Hub de Informações</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter', 'sans-serif'] },
-          colors: {
-            brand: {
-              DEFAULT: '#ff6900',
-              light: '#ff8c33',
-              dark: '#cc5400',
-              50: '#fff0e6',
-            },
-            surface: { DEFAULT: '#f8fafc', card: '#ffffff' },
-            text: { main: '#1e293b', muted: '#64748b' }
-          },
-          boxShadow: {
-            'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-            'nav': '0 -4px 20px rgba(0,0,0,0.03)',
-          }
-        }
-      }
-    }
-  </script>
-  <link rel="stylesheet" href="style.css?v=1" />
 
-<style>
-/* Estilos exclusivos das telas financeiras. */
-.financeiro-screen { --font-family: 'Inter', sans-serif; --color-text: #1e293b; --color-text-muted: #64748b; --color-primary: #ff6900; font-family: var(--font-family); background: #f8fafc; }
-.financeiro-screen > header { display:flex; align-items:center; gap:12px; padding:16px 20px; background:#fff; border-bottom:1px solid #edf0f4; box-shadow:none; flex-shrink:0; }
-.financeiro-screen > header button { width:40px; height:40px; border-radius:12px; background:#f8fafc; color:#475569; flex-shrink:0; display:grid; place-items:center; }
-.financeiro-screen > header h2 { font-size:14px; line-height:1.45; margin:0; font-weight:700; color:#1e293b; }
-.financeiro-screen .scroll-area { min-height:0; padding:22px 20px calc(88px + env(safe-area-inset-bottom)); }
-.financeiro-screen .fin-intro { padding:2px 2px 24px; }
-.financeiro-screen .fin-eyebrow { display:inline-block; font-size:10px; font-weight:800; letter-spacing:1.5px; color:#b94c00; margin-bottom:12px; }
-.financeiro-screen .fin-intro h1 { font-size:27px; line-height:1.2; font-weight:800; letter-spacing:-.7px; color:#1e293b; margin:0 0 12px; }
-.financeiro-screen .fin-intro p { font-size:13px; line-height:1.7; color:#64748b; margin:0; max-width:340px; }
-.financeiro-screen .fin-menu { display:grid; gap:12px; }
-.financeiro-screen .fin-card { display:flex; width:100%; align-items:center; gap:14px; padding:19px 16px; text-align:left; background:#fff; border:1px solid #edf0f4; border-radius:18px; box-shadow:0 4px 16px -8px rgba(15,23,42,.12); transition:background .18s,border-color .18s,transform .18s; cursor:pointer; }
-.financeiro-screen .fin-icon { width:46px; height:46px; border-radius:14px; display:grid; place-items:center; flex-shrink:0; font-size:25px; background:var(--fin-tint); color:var(--fin-color); }
-.financeiro-screen .fin-blue { --fin-tint:#eff6ff; --fin-color:#2563eb; }
-.financeiro-screen .fin-purple { --fin-tint:#f5f3ff; --fin-color:#7c3aed; }
-.financeiro-screen .fin-orange { --fin-tint:#fff0e6; --fin-color:#c65300; }
-.financeiro-screen .fin-green { --fin-tint:#ecfdf5; --fin-color:#059669; }
-.financeiro-screen .fin-card-copy { display:grid; gap:5px; flex:1; min-width:0; }
-.financeiro-screen .fin-card-copy strong { font-size:14px; line-height:1.4; color:#1e293b; font-weight:700; }
-.financeiro-screen .fin-card-copy > span { font-size:12px; line-height:1.55; color:#64748b; }
-.financeiro-screen .fin-arrow { font-size:14px; color:#94a3b8; flex-shrink:0; }
-.financeiro-screen button:focus-visible, .financeiro-screen a:focus-visible { outline:3px solid #ff6900; outline-offset:4px; }
-.financeiro-screen .fin-card:active { transform:scale(.985); }
-.financeiro-screen .financeiro-content { font-size:14px; line-height:1.8; color:#475569; overflow-wrap:anywhere; padding:22px; border:1px solid #edf0f4; border-radius:20px; background:#fff; box-shadow:0 5px 20px -10px rgba(15,23,42,.12); }
-.financeiro-screen .financeiro-content h1 { font-size:19px; line-height:1.4; font-weight:800; color:#1e293b; margin:0 0 18px; }
-.financeiro-screen .financeiro-content h2 { font-size:15px; line-height:1.5; font-weight:700; margin:28px 0 14px; color:#1e293b; }
-/* .financeiro-screen .financeiro-content p { margin-bottom:16px; } */
-.financeiro-screen .financeiro-content ul { list-style:disc; padding-left:20px; }
-.financeiro-screen .financeiro-content ol { list-style:decimal; padding-left:22px; }
-.financeiro-screen .financeiro-content li { margin-bottom:16px; padding-left:3px; }
-.financeiro-screen .financeiro-content li::marker { color:#c65300; font-weight:700; }
-#screen-regras-seguranca .privacy-policy > h1 { font-size:18px; padding-bottom:18px; border-bottom:3px solid #fff0e6; }
-#screen-regras-seguranca .privacy-policy > p:first-of-type { background:#f8fafc; border-radius:12px; padding:14px; font-size:12px; color:#64748b; }
-#screen-codigo-defesa .financeiro-content { padding:0; background:transparent; border:0; box-shadow:none; }
-#screen-codigo-defesa .cdc-feature-icon { display:grid; width:42px; height:42px; flex:0 0 42px; place-items:center; border-radius:14px; background:#fff7ed; color:#c65300; font-size:21px; }
-#screen-codigo-defesa .cdc-resource-link { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; padding:15px 18px; border-radius:14px; background:linear-gradient(135deg,#ff6900,#e85d04); color:#fff; font-size:14px; font-weight:700; line-height:1.4; box-shadow:0 8px 18px -10px #c65300; transition:transform .18s ease, box-shadow .18s ease; }
-#screen-codigo-defesa .cdc-resource-link:focus-visible { outline:3px solid #ff6900; outline-offset:4px; }
-@media (hover:hover) { #screen-codigo-defesa .cdc-resource-link:hover { transform:translateY(-2px); box-shadow:0 12px 22px -12px #c65300; } }
-@media (prefers-reduced-motion:reduce) { #screen-codigo-defesa .cdc-resource-link { transition:none; } }
-#screen-formas-pagamento .financeiro-content { padding:0; background:transparent; border:0; box-shadow:none; }
-#screen-formas-pagamento .payment-method-card { transition:transform .18s ease, box-shadow .18s ease; }
-#screen-formas-pagamento .payment-page p { margin-bottom:0; }
-#screen-formas-pagamento .payment-page h2 { margin:0; }
-#screen-formas-pagamento .payment-hero h1 { margin:16px 0 0; color:#fff; font-size:24px; line-height:1.2; }
-#screen-formas-pagamento .payment-method-icon { display:grid; width:44px; height:44px; flex:0 0 44px; place-items:center; border-radius:14px; font-size:24px; }
-#screen-formas-pagamento .payment-brand-logo { display:block; width:auto; max-width:100%; height:26px; object-fit:contain; }
-#screen-formas-pagamento .payment-brand-tile { display:flex; min-height:58px; align-items:center; justify-content:center; padding:12px; border:1px solid #e2e8f0; border-radius:14px; background:#fff; }
-#screen-formas-pagamento .payment-rule { display:flex; align-items:flex-start; gap:12px; }
-#screen-formas-pagamento .payment-rule-icon { display:grid; width:26px; height:26px; flex:0 0 26px; place-items:center; border-radius:9px; background:#fff7ed; color:#ea580c; font-size:16px; }
-@media (hover:hover) { #screen-formas-pagamento .payment-method-card:hover { transform:translateY(-2px); box-shadow:0 12px 24px -16px rgba(15,23,42,.32); } }
-@media (prefers-reduced-motion:reduce) { #screen-formas-pagamento .payment-method-card { transition:none; } }
-@media (hover:hover) { .financeiro-screen .fin-card:hover { background:#fffcfa; border-color:#fed7aa; transform:translateY(-2px); } }
-@media (max-width:360px) { .financeiro-screen .scroll-area { padding-left:14px; padding-right:14px; } .financeiro-screen .fin-card { gap:10px; padding:16px 12px; } .financeiro-screen .financeiro-content { padding:18px; } }
-@media (prefers-reduced-motion:reduce) { .financeiro-screen, .financeiro-screen .fin-card { animation:none; transition:none; } }
-</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#ff6900">
+    <title>MI Brasil - Hub de Informações</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            DEFAULT: '#ff6900',
+                            light: '#ff8c33',
+                            dark: '#cc5400',
+                            50: '#fff0e6',
+                        },
+                        surface: { DEFAULT: '#f8fafc', card: '#ffffff' },
+                        text: { main: '#1e293b', muted: '#64748b' }
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'nav': '0 -4px 20px rgba(0,0,0,0.03)',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Estilos exclusivos das telas financeiras. */
+        .financeiro-screen {
+            --font-family: 'Inter', sans-serif;
+            --color-text: #1e293b;
+            --color-text-muted: #64748b;
+            --color-primary: #ff6900;
+            font-family: var(--font-family);
+            background: #f8fafc;
+        }
+
+        .financeiro-screen>header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            background: #fff;
+            border-bottom: 1px solid #edf0f4;
+            box-shadow: none;
+            flex-shrink: 0;
+        }
+
+        .financeiro-screen>header button {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: #f8fafc;
+            color: #475569;
+            flex-shrink: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .financeiro-screen>header h2 {
+            font-size: 14px;
+            line-height: 1.45;
+            margin: 0;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .financeiro-screen .scroll-area {
+            min-height: 0;
+            padding: 22px 20px calc(88px + env(safe-area-inset-bottom));
+        }
+
+        .financeiro-screen .fin-intro {
+            padding: 2px 2px 24px;
+        }
+
+        .financeiro-screen .fin-eyebrow {
+            display: inline-block;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #b94c00;
+            margin-bottom: 12px;
+        }
+
+        .financeiro-screen .fin-intro h1 {
+            font-size: 27px;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -.7px;
+            color: #1e293b;
+            margin: 0 0 12px;
+        }
+
+        .financeiro-screen .fin-intro p {
+            font-size: 13px;
+            line-height: 1.7;
+            color: #64748b;
+            margin: 0;
+            max-width: 340px;
+        }
+
+        .financeiro-screen .fin-menu {
+            display: grid;
+            gap: 12px;
+        }
+
+        .financeiro-screen .fin-card {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 14px;
+            padding: 19px 16px;
+            text-align: left;
+            background: #fff;
+            border: 1px solid #edf0f4;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px -8px rgba(15, 23, 42, .12);
+            transition: background .18s, border-color .18s, transform .18s;
+            cursor: pointer;
+        }
+
+        .financeiro-screen .fin-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            flex-shrink: 0;
+            font-size: 25px;
+            background: var(--fin-tint);
+            color: var(--fin-color);
+        }
+
+        .financeiro-screen .fin-blue {
+            --fin-tint: #eff6ff;
+            --fin-color: #2563eb;
+        }
+
+        .financeiro-screen .fin-purple {
+            --fin-tint: #f5f3ff;
+            --fin-color: #7c3aed;
+        }
+
+        .financeiro-screen .fin-orange {
+            --fin-tint: #fff0e6;
+            --fin-color: #c65300;
+        }
+
+        .financeiro-screen .fin-green {
+            --fin-tint: #ecfdf5;
+            --fin-color: #059669;
+        }
+
+        .financeiro-screen .fin-card-copy {
+            display: grid;
+            gap: 5px;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .financeiro-screen .fin-card-copy strong {
+            font-size: 14px;
+            line-height: 1.4;
+            color: #1e293b;
+            font-weight: 700;
+        }
+
+        .financeiro-screen .fin-card-copy>span {
+            font-size: 12px;
+            line-height: 1.55;
+            color: #64748b;
+        }
+
+        .financeiro-screen .fin-arrow {
+            font-size: 14px;
+            color: #94a3b8;
+            flex-shrink: 0;
+        }
+
+        .financeiro-screen button:focus-visible,
+        .financeiro-screen a:focus-visible {
+            outline: 3px solid #ff6900;
+            outline-offset: 4px;
+        }
+
+        .financeiro-screen .fin-card:active {
+            transform: scale(.985);
+        }
+
+        .financeiro-screen .financeiro-content {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #475569;
+            overflow-wrap: anywhere;
+            padding: 22px;
+            border: 1px solid #edf0f4;
+            border-radius: 20px;
+            background: #fff;
+            box-shadow: 0 5px 20px -10px rgba(15, 23, 42, .12);
+        }
+
+        .financeiro-screen .financeiro-content h1 {
+            font-size: 19px;
+            line-height: 1.4;
+            font-weight: 800;
+            color: #1e293b;
+            margin: 0 0 18px;
+        }
+
+        .financeiro-screen .financeiro-content h2 {
+            font-size: 15px;
+            line-height: 1.5;
+            font-weight: 700;
+            margin: 28px 0 14px;
+            color: #1e293b;
+        }
+
+        /* .financeiro-screen .financeiro-content p { margin-bottom:16px; } */
+        .financeiro-screen .financeiro-content ul {
+            list-style: disc;
+            padding-left: 20px;
+        }
+
+        .financeiro-screen .financeiro-content ol {
+            list-style: decimal;
+            padding-left: 22px;
+        }
+
+        .financeiro-screen .financeiro-content li {
+            margin-bottom: 16px;
+            padding-left: 3px;
+        }
+
+        .financeiro-screen .financeiro-content li::marker {
+            color: #c65300;
+            font-weight: 700;
+        }
+
+        #screen-regras-seguranca .privacy-policy>h1 {
+            font-size: 18px;
+            padding-bottom: 18px;
+            border-bottom: 3px solid #fff0e6;
+        }
+
+        #screen-regras-seguranca .privacy-policy>p:first-of-type {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 14px;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        #screen-codigo-defesa .financeiro-content {
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+        }
+
+        #screen-codigo-defesa .cdc-feature-icon {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            place-items: center;
+            border-radius: 14px;
+            background: #fff7ed;
+            color: #c65300;
+            font-size: 21px;
+        }
+
+        #screen-codigo-defesa .cdc-resource-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            padding: 15px 18px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #ff6900, #e85d04);
+            color: #fff;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+            box-shadow: 0 8px 18px -10px #c65300;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        #screen-codigo-defesa .cdc-resource-link:focus-visible {
+            outline: 3px solid #ff6900;
+            outline-offset: 4px;
+        }
+
+        @media (hover:hover) {
+            #screen-codigo-defesa .cdc-resource-link:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 22px -12px #c65300;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            #screen-codigo-defesa .cdc-resource-link {
+                transition: none;
+            }
+        }
+
+        #screen-formas-pagamento .financeiro-content {
+            padding: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
+        }
+
+        #screen-formas-pagamento .payment-method-card {
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        #screen-formas-pagamento .payment-page p {
+            margin-bottom: 0;
+        }
+
+        #screen-formas-pagamento .payment-page h2 {
+            margin: 0;
+        }
+
+        #screen-formas-pagamento .payment-hero h1 {
+            margin: 16px 0 0;
+            color: #fff;
+            font-size: 24px;
+            line-height: 1.2;
+        }
+
+        #screen-formas-pagamento .payment-method-icon {
+            display: grid;
+            width: 44px;
+            height: 44px;
+            flex: 0 0 44px;
+            place-items: center;
+            border-radius: 14px;
+            font-size: 24px;
+        }
+
+        #screen-formas-pagamento .payment-brand-logo {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            height: 26px;
+            object-fit: contain;
+        }
+
+        #screen-formas-pagamento .payment-brand-tile {
+            display: flex;
+            min-height: 58px;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            background: #fff;
+        }
+
+        #screen-formas-pagamento .payment-rule {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        #screen-formas-pagamento .payment-rule-icon {
+            display: grid;
+            width: 26px;
+            height: 26px;
+            flex: 0 0 26px;
+            place-items: center;
+            border-radius: 9px;
+            background: #fff7ed;
+            color: #ea580c;
+            font-size: 16px;
+        }
+
+        @media (hover:hover) {
+            #screen-formas-pagamento .payment-method-card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 12px 24px -16px rgba(15, 23, 42, .32);
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            #screen-formas-pagamento .payment-method-card {
+                transition: none;
+            }
+        }
+
+        @media (hover:hover) {
+            .financeiro-screen .fin-card:hover {
+                background: #fffcfa;
+                border-color: #fed7aa;
+                transform: translateY(-2px);
+            }
+        }
+
+        @media (max-width:360px) {
+            .financeiro-screen .scroll-area {
+                padding-left: 14px;
+                padding-right: 14px;
+            }
+
+            .financeiro-screen .fin-card {
+                gap: 10px;
+                padding: 16px 12px;
+            }
+
+            .financeiro-screen .financeiro-content {
+                padding: 18px;
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+
+            .financeiro-screen,
+            .financeiro-screen .fin-card {
+                animation: none;
+                transition: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-  <!-- SVG ICON SPRITE from layout v1 -->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-    <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-    </symbol>
-    <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
-      <circle cx="12" cy="7" r="4" />
-    </symbol>
-    <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
-    </symbol>
-    <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-      <path d="M7 11V7a5 5 0 0110 0v4" />
-    </symbol>
-    <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
-      <polyline points="14 2 14 8 20 8" />
-    </symbol>
-  </svg>
+    <!-- SVG ICON SPRITE from layout v1 -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+        <symbol id="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+        </symbol>
+        <symbol id="icon-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+        </symbol>
+        <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+                d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2" />
+        </symbol>
+        <symbol id="icon-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0110 0v4" />
+        </symbol>
+        <symbol id="icon-file" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+        </symbol>
+    </svg>
 
-  <div id="app-container">
+    <div id="app-container">
 
-    <!-- HOME -->
-    <div id="screen-home" class="screen active">
-      <header class="bg-brand text-white pb-6 px-6 rounded-b-[2rem] shadow-md relative z-10" style="align-self: center;">
-        <h1 class="text-2xl font-bold mt-4 leading-tight" style="font-size: 1.1rem;">Central de Informações ao Cliente</h1>
-        <p class="text-white/80 text-sm mt-2"></p>
-      </header>
+        <!-- HOME -->
+        <div id="screen-home" class="screen active">
+            <header class="bg-brand text-white pb-6 px-6 rounded-b-[2rem] shadow-md relative z-10"
+                style="align-self: center;">
+                <h1 class="text-2xl font-bold mt-4 leading-tight" style="font-size: 1.1rem;">Central de Informações ao
+                    Cliente</h1>
+                <p class="text-white/80 text-sm mt-2"></p>
+            </header>
 
-      <div class="scroll-area px-5 pt-6 pb-8 bg-surface">
-        
-        <h3 class="text font-bold text-text-muted uppercase tracking-wider mb-3 ml-1" style="font-size: 0.675rem;">Selecione o tema desejado para obter informações</h3>
-        
-        <div class="grid grid-cols-2 gap-3">
-            <button onclick="app.navigate('financeiro')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
-                <i class="ph-duotone ph-credit-card text-3xl text-blue-500"></i>
-                <span class="font-semibold text-sm text-text-main leading-tight">Compras e Financeiro</span>
-            </button>
-            <button onclick="app.navigate('prioridade')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
-                <i class="ph-duotone ph-users text-3xl text-purple-500"></i>
-                <span class="font-semibold text-sm text-text-main leading-tight">Atendimento Prioritário</span>
-            </button>
-            <!-- <button onclick="app.navigate('procon')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+            <div class="scroll-area px-5 pt-6 pb-8 bg-surface">
+
+                <h3 class="text font-bold text-text-muted uppercase tracking-wider mb-3 ml-1"
+                    style="font-size: 0.675rem;">Selecione o tema desejado para obter informações</h3>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <button onclick="app.navigate('financeiro')"
+                        class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                        <i class="ph-duotone ph-credit-card text-3xl text-blue-500"></i>
+                        <span class="font-semibold text-sm text-text-main leading-tight">Compras e Financeiro</span>
+                    </button>
+                    <button onclick="app.navigate('prioridade')"
+                        class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                        <i class="ph-duotone ph-users text-3xl text-purple-500"></i>
+                        <span class="font-semibold text-sm text-text-main leading-tight">Atendimento Prioritário</span>
+                    </button>
+                    <!-- <button onclick="app.navigate('procon')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
                 <i class="ph-duotone ph-scales text-3xl text-blue-500"></i>
                 <span class="font-semibold text-sm text-text-main leading-tight">Contatos Procon</span>
             </button> -->
-            <button onclick="app.navigate('privacidade')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
-                <i class="ph-duotone ph-shield-check text-3xl text-green-500"></i>
-                <span class="font-semibold text-sm text-text-main leading-tight">Privacidade e LGPD</span>
-            </button>
-            <button onclick="app.navigate('outros')" class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
-                <i class="ph-duotone ph-info text-3xl text-gray-500"></i>
-                <span class="font-semibold text-sm text-text-main leading-tight">Outras Informações</span>
-            </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- PROCON (Advanced dropdown filters from V1 + V2 styling) -->
-    <div id="screen-procon" class="screen">
-        <header class="bg-[#002D72] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
-            <div class="flex items-center gap-3">
-                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
-                    <i class="ph-bold ph-arrow-left text-xl"></i>
-                </button>
-                <div class="bg-white/20 p-2 rounded-lg">
-                    <i class="ph-fill ph-scales text-2xl"></i>
+                    <button onclick="app.navigate('privacidade')"
+                        class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                        <i class="ph-duotone ph-shield-check text-3xl text-green-500"></i>
+                        <span class="font-semibold text-sm text-text-main leading-tight">Privacidade e LGPD</span>
+                    </button>
+                    <button onclick="app.navigate('outros')"
+                        class="bg-surface-card rounded-2xl p-4 shadow-soft text-left flex flex-col gap-3 active:scale-[0.98] transition-transform">
+                        <i class="ph-duotone ph-info text-3xl text-gray-500"></i>
+                        <span class="font-semibold text-sm text-text-main leading-tight">Outras Informações</span>
+                    </button>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold leading-tight">Contatos Procon</h1>
-                    <p class="text-white/80 text-xs">Encontre o Procon da sua região</p>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3 mt-5">
-                <div class="relative">
-                    <select id="procon-state" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#002D72]/50">
-                        <option value="">Todos os Estados</option>
-                    </select>
-                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-                <div class="relative">
-                    <select id="procon-city" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#002D72]/50">
-                        <option value="">Todas as Cidades</option>
-                    </select>
-                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-            </div>
-        </header>
-
-        <div class="scroll-area p-5 bg-surface" style="padding-bottom: 20%;">
-            <div id="procon-results" class="flex flex-col gap-3"></div>
-            <div id="procon-empty" class="text-center py-10 text-text-muted">
-                <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
-                <p class="text-sm">Selecione o estado ou cidade para visualizar.</p>
             </div>
         </div>
-    </div>
 
-    <!-- PRIORIDADE (Advanced dropdown filters from V1 + V2 styling) -->
-    <div id="screen-prioridade" class="screen">
-        <header class="bg-[#9B59B6] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
-            <div class="flex items-center gap-3">
-                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
-                    <i class="ph-bold ph-arrow-left text-xl"></i>
-                </button>
-                <div class="bg-white/20 p-2 rounded-lg">
-                    <i class="ph-fill ph-users text-2xl"></i>
+        <!-- PROCON (Advanced dropdown filters from V1 + V2 styling) -->
+        <div id="screen-procon" class="screen">
+            <header class="bg-[#002D72] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+                <div class="flex items-center gap-3">
+                    <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                        <i class="ph-bold ph-arrow-left text-xl"></i>
+                    </button>
+                    <div class="bg-white/20 p-2 rounded-lg">
+                        <i class="ph-fill ph-scales text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold leading-tight">Contatos Procon</h1>
+                        <p class="text-white/80 text-xs">Encontre o Procon da sua região</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold leading-tight">Atend. Prioritário</h1>
-                    <p class="text-white/80 text-xs">Regras e placas por região</p>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 gap-3 mt-5">
-                <div class="relative">
-                    <select id="prioridade-state" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#9B59B6]/50">
-                        <option value="">Todos os Estados</option>
-                    </select>
-                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-                <div class="relative">
-                    <select id="prioridade-city" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#9B59B6]/50">
-                        <option value="">Todas as Cidades</option>
-                    </select>
-                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-            </div>
-        </header>
 
-        <div class="scroll-area p-5 bg-surface">
-            <div id="prioridade-results" class="flex flex-col gap-4" style="margin-bottom: 20%;"></div>
-            <div id="prioridade-empty" class="text-center py-10 text-text-muted">
-                <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
-                <p class="text-sm">Selecione o estado ou cidade para visualizar.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- PRIVACIDADE (Search from V1 + V2 styling) -->
-    <div id="screen-privacidade" class="screen">
-        <header class="bg-[#27AE60] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
-            <div class="flex items-center gap-3">
-                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
-                    <i class="ph-bold ph-arrow-left text-xl"></i>
-                </button>
-                <div class="bg-white/20 p-2 rounded-lg">
-                    <i class="ph-fill ph-shield-check text-2xl"></i>
+                <div class="grid grid-cols-2 gap-3 mt-5">
+                    <div class="relative">
+                        <select id="procon-state"
+                            class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#002D72]/50">
+                            <option value="">Todos os Estados</option>
+                        </select>
+                        <i
+                            class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
+                    <div class="relative">
+                        <select id="procon-city"
+                            class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#002D72]/50">
+                            <option value="">Todas as Cidades</option>
+                        </select>
+                        <i
+                            class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold leading-tight">Privacidade e LGPD</h1>
-                    <p class="text-white/80 text-xs">Aviso de Privacidade do shopping</p>
-                </div>
-            </div>
-            
-            <div class="relative mt-5">
-                <i class="ph-regular ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
-                <input type="search" id="privacidade-search" placeholder="Buscar por shopping ou cidade..." class="w-full bg-white text-text-main border-none rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none shadow-sm focus:ring-2 focus:ring-[#27AE60]/50" autocomplete="off">
-            </div>
-        </header>
+            </header>
 
-        <div class="scroll-area p-5 bg-surface">
-            <div id="privacidade-results" class="flex flex-col gap-3"></div>
-            <div id="privacidade-empty" class="text-center py-10 text-text-muted">
-                <i class="ph-duotone ph-storefront text-4xl mb-2 opacity-50"></i>
-                <p class="text-sm">Digite o nome do shopping para buscar.</p>
+            <div class="scroll-area p-5 bg-surface" style="padding-bottom: 20%;">
+                <div id="procon-results" class="flex flex-col gap-3"></div>
+                <div id="procon-empty" class="text-center py-10 text-text-muted">
+                    <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
+                    <p class="text-sm">Selecione o estado ou cidade para visualizar.</p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- OUTROS (List from V1 + V2 styling) -->
-    <div id="screen-outros" class="screen">
-        <header class="bg-[#78909C] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
-            <div class="flex items-center gap-3">
-                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
-                    <i class="ph-bold ph-arrow-left text-xl"></i>
-                </button>
-                <div class="bg-white/20 p-2 rounded-lg">
-                    <i class="ph-fill ph-info text-2xl"></i>
+        <!-- PRIORIDADE (Advanced dropdown filters from V1 + V2 styling) -->
+        <div id="screen-prioridade" class="screen">
+            <header class="bg-[#9B59B6] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+                <div class="flex items-center gap-3">
+                    <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                        <i class="ph-bold ph-arrow-left text-xl"></i>
+                    </button>
+                    <div class="bg-white/20 p-2 rounded-lg">
+                        <i class="ph-fill ph-users text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold leading-tight">Atend. Prioritário</h1>
+                        <p class="text-white/80 text-xs">Regras e placas por região</p>
+                    </div>
                 </div>
-                <div>
-                    <h1 class="text-xl font-bold leading-tight">Outras Informações</h1>
-                    <p class="text-white/80 text-xs">Avisos gerais e obrigações legais</p>
+
+                <div class="grid grid-cols-2 gap-3 mt-5">
+                    <div class="relative">
+                        <select id="prioridade-state"
+                            class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#9B59B6]/50">
+                            <option value="">Todos os Estados</option>
+                        </select>
+                        <i
+                            class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
+                    <div class="relative">
+                        <select id="prioridade-city"
+                            class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#9B59B6]/50">
+                            <option value="">Todas as Cidades</option>
+                        </select>
+                        <i
+                            class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="scroll-area p-5 bg-surface">
+                <div id="prioridade-results" class="flex flex-col gap-4" style="margin-bottom: 20%;"></div>
+                <div id="prioridade-empty" class="text-center py-10 text-text-muted">
+                    <i class="ph-duotone ph-map-pin-line text-4xl mb-2 opacity-50"></i>
+                    <p class="text-sm">Selecione o estado ou cidade para visualizar.</p>
                 </div>
             </div>
-            <div class="grid grid-cols-2 gap-3 mt-5">
-                <div class="relative">
-                    <select id="outros-state" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#78909C]/50">
-                        <option value="">Todos os Estados</option>
-                    </select>
-                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-                <div class="relative">
-                    <select id="outros-city" class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#78909C]/50">
-                        <option value="">Todas as Cidades</option>
-                    </select>
-                    <i class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
-                </div>
-            </div>
-        </header>
-
-        <div class="scroll-area p-5 bg-surface">
-            <div id="outros-results" class="flex flex-col gap-3" style="margin-bottom: 50%;"></div>
         </div>
-    </div>
 
-    <!-- DESCARTE DE ELETRÔNICOS -->
-    <div id="screen-residuos" class="screen bg-surface">
-        <header class="residuos-header text-white px-5 pt-8 pb-5 shadow-md z-10 shrink-0">
-            <div class="flex items-center gap-3">
-                <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors" aria-label="Voltar">
-                    <i class="ph-bold ph-arrow-left text-xl"></i>
-                </button>
-                <div>
-                    <h1 class="text-xl font-bold leading-tight">Descarte de Eletrônicos</h1>
-                    <p class="text-white/80 text-xs">Aprenda o descarte correto para reciclagem</p>
+        <!-- PRIVACIDADE (Search from V1 + V2 styling) -->
+        <div id="screen-privacidade" class="screen">
+            <header class="bg-[#27AE60] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+                <div class="flex items-center gap-3">
+                    <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                        <i class="ph-bold ph-arrow-left text-xl"></i>
+                    </button>
+                    <div class="bg-white/20 p-2 rounded-lg">
+                        <i class="ph-fill ph-shield-check text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold leading-tight">Privacidade e LGPD</h1>
+                        <p class="text-white/80 text-xs">Aviso de Privacidade do shopping</p>
+                    </div>
+                </div>
+
+                <div class="relative mt-5">
+                    <i
+                        class="ph-regular ph-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-lg"></i>
+                    <input type="search" id="privacidade-search" placeholder="Buscar por shopping ou cidade..."
+                        class="w-full bg-white text-text-main border-none rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none shadow-sm focus:ring-2 focus:ring-[#27AE60]/50"
+                        autocomplete="off">
+                </div>
+            </header>
+
+            <div class="scroll-area p-5 bg-surface">
+                <div id="privacidade-results" class="flex flex-col gap-3"></div>
+                <div id="privacidade-empty" class="text-center py-10 text-text-muted">
+                    <i class="ph-duotone ph-storefront text-4xl mb-2 opacity-50"></i>
+                    <p class="text-sm">Digite o nome do shopping para buscar.</p>
                 </div>
             </div>
-        </header>
-        <main class="scroll-area residuos-content" style="padding-bottom: 20%;">
-            <section class="residuos-hero">
-                <div class="residuos-hero-copy">
-                    <h2 class="residuos-title">RESÍDUOS ELETRÔNICOS</h2>
-                    <p>Aprenda o descarte correto para reciclagem</p>
-                </div>
-                <img src="./assets/img/residuos/Asset 1-8.png" alt="Ilustração de resíduos eletrônicos" class="residuos-image residuos-hero-image">
-            </section>
-            <div class="residuos-divider"></div>
-            <section class="residuos-intro">
-                <p>Os eletrônicos nos ajudam muito no dia a dia, certo? Com eles, conseguimos facilitar tarefas, aproximar pessoas e encurtar distâncias. Mas é chegado um momento em que esses aparelhos não funcionam mais. E então precisamos permitir que eles se tornem mais do que lixo. Afinal de contas, as possibilidades de reaproveitamento desses materiais são gigantes.</p>
-                <img src="assets/img/residuos/Asset 2-8.png" alt="Ilustração sobre reaproveitamento de eletrônicos" class="residuos-image residuos-intro-image">
-            </section>
-            <div class="residuos-divider"></div>
-            <section class="residuos-section residuos-card residuos-centered">
-                <h2 class="residuos-title">O que é lixo eletrônico?</h2>
-                <p>Termo usado para definir algo que muitos de nós têm em casa: <strong>dispositivos eletroeletrônicos sem uso ou pilhas descarregadas.</strong> É comum que as pessoas não saibam muito bem como se desfazer desses produtos e acabem depositando-os no lixo reciclável comum ou no orgânico, por exemplo. Isso, além de prejudicar o meio ambiente, é um grande desperdício: eletroeletrônicos são feitos com peças de vários tipos de materiais, como plástico, vidro, metais, entre outros, mas dependem de um sistema próprio para serem reciclados. <strong>Quando encaminhados para uma destinação correta, cada componente pode ser separado e convertido em novas matérias-primas.</strong> Bem legal, né? Confira a seguir os diversos tipos de produtos que podem ser considerados resíduos eletroeletrônicos e, portanto, reaproveitados.</p>
-            </section>
-            <section class="residuos-types">
-                <div class="residuos-type">
-                    <img src="assets/img/residuos/Asset 3-8.png" alt="" class="residuos-type-image">
-                    <div><h3>Grandes equipamentos:</h3><p>Geladeiras, freezers, máquinas de lavar, fogões, ar-condicionados, micro-ondas e TVs grandes.</p></div>
-                </div>
-                <div class="residuos-type">
-                    <img src="assets/img/residuos/Asset 4-8.png" alt="" class="residuos-type-image">
-                    <div><h3>Equipamentos de informática e telefonia:</h3><p>Computadores, tablets, notebooks, celulares, impressoras, monitores e outros.</p></div>
-                </div>
-                <div class="residuos-type">
-                    <img src="assets/img/residuos/Asset 5-8.png" alt="" class="residuos-type-image">
-                    <div><h3>Pequenos equipamentos e eletroportáteis:</h3><p>Liquidificadores, secadores e outros pequenos aparelhos elétricos.</p></div>
-                </div>
-                <div class="residuos-type">
-                    <img src="assets/img/residuos/Asset 6-8.png" alt="" class="residuos-type-image">
-                    <div><h3>Pilhas e baterias portáteis:</h3><p>Pilhas e baterias de uso doméstico.</p></div>
-                </div>
-            </section>
-            <div class="residuos-divider"></div>
-            <section class="residuos-section residuos-card residuos-care">
-                <h2 class="residuos-title">Cuidados antes do descarte:</h2>
-                <p><strong>Muita gente pensa que resíduos eletrônicos podem nos oferecer riscos, mas isso é um mito.</strong> Para entender, basta seguir esta lógica: se os equipamentos não eram perigosos durante sua vida útil, continuam inofensivos na hora do descarte. Os possíveis riscos oferecidos por esses produtos estão muito mais associados a processos de reciclagem feitos incorretamente. Por isso, <strong>é importante que você nunca desmonte seu dispositivo em casa.</strong> Da mesma forma que você transportava seu aparelho durante o uso, pode facilmente levá-lo até o Ponto de Coleta Voluntária (PEV) mais próximo. As práticas de desmontagem e reciclagem devem ser realizadas apenas por profissionais especializados. Para auxiliar no descarte correto, sugerimos os PEVs da Green Eletron e suas recicladoras homologadas. Pilhas podem ser transportadas em sacolinhas plásticas fechadas, enquanto aparelhos elétricos e eletrônicos devem ser depositados inteiros, com a bateria ainda dentro da carcaça. O desmonte feito em casa não facilita o trabalho de reciclagem.</p>
-                <img src="assets/img/residuos/Asset 7-8.png" alt="Mascote ilustrando os cuidados no descarte" class="residuos-care-image">
-            </section>
-            <div class="residuos-divider"></div>
-            <section class="residuos-section residuos-centered">
-                <h2 class="residuos-title">O que pode ser descartado por meio da Green Eletron</h2>
-                <p><strong>Os Pontos de Coleta Voluntária (PEVs)</strong> estão preparados para receber eletroeletrônicos domésticos de médio e pequeno porte, ligados na tomada ou alimentados por bateria.</p>
-                <div class="residuos-accepted">
-                    <img src="assets/img/residuos/Asset 8-8.png" alt="Exemplo de ponto de entrega voluntária para eletroeletrônicos e pilhas" class="residuos-accepted-image">
-                    <ul>
-                        <li>Adaptadores de tomada;</li><li>Caixas de som;</li><li>Cabos e carregadores;</li>
-                        <li>Celulares, câmeras e outros itens eletrônicos;</li><li>Computadores;</li>
-                        <li>Eletrodomésticos de pequeno porte (liquidificadores, secadores etc.);</li>
-                        <li>Fones de ouvido;</li><li>Furadeiras e outras ferramentas elétricas de construção;</li>
-                        <li>Pen drives, HDs externos e outros dispositivos de armazenamento;</li>
-                        <li>Pilhas alcalinas ou comuns de zinco.</li>
-                    </ul>
-                </div>
-            </section>
-            <div class="residuos-divider"></div>
-            <section class="residuos-section residuos-collection">
-                <h2 class="residuos-title">ONDE ENCONTRAR PEV DA<P></P> GREEN ELETRON</h2>
-                <p>Acesse o site:</p>
-                <a href="https://greeneletron.org.br/onde-descartar/" class="residuos-button" target="_blank" rel="noopener noreferrer">Green Eletron</a>
-                <p>Coloque seu endereço e descubra o ponto de coleta mais próximo a você!</p>
-                <img src="assets/img/residuos/Asset 9-8.png" alt="Mascote Green Eletron com lupa" class="residuos-collection-image">
-                <p class="residuos-note">Caso não haja um ponto de coleta da Green Eletron próximo à sua região, busque empresas especializadas em reciclagem de resíduos eletrônicos ou pontos de coleta existentes em sua cidade.</p>
-            </section>
-        </main>
-    </div>
+        </div>
 
+        <!-- OUTROS (List from V1 + V2 styling) -->
+        <div id="screen-outros" class="screen">
+            <header class="bg-[#78909C] text-white px-5 pt-8 pb-6 rounded-b-2xl shadow-md z-10 shrink-0">
+                <div class="flex items-center gap-3">
+                    <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors">
+                        <i class="ph-bold ph-arrow-left text-xl"></i>
+                    </button>
+                    <div class="bg-white/20 p-2 rounded-lg">
+                        <i class="ph-fill ph-info text-2xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold leading-tight">Outras Informações</h1>
+                        <p class="text-white/80 text-xs">Avisos gerais e obrigações legais</p>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-3 mt-5">
+                    <div class="relative">
+                        <select id="outros-state"
+                            class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#78909C]/50">
+                            <option value="">Todos os Estados</option>
+                        </select>
+                        <i
+                            class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
+                    <div class="relative">
+                        <select id="outros-city"
+                            class="w-full bg-white text-text-main border-none rounded-xl px-3 py-2.5 text-sm appearance-none outline-none shadow-sm focus:ring-2 focus:ring-[#78909C]/50">
+                            <option value="">Todas as Cidades</option>
+                        </select>
+                        <i
+                            class="ph-bold ph-caret-down absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none"></i>
+                    </div>
+                </div>
+            </header>
 
-    <section id="screen-financeiro" class="screen bg-surface financeiro-screen">
-      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
-        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
-        <h2 class="ml-2 font-bold text-text-main text-sm">Atendimento e Informações Financeiras</h2>
-      </header>
-      <div class="scroll-area p-5"><div class="fin-intro"><span class="fin-eyebrow">ATENDIMENTO AO CLIENTE</span><h1>Informações para suas compras</h1><p>Consulte orientações de segurança, seus direitos e as condições de pagamento.</p></div><div class="fin-menu" aria-label="Assuntos financeiros"><button type="button" onclick="app.navigate('regras-seguranca')" class="fin-card fin-blue"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-shield-check"></i></span><span class="fin-card-copy"><strong>Segurança nas transações</strong><span>Aviso de regras de segurança sobre transações financeiras</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button type="button" onclick="app.navigate('procon')" class="fin-card fin-purple"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-scales"></i></span><span class="fin-card-copy"><strong>Contatos do Procon</strong><span>Encontre os canais de atendimento da sua região.</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button type="button" onclick="app.navigate('codigo-defesa')" class="fin-card fin-orange"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-book-open-text"></i></span><span class="fin-card-copy"><strong>Código de Defesa do Consumidor</strong><span>Consulte o exemplar digital no portal oficial.</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button type="button" onclick="app.navigate('formas-pagamento')" class="fin-card fin-green"><span class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-credit-card"></i></span><span class="fin-card-copy"><strong>Formas de Pagamento</strong><span>Meios aceitos, bandeiras e regras de parcelamento.</span></span><i class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button></div></div>
-    </section>
-
-    <section id="screen-regras-seguranca" class="screen bg-surface financeiro-screen">
-      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
-        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
-        <h2 class="ml-2 font-bold text-text-main text-sm">Aviso de regras de segurança sobre transações financeiras</h2>
-      </header>
-      <div class="scroll-area p-5"><div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
-<div class="privacy-policy">
-    <h1>AVISO DE REGRAS DE SEGURANÇA SOBRE TRANSAÇÕES FINANCEIRAS</h1>
-    <p><strong>Rede de Lojas MiBrasil</strong><br>Última atualização: abril de 2026 (v.1)</p>
-    <p>A Rede de Lojas Mibrasil é comprometida com a proteção da segurança financeira das Lojas e dos seus CLIENTES, possuindo rígidas políticas internas a serem seguidas pelos seus colaboradores / prestadores de serviços, visando a prevenção a fraudes e a preservação da excelência de atendimento, tudo em observância às legislações aplicáveis e princípios de conduta ética.</p>
-    <p>Este AVISO contém informações sobre regras de segurança referentes às transações financeiras realizadas por CLIENTES da Rede de Lojas Mibrasil, no ato de pagamento de produtos, tais como, operações com cartão de crédito ou débito, PIX e outros meios eletrônicos de pagamento.</p>
-
-    <h2>Para os fins desse aviso, considera-se:</h2>
-    <ul>
-        <li><strong>Titular do meio de pagamento eletrônico (TITULAR):</strong> a pessoa física ou jurídica titular da conta bancária vinculada ao pix ou aplicativos de pagamento, de cartões de crédito ou débito (físicos ou virtuais), de aplicativos ou outros meios virtuais de pagamentos, assim como o proprietário do smartphone ou outros aparelhos eletrônicos nos quais tais aplicativos ou cartões virtuais estejam instalados.</li>
-        <li><strong>Clientes da Rede de Lojas Mibrasil (CLIENTE):</strong> pessoas físicas e/ou representantes de pessoas jurídicas que (i) compareçam presencialmente ou façam contatos com a lojas da Rede Mibrasil com o intuito de informações e/ou compra de produtos; (ii) concluam a compra de produtos mediante a utilização de meios de pagamento aceitos pela loja, que sejam de titularidade do próprio CLIENTE ou de terceiro que o tenha autorizado, sob exclusiva responsabilidade do titular.</li>
-    </ul>
-
-    <h2>INFORMAÇÕES IMPORTANTES AOS CLIENTES:</h2>
-    <ol>
-        <li>Os Titulares dos meios de pagamento eletrônico são responsáveis pela guarda e posse de tais meios, assim como pela privacidade de senhas / logins de acesso, de modo a prevenir e evitar fraudes que possam vir a causar prejuízos tanto aos próprios TITULARES quanto aos comerciantes em geral, devendo seguir todas as obrigações contratuais e orientações de segurança assumidas junto as suas respectivas instituições financeiras, operadoras de cartões e demais prestadores de serviços financeiros.</li>
-        <li>A posse de cartões /aplicativos/ demais meios de pagamentos eletrônicos, com a ciência de senhas ou demais meios de acesso que viabilizem a conclusão do pagamento da compra pelo CLIENTE serão consideradas, pela Rede de Lojas Mibrasil, como autorização de uso dadas a este pelo TITULAR do meio de pagamento utilizado.</li>
-        <li>A Rede de Lojas Mibrasil não é responsável pelo uso desautorizado e/ou ilegal e/ou fora dos limites autorizados por terceiros que estejam em posse de cartões, aplicativos e demais meios de pagamento eletrônicos, logins e/ou senhas de acesso de TITULARES e utilizem tais meios para realizar o pagamento de compras de produtos junto as lojas da Rede Mibrasil.</li>
-        <li>Os colaboradores da Rede de Lojas Mibrasil, seguindo regras de políticas internas de segurança e compliance, podem vir a solicitar dados pessoais e apresentação de documentos de identificação dos CLIENTES, bem como de dados pessoais, documentos de identificação e/ou de comprovante de autorização dos TITULARES, no momento do pagamento da compra. A conclusão da compra em tais situações somente ocorrerá após a devida apresentação dos dados e/ou documentos solicitados.</li>
-        <li>Se, após ler este AVISO, restar qualquer dúvida, comentário e/ou sugestão, solicitamos que, por favor, procure o Colaborador responsável pela Loja da Rede Mibrasil na qual o Sr(a). se encontra.</li>
-    </ol>
-</div>
-            </div></div>
-    </section>
-
-    <section id="screen-codigo-defesa" class="screen bg-surface financeiro-screen">
-      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
-        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
-        <h2 class="ml-2 font-bold text-text-main text-sm">Código de Defesa do Consumidor</h2>
-      </header>
-      <div class="scroll-area p-4 sm:p-5">
-        <main>
-          <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="cdc-resource-title">
-            <div class="flex items-start gap-3">
-              <span class="cdc-feature-icon"><i class="ph-fill ph-book-open-text" aria-hidden="true"></i></span>
-              <div>
-                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-orange-600">Lei Federal nº 8.078/1990</p>
-                <h2 id="cdc-resource-title" class="mt-1 text-base font-extrabold leading-snug text-slate-800">Código de Defesa do Consumidor (CDC)</h2>
-                <p class="mt-2 text-sm leading-relaxed text-slate-600">Consulte o texto compilado da lei diretamente no site oficial do Planalto.</p>
-              </div>
+            <div class="scroll-area p-5 bg-surface">
+                <div id="outros-results" class="flex flex-col gap-3" style="margin-bottom: 50%;"></div>
             </div>
-            <a class="cdc-resource-link mt-5" href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank" rel="noopener noreferrer">
-              <i class="ph-bold ph-arrow-square-out text-lg" aria-hidden="true"></i>
-              Acessar o CDC no Planalto
-            </a>
-            <p class="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-500">
-              <i class="ph-fill ph-shield-check text-sm text-emerald-600" aria-hidden="true"></i>
-              Link para fonte oficial do Governo Federal
-            </p>
-          </section>
-        </main>
-      </div>
-    </section>
+        </div>
 
-    <section id="screen-formas-pagamento" class="screen bg-surface financeiro-screen">
-      <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
-        <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i class="ph-bold ph-arrow-left text-xl"></i></button>
-        <h2 class="ml-2 font-bold text-text-main text-sm">Formas de Pagamento</h2>
-      </header>
-      <div class="scroll-area p-4 sm:p-5">
-        <main class="financeiro-content grid gap-4">
-          <section class="payment-hero overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 via-orange-600 to-amber-600 p-5 text-white shadow-lg shadow-orange-900/10">
-            <span class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[.16em]">
-              <i class="ph-fill ph-sparkle text-sm" aria-hidden="true"></i>
-              Pagamento fácil e seguro
-            </span>
-            <h1 class="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-white">Escolha como pagar</h1>
-            <p class="mt-2 max-w-sm text-sm leading-relaxed text-white/85">Confira as opções aceitas nas lojas MiBrasil.</p>
-            <section aria-labelledby="payment-methods-title">
-            <div class="mb-3 flex items-end justify-between gap-3">
-              <!-- <div>
+        <!-- DESCARTE DE ELETRÔNICOS -->
+        <div id="screen-residuos" class="screen bg-surface">
+            <header class="residuos-header text-white px-5 pt-8 pb-5 shadow-md z-10 shrink-0">
+                <div class="flex items-center gap-3">
+                    <button onclick="app.goBack()" class="p-2 -ml-2 text-white/80 hover:text-white transition-colors"
+                        aria-label="Voltar">
+                        <i class="ph-bold ph-arrow-left text-xl"></i>
+                    </button>
+                    <div>
+                        <h1 class="text-xl font-bold leading-tight">Descarte de Eletrônicos</h1>
+                        <p class="text-white/80 text-xs">Aprenda o descarte correto para reciclagem</p>
+                    </div>
+                </div>
+            </header>
+            <main class="scroll-area residuos-content" style="padding-bottom: 20%;">
+                <section class="residuos-hero">
+                    <div class="residuos-hero-copy">
+                        <h2 class="residuos-title">RESÍDUOS ELETRÔNICOS</h2>
+                        <p>Aprenda o descarte correto para reciclagem</p>
+                    </div>
+                    <img src="./assets/img/residuos/Asset 1-8.png" alt="Ilustração de resíduos eletrônicos"
+                        class="residuos-image residuos-hero-image">
+                </section>
+                <div class="residuos-divider"></div>
+                <section class="residuos-intro">
+                    <p>Os eletrônicos nos ajudam muito no dia a dia, certo? Com eles, conseguimos facilitar tarefas,
+                        aproximar pessoas e encurtar distâncias. Mas é chegado um momento em que esses aparelhos não
+                        funcionam mais. E então precisamos permitir que eles se tornem mais do que lixo. Afinal de
+                        contas, as possibilidades de reaproveitamento desses materiais são gigantes.</p>
+                    <img src="assets/img/residuos/Asset 2-8.png" alt="Ilustração sobre reaproveitamento de eletrônicos"
+                        class="residuos-image residuos-intro-image">
+                </section>
+                <div class="residuos-divider"></div>
+                <section class="residuos-section residuos-card residuos-centered">
+                    <h2 class="residuos-title">O que é lixo eletrônico?</h2>
+                    <p>Termo usado para definir algo que muitos de nós têm em casa: <strong>dispositivos
+                            eletroeletrônicos sem uso ou pilhas descarregadas.</strong> É comum que as pessoas não
+                        saibam muito bem como se desfazer desses produtos e acabem depositando-os no lixo reciclável
+                        comum ou no orgânico, por exemplo. Isso, além de prejudicar o meio ambiente, é um grande
+                        desperdício: eletroeletrônicos são feitos com peças de vários tipos de materiais, como plástico,
+                        vidro, metais, entre outros, mas dependem de um sistema próprio para serem reciclados.
+                        <strong>Quando encaminhados para uma destinação correta, cada componente pode ser separado e
+                            convertido em novas matérias-primas.</strong> Bem legal, né? Confira a seguir os diversos
+                        tipos de produtos que podem ser considerados resíduos eletroeletrônicos e, portanto,
+                        reaproveitados.</p>
+                </section>
+                <section class="residuos-types">
+                    <div class="residuos-type">
+                        <img src="assets/img/residuos/Asset 3-8.png" alt="" class="residuos-type-image">
+                        <div>
+                            <h3>Grandes equipamentos:</h3>
+                            <p>Geladeiras, freezers, máquinas de lavar, fogões, ar-condicionados, micro-ondas e TVs
+                                grandes.</p>
+                        </div>
+                    </div>
+                    <div class="residuos-type">
+                        <img src="assets/img/residuos/Asset 4-8.png" alt="" class="residuos-type-image">
+                        <div>
+                            <h3>Equipamentos de informática e telefonia:</h3>
+                            <p>Computadores, tablets, notebooks, celulares, impressoras, monitores e outros.</p>
+                        </div>
+                    </div>
+                    <div class="residuos-type">
+                        <img src="assets/img/residuos/Asset 5-8.png" alt="" class="residuos-type-image">
+                        <div>
+                            <h3>Pequenos equipamentos e eletroportáteis:</h3>
+                            <p>Liquidificadores, secadores e outros pequenos aparelhos elétricos.</p>
+                        </div>
+                    </div>
+                    <div class="residuos-type">
+                        <img src="assets/img/residuos/Asset 6-8.png" alt="" class="residuos-type-image">
+                        <div>
+                            <h3>Pilhas e baterias portáteis:</h3>
+                            <p>Pilhas e baterias de uso doméstico.</p>
+                        </div>
+                    </div>
+                </section>
+                <div class="residuos-divider"></div>
+                <section class="residuos-section residuos-card residuos-care">
+                    <h2 class="residuos-title">Cuidados antes do descarte:</h2>
+                    <p><strong>Muita gente pensa que resíduos eletrônicos podem nos oferecer riscos, mas isso é um
+                            mito.</strong> Para entender, basta seguir esta lógica: se os equipamentos não eram
+                        perigosos durante sua vida útil, continuam inofensivos na hora do descarte. Os possíveis riscos
+                        oferecidos por esses produtos estão muito mais associados a processos de reciclagem feitos
+                        incorretamente. Por isso, <strong>é importante que você nunca desmonte seu dispositivo em
+                            casa.</strong> Da mesma forma que você transportava seu aparelho durante o uso, pode
+                        facilmente levá-lo até o Ponto de Coleta Voluntária (PEV) mais próximo. As práticas de
+                        desmontagem e reciclagem devem ser realizadas apenas por profissionais especializados. Para
+                        auxiliar no descarte correto, sugerimos os PEVs da Green Eletron e suas recicladoras
+                        homologadas. Pilhas podem ser transportadas em sacolinhas plásticas fechadas, enquanto aparelhos
+                        elétricos e eletrônicos devem ser depositados inteiros, com a bateria ainda dentro da carcaça. O
+                        desmonte feito em casa não facilita o trabalho de reciclagem.</p>
+                    <img src="assets/img/residuos/Asset 7-8.png" alt="Mascote ilustrando os cuidados no descarte"
+                        class="residuos-care-image">
+                </section>
+                <div class="residuos-divider"></div>
+                <section class="residuos-section residuos-centered">
+                    <h2 class="residuos-title">O que pode ser descartado por meio da Green Eletron</h2>
+                    <p><strong>Os Pontos de Coleta Voluntária (PEVs)</strong> estão preparados para receber
+                        eletroeletrônicos domésticos de médio e pequeno porte, ligados na tomada ou alimentados por
+                        bateria.</p>
+                    <div class="residuos-accepted">
+                        <img src="assets/img/residuos/Asset 8-8.png"
+                            alt="Exemplo de ponto de entrega voluntária para eletroeletrônicos e pilhas"
+                            class="residuos-accepted-image">
+                        <ul>
+                            <li>Adaptadores de tomada;</li>
+                            <li>Caixas de som;</li>
+                            <li>Cabos e carregadores;</li>
+                            <li>Celulares, câmeras e outros itens eletrônicos;</li>
+                            <li>Computadores;</li>
+                            <li>Eletrodomésticos de pequeno porte (liquidificadores, secadores etc.);</li>
+                            <li>Fones de ouvido;</li>
+                            <li>Furadeiras e outras ferramentas elétricas de construção;</li>
+                            <li>Pen drives, HDs externos e outros dispositivos de armazenamento;</li>
+                            <li>Pilhas alcalinas ou comuns de zinco.</li>
+                        </ul>
+                    </div>
+                </section>
+                <div class="residuos-divider"></div>
+                <section class="residuos-section residuos-collection">
+                    <h2 class="residuos-title">ONDE ENCONTRAR PEV DA<P></P> GREEN ELETRON</h2>
+                    <p>Acesse o site:</p>
+                    <a href="https://greeneletron.org.br/onde-descartar/" class="residuos-button" target="_blank"
+                        rel="noopener noreferrer">Green Eletron</a>
+                    <p>Coloque seu endereço e descubra o ponto de coleta mais próximo a você!</p>
+                    <img src="assets/img/residuos/Asset 9-8.png" alt="Mascote Green Eletron com lupa"
+                        class="residuos-collection-image">
+                    <p class="residuos-note">Caso não haja um ponto de coleta da Green Eletron próximo à sua região,
+                        busque empresas especializadas em reciclagem de resíduos eletrônicos ou pontos de coleta
+                        existentes em sua cidade.</p>
+                </section>
+            </main>
+        </div>
+
+
+        <section id="screen-financeiro" class="screen bg-surface financeiro-screen">
+            <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+                <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i
+                        class="ph-bold ph-arrow-left text-xl"></i></button>
+                <h2 class="ml-2 font-bold text-text-main text-sm">Atendimento e Informações Financeiras</h2>
+            </header>
+            <div class="scroll-area p-5">
+                <div class="fin-intro"><span class="fin-eyebrow">ATENDIMENTO AO CLIENTE</span>
+                    <h1>Informações para suas compras</h1>
+                    <p>Consulte orientações de segurança, seus direitos e as condições de pagamento.</p>
+                </div>
+                <div class="fin-menu" aria-label="Assuntos financeiros"><button type="button"
+                        onclick="app.navigate('regras-seguranca')" class="fin-card fin-blue"><span class="fin-icon"
+                            aria-hidden="true"><i class="ph-duotone ph-shield-check"></i></span><span
+                            class="fin-card-copy"><strong>Segurança nas transações</strong><span>Aviso de regras de
+                                segurança sobre transações financeiras</span></span><i
+                            class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button
+                        type="button" onclick="app.navigate('procon')" class="fin-card fin-purple"><span
+                            class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-scales"></i></span><span
+                            class="fin-card-copy"><strong>Contatos do Procon</strong><span>Encontre os canais de
+                                atendimento da sua região.</span></span><i class="ph-bold ph-caret-right fin-arrow"
+                            aria-hidden="true"></i></button><button type="button"
+                        onclick="app.navigate('codigo-defesa')" class="fin-card fin-orange"><span class="fin-icon"
+                            aria-hidden="true"><i class="ph-duotone ph-book-open-text"></i></span><span
+                            class="fin-card-copy"><strong>Código de Defesa do Consumidor</strong><span>Consulte o
+                                exemplar digital no portal oficial.</span></span><i
+                            class="ph-bold ph-caret-right fin-arrow" aria-hidden="true"></i></button><button
+                        type="button" onclick="app.navigate('formas-pagamento')" class="fin-card fin-green"><span
+                            class="fin-icon" aria-hidden="true"><i class="ph-duotone ph-credit-card"></i></span><span
+                            class="fin-card-copy"><strong>Formas de Pagamento</strong><span>Meios aceitos, bandeiras e
+                                regras de parcelamento.</span></span><i class="ph-bold ph-caret-right fin-arrow"
+                            aria-hidden="true"></i></button></div>
+            </div>
+        </section>
+
+        <section id="screen-regras-seguranca" class="screen bg-surface financeiro-screen">
+            <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+                <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i
+                        class="ph-bold ph-arrow-left text-xl"></i></button>
+                <h2 class="ml-2 font-bold text-text-main text-sm">Aviso de regras de segurança sobre transações
+                    financeiras</h2>
+            </header>
+            <div class="scroll-area p-5">
+                <div class="bg-white rounded-2xl p-4 shadow-soft financeiro-content">
+                    <div class="privacy-policy">
+                        <h1>AVISO DE REGRAS DE SEGURANÇA SOBRE TRANSAÇÕES FINANCEIRAS</h1>
+                        <p><strong>Rede de Lojas MiBrasil</strong><br>Última atualização: abril de 2026 (v.1)</p>
+                        <p>A Rede de Lojas Mibrasil é comprometida com a proteção da segurança financeira das Lojas e
+                            dos seus CLIENTES, possuindo rígidas políticas internas a serem seguidas pelos seus
+                            colaboradores / prestadores de serviços, visando a prevenção a fraudes e a preservação da
+                            excelência de atendimento, tudo em observância às legislações aplicáveis e princípios de
+                            conduta ética.</p>
+                        <p>Este AVISO contém informações sobre regras de segurança referentes às transações financeiras
+                            realizadas por CLIENTES da Rede de Lojas Mibrasil, no ato de pagamento de produtos, tais
+                            como, operações com cartão de crédito ou débito, PIX e outros meios eletrônicos de
+                            pagamento.</p>
+
+                        <h2>Para os fins desse aviso, considera-se:</h2>
+                        <ul>
+                            <li><strong>Titular do meio de pagamento eletrônico (TITULAR):</strong> a pessoa física ou
+                                jurídica titular da conta bancária vinculada ao pix ou aplicativos de pagamento, de
+                                cartões de crédito ou débito (físicos ou virtuais), de aplicativos ou outros meios
+                                virtuais de pagamentos, assim como o proprietário do smartphone ou outros aparelhos
+                                eletrônicos nos quais tais aplicativos ou cartões virtuais estejam instalados.</li>
+                            <li><strong>Clientes da Rede de Lojas Mibrasil (CLIENTE):</strong> pessoas físicas e/ou
+                                representantes de pessoas jurídicas que (i) compareçam presencialmente ou façam contatos
+                                com a lojas da Rede Mibrasil com o intuito de informações e/ou compra de produtos; (ii)
+                                concluam a compra de produtos mediante a utilização de meios de pagamento aceitos pela
+                                loja, que sejam de titularidade do próprio CLIENTE ou de terceiro que o tenha
+                                autorizado, sob exclusiva responsabilidade do titular.</li>
+                        </ul>
+
+                        <h2>INFORMAÇÕES IMPORTANTES AOS CLIENTES:</h2>
+                        <ol>
+                            <li>Os Titulares dos meios de pagamento eletrônico são responsáveis pela guarda e posse de
+                                tais meios, assim como pela privacidade de senhas / logins de acesso, de modo a prevenir
+                                e evitar fraudes que possam vir a causar prejuízos tanto aos próprios TITULARES quanto
+                                aos comerciantes em geral, devendo seguir todas as obrigações contratuais e orientações
+                                de segurança assumidas junto as suas respectivas instituições financeiras, operadoras de
+                                cartões e demais prestadores de serviços financeiros.</li>
+                            <li>A posse de cartões /aplicativos/ demais meios de pagamentos eletrônicos, com a ciência
+                                de senhas ou demais meios de acesso que viabilizem a conclusão do pagamento da compra
+                                pelo CLIENTE serão consideradas, pela Rede de Lojas Mibrasil, como autorização de uso
+                                dadas a este pelo TITULAR do meio de pagamento utilizado.</li>
+                            <li>A Rede de Lojas Mibrasil não é responsável pelo uso desautorizado e/ou ilegal e/ou fora
+                                dos limites autorizados por terceiros que estejam em posse de cartões, aplicativos e
+                                demais meios de pagamento eletrônicos, logins e/ou senhas de acesso de TITULARES e
+                                utilizem tais meios para realizar o pagamento de compras de produtos junto as lojas da
+                                Rede Mibrasil.</li>
+                            <li>Os colaboradores da Rede de Lojas Mibrasil, seguindo regras de políticas internas de
+                                segurança e compliance, podem vir a solicitar dados pessoais e apresentação de
+                                documentos de identificação dos CLIENTES, bem como de dados pessoais, documentos de
+                                identificação e/ou de comprovante de autorização dos TITULARES, no momento do pagamento
+                                da compra. A conclusão da compra em tais situações somente ocorrerá após a devida
+                                apresentação dos dados e/ou documentos solicitados.</li>
+                            <li>Se, após ler este AVISO, restar qualquer dúvida, comentário e/ou sugestão, solicitamos
+                                que, por favor, procure o Colaborador responsável pela Loja da Rede Mibrasil na qual o
+                                Sr(a). se encontra.</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="screen-codigo-defesa" class="screen bg-surface financeiro-screen">
+            <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+                <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i
+                        class="ph-bold ph-arrow-left text-xl"></i></button>
+                <h2 class="ml-2 font-bold text-text-main text-sm">Código de Defesa do Consumidor</h2>
+            </header>
+            <div class="scroll-area p-4 sm:p-5">
+                <main>
+                    <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5"
+                        aria-labelledby="cdc-resource-title">
+                        <div class="flex items-start gap-3">
+                            <span class="cdc-feature-icon"><i class="ph-fill ph-book-open-text"
+                                    aria-hidden="true"></i></span>
+                            <div>
+                                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-orange-600">Lei Federal
+                                    nº 8.078/1990</p>
+                                <h2 id="cdc-resource-title"
+                                    class="mt-1 text-base font-extrabold leading-snug text-slate-800">Código de Defesa
+                                    do Consumidor (CDC)</h2>
+                                <p class="mt-2 text-sm leading-relaxed text-slate-600">Consulte o texto compilado da lei
+                                    diretamente no site oficial do Planalto.</p>
+                            </div>
+                        </div>
+                        <a class="cdc-resource-link mt-5"
+                            href="https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm" target="_blank"
+                            rel="noopener noreferrer">
+                            <i class="ph-bold ph-arrow-square-out text-lg" aria-hidden="true"></i>
+                            Acessar o CDC no Planalto
+                        </a>
+                        <p class="mt-3 flex items-center justify-center gap-1.5 text-center text-[11px] text-slate-500">
+                            <i class="ph-fill ph-shield-check text-sm text-emerald-600" aria-hidden="true"></i>
+                            Link para fonte oficial do Governo Federal
+                        </p>
+                    </section>
+                </main>
+            </div>
+        </section>
+
+        <section id="screen-formas-pagamento" class="screen bg-surface financeiro-screen">
+            <header class="bg-white px-4 py-3 flex items-center shadow-sm shrink-0 border-b border-gray-100">
+                <button type="button" onclick="app.goBack()" aria-label="Voltar" class="p-2 text-text-muted"><i
+                        class="ph-bold ph-arrow-left text-xl"></i></button>
+                <h2 class="ml-2 font-bold text-text-main text-sm">Formas de Pagamento</h2>
+            </header>
+            <div class="scroll-area p-4 sm:p-5">
+                <main class="financeiro-content grid gap-4">
+                    <section
+                        class="payment-hero overflow-hidden rounded-3xl bg-gradient-to-br from-orange-500 via-orange-600 to-amber-600 p-5 text-white shadow-lg shadow-orange-900/10">
+                        <span
+                            class="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-[.16em]">
+                            <i class="ph-fill ph-sparkle text-sm" aria-hidden="true"></i>
+                            Pagamento fácil e seguro
+                        </span>
+                        <h1 class="mt-4 text-2xl font-extrabold leading-tight tracking-tight text-white">Escolha como
+                            pagar</h1>
+                        <p class="mt-2 max-w-sm text-sm leading-relaxed text-white/85">Confira as opções aceitas nas
+                            lojas MiBrasil.</p>
+                        <section aria-labelledby="payment-methods-title">
+                            <div class="mb-3 flex items-end justify-between gap-3">
+                                <!-- <div>
                 <p class="text-[10px] font-bold uppercase tracking-[.16em] text-orange-600">Na loja</p>
                 <h2 id="payment-methods-title" class="mt-1 text-lg font-extrabold text-slate-800">Formas aceitas</h2>
               </div> -->
-              <span class="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">3 opções</span>
-            </div>
-            <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
-              <article class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
-                <span class="payment-method-icon bg-emerald-50 text-emerald-600"><i class="ph-fill ph-money" aria-hidden="true"></i></span>
-                <span><strong class="block text-sm font-bold text-slate-800">Dinheiro</strong><span class="mt-1 block text-xs text-slate-500">Pagamento em espécie</span></span>
-              </article>
-              <article class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
-                <span class="payment-method-icon bg-teal-50 text-teal-600"><i class="ph-bold ph-qr-code" aria-hidden="true"></i></span>
-                <span><strong class="block text-sm font-bold text-slate-800">Pix</strong><span class="mt-1 block text-xs text-slate-500">Pagamento instantâneo</span></span>
-              </article>
-              <article class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
-                <span class="payment-method-icon bg-blue-50 text-blue-600"><i class="ph-fill ph-credit-card" aria-hidden="true"></i></span>
-                <span><strong class="block text-sm font-bold text-slate-800">Cartão</strong><span class="mt-1 block text-xs text-slate-500">Débito ou crédito</span></span>
-              </article>
-            </div>
-          </section>
-          </section>
+                                <span
+                                    class="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">3
+                                    opções</span>
+                            </div>
+                            <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                                <article
+                                    class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                                    <span class="payment-method-icon bg-emerald-50 text-emerald-600"><i
+                                            class="ph-fill ph-money" aria-hidden="true"></i></span>
+                                    <span><strong class="block text-sm font-bold text-slate-800">Dinheiro</strong><span
+                                            class="mt-1 block text-xs text-slate-500">Pagamento em espécie</span></span>
+                                </article>
+                                <article
+                                    class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                                    <span class="payment-method-icon bg-teal-50 text-teal-600"><i
+                                            class="ph-bold ph-qr-code" aria-hidden="true"></i></span>
+                                    <span><strong class="block text-sm font-bold text-slate-800">Pix</strong><span
+                                            class="mt-1 block text-xs text-slate-500">Pagamento
+                                            instantâneo</span></span>
+                                </article>
+                                <article
+                                    class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                                    <span class="payment-method-icon bg-blue-50 text-blue-600"><i
+                                            class="ph-fill ph-credit-card" aria-hidden="true"></i></span>
+                                    <span><strong class="block text-sm font-bold text-slate-800">Cartão</strong><span
+                                            class="mt-1 block text-xs text-slate-500">Débito ou crédito</span></span>
+                                </article>
+                            </div>
+                        </section>
+                    </section>
 
-          
 
-          <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="payment-brands-title">
-            <div class="mb-4">
-              <p class="text-[10px] font-bold uppercase tracking-[.16em] text-slate-500">Cartões</p>
-              <h2 id="payment-brands-title" class="mt-1 text-base font-extrabold text-slate-800">Bandeiras aceitas</h2>
-            </div>
-            <div class="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              <div class="payment-brand-tile" aria-label="American Express"><img class="payment-brand-logo" src="./assets/img/cartoes/amex.svg" alt="American Express" loading="lazy"></div>
-              <div class="payment-brand-tile" aria-label="Diners Club"><img class="payment-brand-logo" src="./assets/img/cartoes/diners.svg" alt="Diners Club" loading="lazy"></div>
-              <div class="payment-brand-tile" aria-label="Elo"><img class="payment-brand-logo" src="./assets/img/cartoes/elo.svg" alt="Elo" loading="lazy"></div>
-              <div class="payment-brand-tile" aria-label="Mastercard"><img class="payment-brand-logo" src="./assets/img/cartoes/mastercard.svg" alt="Mastercard" loading="lazy"></div>
-            </div>
-            <!-- <div class="mt-4 flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-3 text-rose-800" role="note">
+
+                    <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5"
+                        aria-labelledby="payment-brands-title">
+                        <div class="mb-4">
+                            <p class="text-[10px] font-bold uppercase tracking-[.16em] text-slate-500">Cartões</p>
+                            <h2 id="payment-brands-title" class="mt-1 text-base font-extrabold text-slate-800">Bandeiras
+                                aceitas</h2>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 sm:grid-cols-3">
+                            <div class="payment-brand-tile" aria-label="American Express"><img
+                                    class="payment-brand-logo" src="./assets/img/cartoes/amex.svg"
+                                    alt="American Express" loading="lazy"></div>
+                            <div class="payment-brand-tile" aria-label="Diners Club"><img class="payment-brand-logo"
+                                    src="./assets/img/cartoes/diners.svg" alt="Diners Club" loading="lazy"></div>
+                            <div class="payment-brand-tile" aria-label="Elo"><img class="payment-brand-logo"
+                                    src="./assets/img/cartoes/elo.svg" alt="Elo" loading="lazy"></div>
+                            <div class="payment-brand-tile" aria-label="Mastercard"><img class="payment-brand-logo"
+                                    src="./assets/img/cartoes/mastercard.svg" alt="Mastercard" loading="lazy"></div>
+                        </div>
+                        <!-- <div class="mt-4 flex items-start gap-3 rounded-xl border border-rose-200 bg-rose-50 p-3 text-rose-800" role="note">
               <i class="ph-fill ph-prohibit mt-0.5 text-lg" aria-hidden="true"></i>
               <span><strong class="block text-xs font-bold">Cheque não aceito</strong><span class="mt-0.5 block text-xs text-rose-700">No momento, não aceitamos pagamentos em cheque.</span></span>
             </div> -->
-            <div class="payment-brand-tile" aria-label="Visa" style="margin-top: 10px; width: 156px; margin-left: 25%;"><img class="payment-brand-logo" src="./assets/img/cartoes/visa.svg" alt="Visa" loading="lazy"></div>
-            
-            <div class="mt-4 flex items-start gap-3 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-zinc-800" role="note">
-  <i class="ph-fill ph-prohibit mt-0.5 text-xl text-rose-600" aria-hidden="true"></i>
-  <div>
-    <h5 class="text-sm font-semibold text-zinc-950">Não aceitamos cheque</h5>
-    <p class="mt-0.5 text-xs text-zinc-600">No momento, não aceitamos pagamentos em cheque.</p>
-  </div>
-</div>
+                        <div class="payment-brand-tile" aria-label="Visa"
+                            style="margin-top: 10px; width: 156px; margin-left: 25%;"><img class="payment-brand-logo"
+                                src="./assets/img/cartoes/visa.svg" alt="Visa" loading="lazy"></div>
 
-          </section>
+                        <div class="mt-4 flex items-start gap-3 rounded-xl border border-zinc-200 bg-zinc-50 p-4 text-zinc-800"
+                            role="note">
+                            <i class="ph-fill ph-prohibit mt-0.5 text-xl text-rose-600" aria-hidden="true"></i>
+                            <div>
+                                <h5 class="text-sm font-semibold text-zinc-950">Não aceitamos cheque</h5>
+                                <p class="mt-0.5 text-xs text-zinc-600">No momento, não aceitamos pagamentos em cheque.
+                                </p>
+                            </div>
+                        </div>
 
-          <section class="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5" aria-labelledby="installments-title">
-            <div class="mb-4 flex items-center gap-3">
-              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600"><i class="ph-fill ph-calendar-dots text-xl" aria-hidden="true"></i></span>
-              <div>
-                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-amber-700">Cartão de crédito</p>
-                <h2 id="installments-title" class="mt-0.5 text-base font-extrabold text-slate-800">Regras de parcelamento</h2>
-              </div>
+                    </section>
+
+                    <section class="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5"
+                        aria-labelledby="installments-title">
+                        <div class="mb-4 flex items-center gap-3">
+                            <span
+                                class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600"><i
+                                    class="ph-fill ph-calendar-dots text-xl" aria-hidden="true"></i></span>
+                            <div>
+                                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-amber-700">Cartão de
+                                    crédito</p>
+                                <h2 id="installments-title" class="mt-0.5 text-base font-extrabold text-slate-800">
+                                    Regras de parcelamento</h2>
+                            </div>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="payment-rule">
+                                <span class="payment-rule-icon"><i class="ph-bold ph-info"
+                                        aria-hidden="true"></i></span>
+                                <span class="text-sm leading-relaxed text-slate-600">A quantidade máxima de parcelas
+                                    varia para cada produto. Verifique as placas e os preços.</span>
+                            </li>
+                            <li class="payment-rule">
+                                <span class="payment-rule-icon"><i class="ph-bold ph-info"
+                                        aria-hidden="true"></i></span>
+                                <span class="text-sm leading-relaxed text-slate-600">Nas compras de mais de um produto,
+                                    consulte a forma de parcelamento com o vendedor.</span>
+                            </li>
+                            <li class="payment-rule">
+                                <span class="payment-rule-icon"><i class="ph-bold ph-info"
+                                        aria-hidden="true"></i></span>
+                                <span class="text-sm leading-relaxed text-slate-600">O número de parcelas <strong
+                                        class="font-bold text-slate-800">sem juros</strong> poderá ser reduzido conforme
+                                    os limites de cada bandeira. Consulte o vendedor.</span>
+                            </li>
+                            <li class="payment-rule">
+                                <span class="payment-rule-icon"><i class="ph-bold ph-info"
+                                        aria-hidden="true"></i></span>
+                                <span class="text-sm leading-relaxed text-slate-600">A possibilidade e as condições de
+                                    parcelamento superior, <strong class="font-bold text-slate-800">com juros</strong>,
+                                    devem ser consultadas com o vendedor.</span>
+                            </li>
+                        </ul>
+                    </section>
+                </main>
             </div>
-            <ul class="space-y-4">
-              <li class="payment-rule">
-                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
-                <span class="text-sm leading-relaxed text-slate-600">A quantidade máxima de parcelas varia para cada produto. Verifique as placas e os preços.</span>
-              </li>
-              <li class="payment-rule">
-                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
-                <span class="text-sm leading-relaxed text-slate-600">Nas compras de mais de um produto, consulte a forma de parcelamento com o vendedor.</span>
-              </li>
-              <li class="payment-rule">
-                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
-                <span class="text-sm leading-relaxed text-slate-600">O número de parcelas <strong class="font-bold text-slate-800">sem juros</strong> poderá ser reduzido conforme os limites de cada bandeira. Consulte o vendedor.</span>
-              </li>
-              <li class="payment-rule">
-                <span class="payment-rule-icon"><i class="ph-bold ph-info" aria-hidden="true"></i></span>
-                <span class="text-sm leading-relaxed text-slate-600">A possibilidade e as condições de parcelamento superior, <strong class="font-bold text-slate-800">com juros</strong>, devem ser consultadas com o vendedor.</span>
-              </li>
-            </ul>
-          </section>
-        </main>
-      </div>
-    </section>
-    <!-- BOTTOM NAVIGATION -->
-    <nav class="bottom-nav bg-white border-t border-gray-100 flex items-center justify-around h-16 absolute bottom-0 w-full z-30 shadow-nav pb-[env(safe-area-inset-bottom)]">
-        <button onclick="app.navigate('home')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors active" data-target="home">
-            <i class="ph-fill ph-house text-2xl mb-0.5"></i>
-            <span class="text-[10px] font-semibold">Início</span>
-        </button>
-        <button onclick="app.navigate('prioridade')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#9B59B6] transition-colors" data-target="prioridade">
-            <i class="ph-fill ph-users text-2xl mb-0.5"></i>
-            <span class="text-[10px] font-semibold">Prioridade</span>
-        </button>
-        <button onclick="app.navigate('procon')" class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#002D72] transition-colors" data-target="procon">
-            <i class="ph-fill ph-scales text-2xl mb-0.5"></i>
-            <span class="text-[10px] font-semibold">Procon</span>
-        </button>
-    </nav>
+        </section>
+        <!-- BOTTOM NAVIGATION -->
+        <nav
+            class="bottom-nav bg-white border-t border-gray-100 flex items-center justify-around h-16 absolute bottom-0 w-full z-30 shadow-nav pb-[env(safe-area-inset-bottom)]">
+            <button onclick="app.navigate('home')"
+                class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-brand transition-colors active"
+                data-target="home">
+                <i class="ph-fill ph-house text-2xl mb-0.5"></i>
+                <span class="text-[10px] font-semibold">Início</span>
+            </button>
+            <button onclick="app.navigate('prioridade')"
+                class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#9B59B6] transition-colors"
+                data-target="prioridade">
+                <i class="ph-fill ph-users text-2xl mb-0.5"></i>
+                <span class="text-[10px] font-semibold">Prioridade</span>
+            </button>
+            <button onclick="app.navigate('procon')"
+                class="nav-btn flex flex-col items-center justify-center w-full h-full text-gray-400 hover:text-[#002D72] transition-colors"
+                data-target="procon">
+                <i class="ph-fill ph-scales text-2xl mb-0.5"></i>
+                <span class="text-[10px] font-semibold">Procon</span>
+            </button>
+        </nav>
 
-  </div>
-  <script src="script.js"></script>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>
