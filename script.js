@@ -45,7 +45,7 @@ const DATA = {
     { uf: 'SP', cidade: 'Santo André', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'Osasco', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'São Bernardo do Campo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/São Paulo/LEI MUNICIPAL SP.png'] },
+    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/São paulo/LEI MUNICIPAL SP.png'] },
     { uf: 'SP', cidade: 'Praia Grande', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Praia grande/Municipal - Praia Grande_SP.png'] }
     // { uf: 'SP', cidade: 'Taubaté', texto: cTextLei, imgs: [] }
   ],
