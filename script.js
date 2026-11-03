@@ -132,9 +132,9 @@ const OUTROS_PLACAS = {
     CE: '4. Proibido fumar (lei federal).gif', DF: '4. Proibido fumar (lei federal).gif', ES: '4. Proibido fumar (lei federal).gif',
     MA: '4. Proibido fumar (lei federal).gif', MG: 'Proibido fumar lei estadual.png',
     PA: '4. Proibido fumar (lei federal).gif', PB: '5. Proibido Fumar.jpg', PE: '4. Proibido fumar (lei federal).gif',
-    PI: '4. Proibido fumar (lei federal).gif', PR: '4. Proibido fumar (lei federal).gif', RJ: 'Proibido Fumar.pdf',
+    PI: '4. Proibido fumar (lei federal).gif', PR: '4. Proibido fumar (lei federal).gif', RJ: 'Proibido Fumar.png',
     RN: '4. Proibido fumar (lei federal).gif', RS: '4. Proibido fumar (lei federal).gif', SE: '4. Proibido fumar (lei federal).gif',
-    SP: 'Proibido Fumar.pdf'
+    SP: 'Proibido Fumar.png'
   },
   fiscal: {
     AL: '3. Sonegar é crime.png', AM: '3. Sonegar é crime.png', BA: '4. Proibido sonegação fiscal.png',
@@ -163,7 +163,7 @@ const OUTROS_PLACAS = {
     RN: '8. Proibido Sacolas Plasticas.png', RS: '8. Proibido Sacolas Plasticas.png', SE: '8. Proibido Sacolas Plasticas.png',
     SP: 'Proibido Sacolas Plasticas.png'
   },
-  nota: { RS: 'Emissão de NF.pdf', SP: 'Exija nota fiscal.png' },
+  nota: { RS: 'Emissão de NF.png', SP: 'Exija nota fiscal.png' },
   discriminacao: {
     AL: '7. Proibido discriminação.png', BA: '6. Proibido discriminação.png', AM: '6. Proibido discriminação.png',
     CE: '7. Proibido discriminação.png', DF: '7. Proibido discriminação.png', ES: '6. Proibido discriminação.png',
