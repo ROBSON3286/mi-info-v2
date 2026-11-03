@@ -10,43 +10,43 @@ const DATA = {
     { uf: 'AL', cidade: 'Maceió', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/al/maceio/Alagoas - Estadual.png'] },
     { uf: 'AM', cidade: 'Manaus', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/am/manaus/Manaus.png', './assets/img/estados/am/manaus/Manaus 2.png'] },
     // { uf: 'BA', cidade: 'Feira de Santana', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/ba/Feira de Santana/Municipal - Feira de Santana.png'] },
-    { uf: 'BA', cidade: 'Salvador', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs:[]},
+    { uf: 'BA', cidade: 'Salvador', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'CE', cidade: 'Fortaleza', texto: '', imgs: ['./assets/img/estados/ce/atendimento_prioritario_CE.jpg', './assets/img/estados/ce/Fortaleza/Fortaleza - Municipal.png'] },
     { uf: 'DF', cidade: 'Brasília', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/df/Brasília/Atendimento Preferencial Distrito Federal.png', './assets/img/estados/df/Brasília/Distrito Federal - Estadual.png'] },
     { uf: 'ES', cidade: 'Vila Velha', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/es/Espírito Santo - Estadual.png', './assets/img/estados/es/Vila Velha/Vila Velha - Municipal.png', './assets/img/estados/es/Vila Velha/vila-velha-municipal.png'] },
     { uf: 'ES', cidade: 'Vitória', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/es/Espírito Santo - Estadual.png', './assets/img/estados/es/Vitoria/Vitória - Municipal.png', './assets/img/estados/es/Vitoria/Vitória - Municipal 2.png'] },
     { uf: 'MA', cidade: 'São Luís', texto: cTextLei, imgs: ['./assets/img/estados/ma/Maranhão - Estadual.png', './assets/img/estados/ma/sao_luis/Atendimento prioritario.png', './assets/img/estados/ma/sao_luis/São Luís - Municipal.png'] },
     // { uf: 'MS', cidade: 'Campo Grande', texto: cTextLei, imgs: [ './assets/img/estados/ms/Campo Grande/atendimento_prioritario_MT.png'] },
-    { uf: 'MG', cidade: 'Belo Horizonte', texto: cTextLei, imgs: [ './assets/img/estados/mg/bh-estadual.png', './assets/img/estados/mg/Belo Horizonte/atendimento_prioritario_MG.png'] },
+    { uf: 'MG', cidade: 'Belo Horizonte', texto: cTextLei, imgs: ['./assets/img/estados/mg/bh-estadual.png', './assets/img/estados/mg/Belo Horizonte/atendimento_prioritario_MG.png'] },
     { uf: 'MG', cidade: 'Juiz de Fora', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/mg/bh-estadual.png'] },
     { uf: 'MG', cidade: 'Montes Claros', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/mg/bh-estadual.png'] },
     { uf: 'MG', cidade: 'Uberlândia', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/mg/bh-estadual.png'] },
     // { uf: 'MT', cidade: 'Cuiabá', texto: cTextLei, imgs: ['./assets/img/estados/mt/atendimento_prioritario_MT.png'] },
     { uf: 'PA', cidade: 'Belém', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pa/Estadual-para.png', './assets/img/estados/pa/Belém - Municipal.png'] },
     { uf: 'PB', cidade: 'Campina Grande', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg'] },
-    { uf: 'PB', cidade: 'João Pessoa', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg', './assets/img/estados/pb/João Pessoa/João Pessoa 1 - Estadual.png', './assets/img/estados/pb/João Pessoa/João Pessoa 2 - Estadual.png','./assets/img/estados/pb/João Pessoa/João Pessoa 3 - Municipal.png'] },
-    { uf: 'PE', cidade: 'Recife', texto: cTextLei, imgs: ['./assets/img/estados/pe/1. Atendimento prioritário.webp','./assets/img/estados/pe/Recife/Recife - Municipal.png'] },
-    { uf: 'PI', cidade: 'Teresina', texto: cTextLei, imgs: ['./assets/img/estados/pi/Estadual - Piaui.png','./assets/img/estados/pi/Estadual - Piaui 2.png','./assets/img/estados/pi/teresina.png','./assets/img/estados/pi/Municipal - Teresina.png','./assets/img/estados/pi/Municipal - Teresina 2.png','./assets/img/estados/pi/Municipal - Teresina 3.png'] },
+    { uf: 'PB', cidade: 'João Pessoa', texto: cTextLei, imgs: ['./assets/img/estados/pb/1. Atendimento Prioritário.jpg', './assets/img/estados/pb/João Pessoa/João Pessoa 1 - Estadual.png', './assets/img/estados/pb/João Pessoa/João Pessoa 2 - Estadual.png', './assets/img/estados/pb/João Pessoa/João Pessoa 3 - Municipal.png'] },
+    { uf: 'PE', cidade: 'Recife', texto: cTextLei, imgs: ['./assets/img/estados/pe/1. Atendimento prioritário.webp', './assets/img/estados/pe/Recife/Recife - Municipal.png'] },
+    { uf: 'PI', cidade: 'Teresina', texto: cTextLei, imgs: ['./assets/img/estados/pi/Estadual - Piaui.png', './assets/img/estados/pi/Estadual - Piaui 2.png', './assets/img/estados/pi/teresina.png', './assets/img/estados/pi/Municipal - Teresina.png', './assets/img/estados/pi/Municipal - Teresina 2.png', './assets/img/estados/pi/Municipal - Teresina 3.png'] },
     { uf: 'PR', cidade: 'Curitiba', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pr/Curitiba/Curitiba.png'] },
     { uf: 'PR', cidade: 'Londrina', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/pr/Londrina/Londrina.png', './assets/img/estados/pr/Londrina/Londrina 2.png'] },
-    { uf: 'RJ', cidade: 'Niterói', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/Niteroi/Niterói - Municipal.png','./assets/img/estados/rj/Niteroi/Niterói - Municipal 2.png'] },
-    { uf: 'RJ', cidade: 'Nova Iguaçu', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/Nova Iguaçu/Nova Iguaçu - Municipal.png','./assets/img/estados/rj/Nova Iguaçu/Nova Iguaçu - Municipal 2.png','./assets/img/estados/rj/Nova Iguaçu/Nova Iguaçu - Municipal 3.png'] },
-    { uf: 'RJ', cidade: 'Rio de Janeiro', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/Rio de janeiro/Rio de Janeiro - Municipal.png','./assets/img/estados/rj/Rio de janeiro/Rio de Janeiro - Municipal 2.png','./assets/img/estados/rj/Rio de janeiro/Rio de Janeiro - Municipal 3.png'] },
+    { uf: 'RJ', cidade: 'Niterói', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/Niteroi/Niterói - Municipal.png', './assets/img/estados/rj/Niteroi/Niterói - Municipal 2.png'] },
+    { uf: 'RJ', cidade: 'Nova Iguaçu', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/Nova Iguaçu/Nova Iguaçu - Municipal.png', './assets/img/estados/rj/Nova Iguaçu/Nova Iguaçu - Municipal 2.png', './assets/img/estados/rj/Nova Iguaçu/Nova Iguaçu - Municipal 3.png'] },
+    { uf: 'RJ', cidade: 'Rio de Janeiro', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rj/Rio de janeiro/Rio de Janeiro - Municipal.png', './assets/img/estados/rj/Rio de janeiro/Rio de Janeiro - Municipal 2.png', './assets/img/estados/rj/Rio de janeiro/Rio de Janeiro - Municipal 3.png'] },
     { uf: 'RJ', cidade: 'São João de Meriti', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
     { uf: 'RN', cidade: 'Natal', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/rn/estadual.png'] },
     { uf: 'RS', cidade: 'Porto Alegre', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SE', cidade: 'Aracaju', texto: '', imgs: ['./assets/img/estados/se/1. Atendimento prioritário.png','./assets/img/estados/se/Municipal - Aracajú.png','./assets/img/estados/se/Municipal - Aracaju 2.png','./assets/img/estados/se/Municipal - Aracaju 3.png','./assets/img/estados/se/Municipal - Aracaju 4.png'] },
-    { uf: 'SP', cidade: 'Barueri', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Barueri/atendimento_prioritario_SP.png'] },
-    { uf: 'SP', cidade: 'Campinas', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Campinas/atendimento_prioritario_SP.jpg'] },
+    { uf: 'SE', cidade: 'Aracaju', texto: '', imgs: ['./assets/img/estados/se/1. Atendimento prioritário.png', './assets/img/estados/se/Municipal - Aracajú.png', './assets/img/estados/se/Municipal - Aracaju 2.png', './assets/img/estados/se/Municipal - Aracaju 3.png', './assets/img/estados/se/Municipal - Aracaju 4.png'] },
+    { uf: 'SP', cidade: 'Barueri', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Barueri/atendimento_prioritario_SP.png'] },
+    { uf: 'SP', cidade: 'Campinas', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Campinas/atendimento_prioritario_SP.jpg'] },
     { uf: 'SP', cidade: 'Guarulhos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
-    { uf: 'SP', cidade: 'Jundiaí', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Jundiai/Atendimento prioritário Fibromialgia.jpg'] },
-    { uf: 'SP', cidade: 'Mogi das Cruzes', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Mogi/Mogi das Cruzes.png'] },
-    { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Ribeirão preto/Ribeiraopreto.png'] },
+    { uf: 'SP', cidade: 'Jundiaí', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Jundiai/Atendimento prioritário Fibromialgia.jpg'] },
+    { uf: 'SP', cidade: 'Mogi das Cruzes', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Mogi/Mogi das Cruzes.png'] },
+    { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Ribeirão Preto/Ribeirão Preto.png'] },
     { uf: 'SP', cidade: 'Santo André', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'Osasco', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'São Bernardo do Campo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/São paulo/LEI MUNICIPAL SP.png'] },
-    { uf: 'SP', cidade: 'Praia Grande', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png','./assets/img/estados/sp/Praia grande/Municipal - Praia Grande_SP.png'] }
+    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/São Paulo/LEI MUNICIPAL SP.png'] },
+    { uf: 'SP', cidade: 'Praia Grande', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Praia grande/Municipal - Praia Grande_SP.png'] }
     // { uf: 'SP', cidade: 'Taubaté', texto: cTextLei, imgs: [] }
   ],
   procon: [
@@ -79,7 +79,7 @@ const DATA = {
     { uf: 'RS', cidade: 'Porto Alegre', nome: 'Procon Porto Alegre', fone: '(51) 3289-1774', url: 'https://www.procon.rs.gov.br/inicial', imgs: [] },
     { uf: 'SE', cidade: 'Aracaju', nome: 'Procon Aracaju', fone: 'Disque 151 / (79) 3179-6040', url: 'https://procon.aracaju.se.gov.br/', imgs: ['./demais/Placas%20PROCON/Sergipe/Placa%20Telefone%20Procon.png'] },
     { uf: 'SP', cidade: 'Barueri', nome: 'Procon Barueri', fone: '(11) 4199-1324', url: 'https://portal.barueri.sp.gov.br/cidadao/procon-barueri', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
-    { uf: 'SP', cidade: 'Campinas', nome: 'Procon Campinas', fone: 'Disque 151 / (19) 3734-2000', url: 'https://procon.campinas.sp.gov.br', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp',"./demais/Placas%20PROCON/São%20Paulo/Campinas/cartaz-procon-campinas.png"] },
+    { uf: 'SP', cidade: 'Campinas', nome: 'Procon Campinas', fone: 'Disque 151 / (19) 3734-2000', url: 'https://procon.campinas.sp.gov.br', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp', "./demais/Placas%20PROCON/São%20Paulo/Campinas/cartaz-procon-campinas.png"] },
     { uf: 'SP', cidade: 'Guarulhos', nome: 'Procon Guarulhos', fone: 'Disque 151 / (11) 2468-7560 / 2472-6995', url: 'https://www.guarulhos.sp.gov.br/categories/protecao-e-defesa-do-consumidor', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
     { uf: 'SP', cidade: 'Jundiaí', nome: 'Procon Jundiaí', fone: 'E-mail: proconjundiai@jundiai.sp.gov.br', url: 'https://procon.jundiai.sp.gov.br/', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
     { uf: 'SP', cidade: 'Mogi das Cruzes', nome: 'Procon Mogi das Cruzes', fone: 'Disque 151 / (11) 4798-5090', url: 'https://www.mogidascruzes.sp.gov.br/pagina/procon/servico/procon-transparencia-e-ouvidoria/procon-atendimento-ao-consumidor-presencial', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
@@ -101,7 +101,7 @@ const DATA = {
     { title: 'Ambiente Sendo Filmado', desc: 'O estabelecimento possui monitoramento por câmeras para sua segurança e proteção do patrimônio.', placa: 'cameras' },
     { title: 'Proibido Fumar', desc: 'É proibido fumar em todas as áreas internas e fechadas do estabelecimento, conforme legislação vigente.', placa: 'fumar' },
     { title: 'Sonegar é Crime', desc: 'A sonegação fiscal é crime. Exija sempre o seu documento fiscal no momento da compra.', placa: 'fiscal' },
-    { title: 'Descarte Consciente de Eletrônicos', desc: 'Oferecemos pontos de coleta para o descarte adequado de aparelhos eletrônicos, baterias e pilhas em conformidade com a Política Nacional de Resíduos Sólidos.', tela: 'residuos', actionLabel: 'Descarte de Equipamentos Eletrônicos' },
+    { title: 'Descarte Consciente de Eletrônicos', desc: 'Saiba onde descartar seus aparelhos eletrônicos, pilhas e baterias de forma adequada. Consulte os pontos de coleta disponíveis em sua região no site da Green Eletron.', tela: 'residuos', actionLabel: 'Descarte de Equipamentos Eletrônicos' },
     { title: 'Proibido Uso de Capacete', desc: 'Para a segurança de todos, é obrigatória a retirada de capacetes e coberturas que ocultem a face ao entrar no estabelecimento.', placa: 'capacete' },
     { title: 'Fornecimento de Sacolas Plásticas', desc: 'De acordo com a legislação, adotamos medidas para redução do uso de sacolas plásticas convencionais, incentivando o uso de sacolas retornáveis.', placa: 'sacolas' },
     { title: 'Emissão de Nota Fiscal', desc: 'A Nota Fiscal é emitida eletronicamente e é o seu comprovante legal da operação de compra.', placa: 'nota' },
@@ -171,47 +171,47 @@ const OUTROS_PLACAS = {
     PA: '7. Proibido discriminação.png', PB: '7. Poribido discriminação.png', PE: '7. Proibido discriminação.png',
     PR: '7. Proibido discriminação.png', RJ: 'Poribido discriminação.png',
     RN: '7. Proibido discriminação.png', RS: '7. Proibido discriminação.png', SE: '7. Proibido discriminação.png',
-    SP: 'Vedação de discriminação.png',  PI: '7. Proibido discriminação.png'
+    SP: 'Vedação de discriminação.png', PI: '7. Proibido discriminação.png'
   }
 };
 
 const app = {
   history: ['home'],
   currentScreen: 'home',
-  
+
   navigate: (screenId) => {
-      if (app.currentScreen === screenId) return;
-      
-      document.getElementById(`screen-${app.currentScreen}`).classList.remove('active');
-      
-      if(screenId !== 'home') app.history.push(app.currentScreen);
-      
-      app.currentScreen = screenId;
-      document.getElementById(`screen-${screenId}`).classList.add('active');
-      
-      document.querySelectorAll('.nav-btn').forEach(btn => {
-          const target = btn.getAttribute('data-target');
-          if (target === screenId) {
-              btn.classList.add('active');
-              if(target === 'procon') { btn.classList.add('text-[#002D72]'); btn.classList.remove('text-gray-400'); } 
-              else if(target === 'prioridade') { btn.classList.add('text-[#9B59B6]'); btn.classList.remove('text-gray-400'); }
-              else { btn.classList.add('text-brand'); btn.classList.remove('text-gray-400'); }
-          } else {
-              btn.classList.remove('active', 'text-brand', 'text-[#002D72]', 'text-[#9B59B6]');
-              btn.classList.add('text-gray-400');
-          }
-      });
+    if (app.currentScreen === screenId) return;
+
+    document.getElementById(`screen-${app.currentScreen}`).classList.remove('active');
+
+    if (screenId !== 'home') app.history.push(app.currentScreen);
+
+    app.currentScreen = screenId;
+    document.getElementById(`screen-${screenId}`).classList.add('active');
+
+    document.querySelectorAll('.nav-btn').forEach(btn => {
+      const target = btn.getAttribute('data-target');
+      if (target === screenId) {
+        btn.classList.add('active');
+        if (target === 'procon') { btn.classList.add('text-[#002D72]'); btn.classList.remove('text-gray-400'); }
+        else if (target === 'prioridade') { btn.classList.add('text-[#9B59B6]'); btn.classList.remove('text-gray-400'); }
+        else { btn.classList.add('text-brand'); btn.classList.remove('text-gray-400'); }
+      } else {
+        btn.classList.remove('active', 'text-brand', 'text-[#002D72]', 'text-[#9B59B6]');
+        btn.classList.add('text-gray-400');
+      }
+    });
   },
 
   goBack: () => {
-      if (app.history.length > 0) {
-          const prev = app.history.pop();
-          document.getElementById(`screen-${app.currentScreen}`).classList.remove('active');
-          app.currentScreen = prev;
-          document.getElementById(`screen-${prev}`).classList.add('active');
-      } else {
-          app.navigate('home');
-      }
+    if (app.history.length > 0) {
+      const prev = app.history.pop();
+      document.getElementById(`screen-${app.currentScreen}`).classList.remove('active');
+      app.currentScreen = prev;
+      document.getElementById(`screen-${prev}`).classList.add('active');
+    } else {
+      app.navigate('home');
+    }
   }
 };
 
@@ -224,7 +224,7 @@ function setupFilters(type) {
 
   const items = DATA[type];
   const availableUfs = [...new Set(items.map(i => i.uf))].sort();
-  
+
   availableUfs.forEach(uf => {
     const estadoObj = DATA.estados.find(e => e.uf === uf);
     const nome = estadoObj ? estadoObj.nome : uf;
@@ -248,9 +248,9 @@ function renderResults(type) {
   const city = document.getElementById(`${type}-city`).value;
   const list = document.getElementById(`${type}-results`);
   const empty = document.getElementById(`${type}-empty`);
-  
+
   if (!uf && !city) { empty.style.display = 'block'; list.innerHTML = ''; return; }
-  
+
   empty.style.display = 'none';
   const matches = DATA[type].filter(i => (!uf || i.uf === uf) && (!city || i.cidade === city));
 
@@ -262,7 +262,7 @@ function renderResults(type) {
   list.innerHTML = matches.map((m, i) => {
     if (type === 'prioridade') {
       return `
-        <div class="bg-white rounded-2xl p-5 shadow-soft border border-gray-100 flex flex-col gap-3 animate-[slideInFade_0.3s_ease-out_${i*0.05}s_both]">
+        <div class="bg-white rounded-2xl p-5 shadow-soft border border-gray-100 flex flex-col gap-3 animate-[slideInFade_0.3s_ease-out_${i * 0.05}s_both]">
           <h3 class="font-bold text-sm text-[#9B59B6] uppercase tracking-wider">${m.cidade} - ${m.uf}</h3>
           <p class="text-sm text-text-main">${m.texto}</p>
           ${m.imgs.map(src => `<img src="${src}" alt="Placa ${m.cidade}" class="w-full rounded-lg mt-2 border border-gray-100" loading="lazy">`).join('')}
@@ -272,7 +272,7 @@ function renderResults(type) {
         ? `<div class="mt-3 space-y-2">${m.imgs.map(src => `<img src="${src}" alt="Placa Procon ${m.cidade}" class="w-full rounded-lg border border-gray-100 bg-white" loading="lazy">`).join('')}</div>`
         : '';
       return `
-        <div class="bg-white rounded-2xl p-5 shadow-soft border border-gray-100 flex flex-col gap-2 animate-[slideInFade_0.3s_ease-out_${i*0.05}s_both]">
+        <div class="bg-white rounded-2xl p-5 shadow-soft border border-gray-100 flex flex-col gap-2 animate-[slideInFade_0.3s_ease-out_${i * 0.05}s_both]">
           <span class="text-[9px] font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full self-start">${m.uf}</span>
           <h3 class="font-bold text-sm text-[#002D72] mt-1">${m.nome}</h3>
           <p class="text-xs text-text-muted">${m.cidade} - ${m.uf}</p>
@@ -306,7 +306,7 @@ function setupPrivacidade() {
     }
 
     resultsDiv.innerHTML = matches.map((m, i) => `
-      <div class="bg-white rounded-2xl p-4 shadow-soft border border-gray-100 flex flex-col gap-2 animate-[slideInFade_0.3s_ease-out_${i*0.05}s_both]">
+      <div class="bg-white rounded-2xl p-4 shadow-soft border border-gray-100 flex flex-col gap-2 animate-[slideInFade_0.3s_ease-out_${i * 0.05}s_both]">
         <h3 class="font-bold text-sm text-[#27AE60]">${m.shopping}</h3>
         <p class="text-xs text-text-muted mb-2">${m.cidade} - ${m.uf}</p>
         <a href="${m.url}" target="_blank" class="text-xs text-center font-bold text-white bg-[#27AE60] px-3 py-2 rounded-lg shadow-sm active:scale-95">Ver Aviso LGPD</a>
@@ -353,11 +353,11 @@ function renderOutros() {
   const state = DATA.estados.find(item => item.uf === uf);
   const locationLabel = city && state ? `${city} - ${state.uf}` : state ? `${state.nome} (${state.uf})` : '';
 
-  document.getElementById('outros-results').innerHTML = DATA.outros.map(item => {
+  document.getElementById('outros-results').innerHTML = DATA.outros.map(item => { //Tela Outras informações
     const src = uf && item.placa ? getOutrosPlate(item.placa, uf) : '';
     const isPdf = src && /\.pdf$/i.test(src);
     const location = locationLabel
-      ? `<p class="text-[10px] font-semibold text-[#78909C] uppercase tracking-wider mb-2">${locationLabel}</p>`
+      ? `<p class="text-[10px] font-semibold text-[#4C5357] uppercase tracking-wider mb-2">${locationLabel}</p>`
       : '';
     const plate = src
       ? (isPdf
@@ -365,19 +365,40 @@ function renderOutros() {
             <object data="${src}" type="application/pdf" class="w-full" style="height: 520px; min-height: 300px; background: #fff;">
               <iframe src="${src}" title="Placa: ${item.title} — ${locationLabel}" class="w-full" style="height: 520px; min-height: 300px; border: 0; background: #fff;"></iframe>
             </object>
-            <a href="${src}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-xs font-semibold text-[#78909C] underline">Abrir PDF em nova aba</a>
+            <a href="${src}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block text-xs font-semibold text-[#4C5357] underline">Abrir PDF em nova aba</a>
           </div>`
         : `<img src="${src}" alt="Placa: ${item.title} — ${locationLabel}" class="w-full rounded-lg mt-3 border border-gray-100 object-contain" loading="lazy">`)
       : uf && item.placa
         ? '<p class="text-xs text-text-muted mt-2"></p>'
         : '';
-    const content = `${location}<h3 class="font-bold text-sm text-[#78909C] mb-1">${item.title}</h3><p class="text-xs text-text-muted leading-relaxed">${item.desc}</p>${plate}`;
+    const content = `${location}<h3 class="font-bold text-sm text-[#4C5357] mb-1">${item.title}</h3><p class="text-xs text-text-muted leading-relaxed">${item.desc}</p>${plate}`;
 
-    if (item.tela) {
-      return `<button type="button" aria-label="${item.actionLabel}" onclick="app.navigate('${item.tela}')" class="w-full bg-white rounded-2xl p-4 shadow-soft border border-gray-100 text-left hover:border-[#78909C] focus:outline-none focus:ring-2 focus:ring-[#78909C]/50">
-        ${content}<span class="inline-flex items-center gap-1 text-xs font-bold text-[#78909C] mt-3">${item.actionLabel} <i class="ph-bold ph-arrow-right"></i></span>
-      </button>`;
+    if (item.tela) { //Botão de ação tela green eletron
+      return `
+    <button type="button" 
+            aria-label="${item.actionLabel}" 
+            onclick="app.navigate('${item.tela}')" 
+            class="group w-full bg-gradient-to-b from-white to-gray-50/50 rounded-2xl p-5 border-2 border-gray-200/80 text-left shadow-sm hover:shadow-lg hover:border-[#4C5357] hover:from-white hover:to-white focus:outline-none focus:ring-4 focus:ring-[#78909C]/20 transition-all duration-300 ease-out flex flex-col justify-between min-h-[120px] relative overflow-hidden">
+      
+      <!-- Conteúdo Principal -->
+      <div class="text-gray-800 text-sm font-semibold leading-relaxed pr-6">
+        ${content}
+      </div>
+      
+      <!-- Linha de Ação Inferior -->
+      <div class="flex items-center justify-between w-full mt-4 pt-3 border-t border-gray-100">
+        <span class="inline-flex items-center gap-1.5 text-xs font-bold text-[#F09116] tracking-wide uppercase">
+          ${item.actionLabel}
+        </span>
+        <div class="flex items-center justify-center w-7 h-7 rounded-full bg-gray-50 border border-gray-200 text-[#4C5357] group-hover:bg-[#F09116] group-hover:text-white group-hover:border-[#F09116] group-hover:scale-110 transition-all duration-300 ease-out shadow-sm">
+          <i class="ph-bold ph-arrow-right text-xs"></i>
+        </div>
+      </div>
+      
+    </button>
+  `;
     }
+
     return `<article class="bg-white rounded-2xl p-4 shadow-soft border border-gray-100">${content}</article>`;
   }).join('');
 }
