@@ -1,7 +1,7 @@
 /* Tailwind injects most styles, but here are specific adjustments */
 body {
-    background-color: #e2e8f0; 
-    display: flex;
+    background-color: #2468c0; 
+    display: block;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
