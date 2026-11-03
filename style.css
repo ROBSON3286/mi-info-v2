@@ -1,7 +1,7 @@
 /* Tailwind injects most styles, but here are specific adjustments */
-body {
-    background-color: #2468c0; 
-    display: block;
+/* body {
+    background-color: #e2e8f0; 
+    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -19,7 +19,7 @@ body {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 40px rgba(0,0,0,0.1);
-}
+} */
 
 .screen {
     display: none;
