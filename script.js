@@ -41,11 +41,11 @@ const DATA = {
     { uf: 'SP', cidade: 'Guarulhos', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'Jundiaí', texto: '', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Jundiai/Atendimento prioritário Fibromialgia.jpg'] },
     { uf: 'SP', cidade: 'Mogi das Cruzes', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Mogi/Mogi das Cruzes.png'] },
-    { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Ribeirão Preto/Ribeirão Preto.png'] },
+    { uf: 'SP', cidade: 'Ribeirão Preto', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Ribeirão Preto/Ribeirão preto.png'] },
     { uf: 'SP', cidade: 'Santo André', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'Osasco', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png'] },
     { uf: 'SP', cidade: 'São Bernardo do Campo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: [] },
-    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/São Paulo/LEI MUNICIPAL SP.png'] },
+    { uf: 'SP', cidade: 'São Paulo', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/São paulo/LEI MUNICIPAL SP.png'] },
     { uf: 'SP', cidade: 'Praia Grande', texto: 'Atendimento Preferencial e Prioritário apenas de acordo com a Lei Federal nº 10.048/2000', imgs: ['./assets/img/estados/sp/sp-estadual.png', './assets/img/estados/sp/Praia grande/Municipal - Praia Grande_SP.png'] }
     // { uf: 'SP', cidade: 'Taubaté', texto: cTextLei, imgs: [] }
   ],
@@ -63,7 +63,7 @@ const DATA = {
     { uf: 'MG', cidade: 'Juiz de Fora', nome: 'Procon Juiz de Fora', fone: '(32) 3690-7610 / 3690-7611', url: 'https://www.pjf.mg.gov.br/administracao_indireta/procon/atendimento.php', imgs: [] },
     { uf: 'MG', cidade: 'Montes Claros', nome: 'Procon Montes Claros', fone: '(38) 2211-3360', url: 'https://www.montesclaros.mg.gov.br/procon-abertura-direta-de-reclamacao', imgs: [] },
     { uf: 'MG', cidade: 'Uberlândia', nome: 'Procon Uberlândia', fone: 'Disque 151 / (34) 3291-1600', url: 'https://www.uberlandia.mg.gov.br/prefeitura/orgaos-municipais/procon', imgs: [] },
-    { uf: 'MS', cidade: 'Campo Grande', nome: 'Procon Campo Grande', fone: 'Disque 151 / (67) 3316-9800', url: 'https://www.procon.ms.gov.br', imgs: [] },
+    // { uf: 'MS', cidade: 'Campo Grande', nome: 'Procon Campo Grande', fone: 'Disque 151 / (67) 3316-9800', url: 'https://www.procon.ms.gov.br', imgs: [] },
     { uf: 'PA', cidade: 'Belém', nome: 'Procon Belém', fone: 'Disque 151 / (91) 3073-2827', url: 'https://www.procon.pa.gov.br/', imgs: [] },
     { uf: 'PB', cidade: 'Campina Grande', nome: 'Procon Campina Grande', fone: 'Disque 151 / (83) 98185-8168 / (83) 98186-3609', url: 'https://procon.campinagrande.pb.gov.br/', imgs: ['./demais/Placas%20PROCON/Para%C3%ADba/3.%20Contatos%20Procon.jpg'] },
     { uf: 'PB', cidade: 'João Pessoa', nome: 'Procon João Pessoa', fone: '(83) 98654-4965', url: 'https://procon.joaopessoa.pb.gov.br', imgs: ['./demais/Placas%20PROCON/Para%C3%ADba/3.%20Contatos%20Procon.jpg'] },
@@ -89,7 +89,7 @@ const DATA = {
     // { uf: 'SP', cidade: 'Santos', nome: 'Procon Santos', fone: '(13) 3201-5601 / (13) 99101-5792', url: 'https://www.procon.sp.gov.br/santo-andre', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
     { uf: 'SP', cidade: 'São Bernardo do Campo', nome: 'Procon São Bernardo do Campo', fone: '0800 7708 156 / (11) 2630-7350', url: 'https://www.saobernardo.sp.gov.br/web/secretaria-de-justica-sej/procon', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
     { uf: 'SP', cidade: 'São Paulo', nome: 'Procon-SP (Sede Estadual)', fone: 'Disque 151 / (11) 3824-7000', url: 'https://www.procon.sp.gov.br', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] },
-    // { uf: 'SP', cidade: 'Osasco', nome: 'Procon Osasco', fone: 'Definir', url: 'Definir', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] }
+    { uf: 'SP', cidade: 'Osasco', nome: 'Procon Osasco', fone: '(13) 3473-6810', url: 'https://www.procon.sp.gov.br/ ', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] }
     // { uf: 'SP', cidade: 'Taubaté', nome: 'Procon Taubaté', fone: '(12) 3624-6610 / 3624-2708', url: 'https://www.procon.sp.gov.br/taubate', imgs: ['./demais/Placas%20PROCON/São%20Paulo/3.%20Contato%20Procon.webp'] }
   ],
   privacidade: [

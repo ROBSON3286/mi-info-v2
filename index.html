@@ -375,6 +375,54 @@
             background: #fff;
         }
 
+        #screen-formas-pagamento .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        #screen-formas-pagamento .partner-tile {
+            display: flex;
+            min-height: 84px;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+        }
+
+        #screen-formas-pagamento .partner-logo {
+            display: block;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+        }
+
+        /* Alturas ajustadas para equilibrar o peso visual de cada marca. */
+        #screen-formas-pagamento .partner-logo--bemol {
+            height: 50px;
+        }
+
+        #screen-formas-pagamento .partner-logo--aiva {
+            height: 30px;
+        }
+
+        @media (hover:hover) {
+            #screen-formas-pagamento .partner-tile:hover {
+                transform: translateY(-2px);
+                border-color: #fcd34d;
+                box-shadow: 0 12px 24px -16px rgba(15, 23, 42, .32);
+            }
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            #screen-formas-pagamento .partner-tile {
+                transition: none;
+            }
+        }
+
         #screen-formas-pagamento .payment-rule {
             display: flex;
             align-items: flex-start;
@@ -599,14 +647,16 @@
             </header>
 
             <div class="scroll-area p-5 bg-surface">
-               
+
                 <div id="prioridade-empty" class="py-6 text-text-muted">
                     <div class="flex items-start gap-3 mb-4">
                         <!-- <i class="ph-duotone ph-map-pin-line text-3xl text-[#9B59B6] mt-1"></i> -->
                         <div class="text-sm leading-relaxed" style="margin-bottom: 10%;">
                             <p>
-                                Nesta aba, os clientes das lojas <strong style="color: #9B59B6;">XIAOMI STORE</strong> podem consultar as
-                                informações sobre <strong style="color: #9B59B6;">Atendimento Preferencial e Prioritário</strong>, conforme a
+                                Nesta aba, os clientes das lojas <strong style="color: #9B59B6;">XIAOMI STORE</strong>
+                                podem consultar as
+                                informações sobre <strong style="color: #9B59B6;">Atendimento Preferencial e
+                                    Prioritário</strong>, conforme a
                                 legislação aplicável.
                             </p>
                             <p class="mt-4">
@@ -620,18 +670,20 @@
                                 <li>Pessoas com criança de colo;</li>
                                 <li>Pessoas obesas;</li>
                                 <li>Pessoas com mobilidade reduzida;</li>
-                                <li>Doadores de sangue, mediante apresentação de comprovante de doação, com validade de 120 dias.</li>
+                                <li>Doadores de sangue, mediante apresentação de comprovante de doação, com validade de
+                                    120 dias.</li>
                             </ul>
                             <p class="mt-4">
                                 As leis estaduais e municipais podem prever outros grupos com direito ao atendimento
-                                preferencial ou prioritário. <strong style="color: #9B59B6;">Selecione o Estado/Cidade</strong> da loja no menu
+                                preferencial ou prioritário. <strong style="color: #9B59B6;">Selecione o
+                                    Estado/Cidade</strong> da loja no menu
                                 anterior e, caso se enquadre em algum dos grupos previstos,
                                 <strong style="color: #9B59B6;">informe sua condição ao vendedor.</strong>
                             </p>
                         </div>
                     </div>
                 </div>
-                 <div id="prioridade-results" class="flex flex-col gap-4" style="margin-bottom: 20%;"></div>
+                <div id="prioridade-results" class="flex flex-col gap-4" style="margin-bottom: 20%;"></div>
             </div>
         </div>
 
@@ -753,7 +805,8 @@
                         <strong>Quando encaminhados para uma destinação correta, cada componente pode ser separado e
                             convertido em novas matérias-primas.</strong> Bem legal, né? Confira a seguir os diversos
                         tipos de produtos que podem ser considerados resíduos eletroeletrônicos e, portanto,
-                        reaproveitados.</p>
+                        reaproveitados.
+                    </p>
                 </section>
                 <section class="residuos-types">
                     <div class="residuos-type">
@@ -800,7 +853,7 @@
                         auxiliar no descarte correto, sugerimos os PEVs da Green Eletron e suas recicladoras
                         homologadas. Pilhas podem ser transportadas em sacolinhas plásticas fechadas, enquanto aparelhos
                         elétricos e eletrônicos devem ser depositados inteiros, com a bateria ainda dentro da carcaça. O
-                        desmonte feito em casa não facilita o trabalho de reciclagem.</p>
+                        desmonte feito em casa não facilita o trabalho de reciclagem. </p>
                     <img src="assets/img/residuos/Asset 7-8.png" alt="Mascote ilustrando os cuidados no descarte"
                         class="residuos-care-image">
                 </section>
@@ -1013,7 +1066,7 @@
                 <h2 id="payment-methods-title" class="mt-1 text-lg font-extrabold text-slate-800">Formas aceitas</h2>
               </div> -->
                                 <span
-                                    class="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">3
+                                    class="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-700">4
                                     opções</span>
                             </div>
                             <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
@@ -1037,14 +1090,27 @@
                                     <span class="payment-method-icon bg-blue-50 text-blue-600"><i
                                             class="ph-fill ph-credit-card" aria-hidden="true"></i></span>
                                     <span><strong class="block text-sm font-bold text-slate-800">Cartão</strong><span
-                                            class="mt-1 block text-xs text-slate-500">Débito ou crédito</span></span>
+                                            class="mt-1 block text-xs text-slate-500">Débito ou crédito <a
+                                                href="#payment-brands-title"
+                                                class="font-semibold text-amber-700 underline">
+                                                <p></p>consulte as condições
+                                            </a></span></span>
                                 </article>
+                                <article
+                                    class="payment-method-card flex items-center gap-3 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:flex-col sm:items-start">
+                                    <span class="payment-method-icon bg-blue-50 text-blue-600"><i
+                                            class="ph-fill ph-hand-coins" aria-hidden="true"></i></span>
+                                    <span><strong
+                                            class="block text-sm font-bold text-slate-800">Financiamento</strong><span
+                                            class="mt-1 block text-xs text-slate-500">por meio de empresas parceiras <a
+                                                href="#financing-title"
+                                                class="font-semibold text-amber-700 underline">consulte as condições
+                                            </a></span></span>
+                                </article>
+
                             </div>
                         </section>
                     </section>
-
-
-
                     <section class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5"
                         aria-labelledby="payment-brands-title">
                         <div class="mb-4">
@@ -1093,35 +1159,75 @@
                                 <p class="text-[10px] font-bold uppercase tracking-[.16em] text-amber-700">Cartão de
                                     crédito</p>
                                 <h2 id="installments-title" class="mt-0.5 text-base font-extrabold text-slate-800">
-                                    Regras de parcelamento</h2>
+                                    CONDIÇÕES DE PARCELAMENTO DO PONTO DE VENDA:</h2>
                             </div>
                         </div>
                         <ul class="space-y-4">
                             <li class="payment-rule">
                                 <span class="payment-rule-icon"><i class="ph-bold ph-info"
                                         aria-hidden="true"></i></span>
-                                <span class="text-sm leading-relaxed text-slate-600">A quantidade máxima de parcelas
-                                    varia para cada produto. Verifique as placas e os preços.</span>
+                                <span class="text-sm leading-relaxed text-slate-600">O limite de parcelas varia de
+                                    acordo com cada produto. Verifique os preços e as condições informados nas
+                                    placas;</span>
                             </li>
                             <li class="payment-rule">
                                 <span class="payment-rule-icon"><i class="ph-bold ph-info"
                                         aria-hidden="true"></i></span>
                                 <span class="text-sm leading-relaxed text-slate-600">Nas compras de mais de um produto,
-                                    consulte a forma de parcelamento com o vendedor.</span>
+                                    consulte as formas de parcelamento com nossos vendedores;</span>
                             </li>
                             <li class="payment-rule">
                                 <span class="payment-rule-icon"><i class="ph-bold ph-info"
                                         aria-hidden="true"></i></span>
                                 <span class="text-sm leading-relaxed text-slate-600">O número de parcelas <strong
-                                        class="font-bold text-slate-800">sem juros</strong> poderá ser reduzido conforme
-                                    os limites de cada bandeira. Consulte o vendedor.</span>
+                                        class="font-bold text-slate-800">sem juros</strong> informado na placa poderá
+                                    ser reduzido, conforme os limites da bandeira do cartão utilizado.</span>
                             </li>
                             <li class="payment-rule">
                                 <span class="payment-rule-icon"><i class="ph-bold ph-info"
                                         aria-hidden="true"></i></span>
-                                <span class="text-sm leading-relaxed text-slate-600">A possibilidade e as condições de
-                                    parcelamento superior, <strong class="font-bold text-slate-800">com juros</strong>,
-                                    devem ser consultadas com o vendedor.</span>
+                                <span class="text-sm leading-relaxed text-slate-600">A possibilidade de parcelamento
+                                    em um número maior de vezes, <strong class="font-bold text-slate-800">com
+                                        juros,</strong>
+                                    estará sujeito às condições da bandeira do cartão. Consulte o vendedor.</span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <section class="rounded-2xl border border-amber-200 bg-white p-4 shadow-sm sm:p-5"
+                        aria-labelledby="financing-title">
+                        <div class="mb-4 flex items-center gap-3">
+                            <span
+                                class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-amber-50 text-amber-600"><i
+                                    class="ph-fill ph-handshake text-xl" aria-hidden="true"></i></span>
+                            <div>
+                                <p class="text-[10px] font-bold uppercase tracking-[.16em] text-amber-700">Empresas
+                                    parceiras</p>
+                                <h2 id="financing-title" class="mt-0.5 text-base font-extrabold text-slate-800">
+                                    CONDIÇÕES DE FINANCIAMENTOS POR EMPRESAS PARCEIRAS:</h2>
+                            </div>
+                        </div>
+                        <div class="partner-grid mb-5" role="list" aria-label="Empresas parceiras de financiamento">
+                            <div class="partner-tile" role="listitem"><img class="partner-logo partner-logo--bemol"
+                                    src="./assets/img/parceiros/bemol.png" alt="Bemol" loading="lazy"></div>
+                            <div class="partner-tile" role="listitem"><img class="partner-logo partner-logo--aiva"
+                                    src="./assets/img/parceiros/aiva.png" alt="Aiva" loading="lazy"></div>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="payment-rule">
+                                <span class="payment-rule-icon"><i class="ph-bold ph-info"
+                                        aria-hidden="true"></i></span>
+                                <span class="text-sm leading-relaxed text-slate-600">O financiamento está sujeito às
+                                    <strong class="font-bold text-slate-800">condições e à aprovação de crédito feitos
+                                        exclusivamente pelas respectivas empresas parceiras</strong>;</span>
+                            </li>
+                            <li class="payment-rule">
+                                <span class="payment-rule-icon"><i class="ph-bold ph-info"
+                                        aria-hidden="true"></i></span>
+                                <span class="text-sm leading-relaxed text-slate-600">Consulte nossos vendedores para
+                                    obter informações sobre as modalidades de financiamento disponíveis, formas de
+                                    pagamento do financiamento, incidência de encargos financeiros (juros e outros),
+                                    quantidade de parcelas e as demais condições de contratação.</span>
                             </li>
                         </ul>
                     </section>
